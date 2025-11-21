@@ -1,10 +1,18 @@
+#include "absl/flags/flag.h"
+#include "absl/flags/parse.h"
 #include "gimli/gimli.grpc.pb.h"
 #include "gimli/gimli.pb.h"
 #include "grpcpp/grpcpp.h"
 
-int main() {
+ABSL_FLAG(int32_t, port, 8080, "The port where to listen");
+
+int main(int argc, char **argv) {
+  absl::ParseCommandLine(argc, argv);
+  const int32_t port = absl::GetFlag(FLAGS_port);
+  const std::string address = absl::StrCat("127.0.0.1:", port);
+
   auto channel =
-      grpc::CreateChannel("127.0.0.1:8080", grpc::InsecureChannelCredentials());
+      grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
   auto stub = gimli::Gimli::NewStub(channel);
 
   grpc::ClientContext context;

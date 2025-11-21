@@ -6,3 +6,4 @@ git_override(
 )
 
 bazel_dep(name = "grpc", version = "1.76.0.bcr.1")
+bazel_dep(name = "abseil-cpp", version = "20250814.1")

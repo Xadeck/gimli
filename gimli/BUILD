@@ -23,6 +23,10 @@ cc_binary(
     deps = [
         ":gimli_cc_grpc",
         ":gimli_cc_proto",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/log",
+        "@abseil-cpp//absl/log:initialize",
         "@grpc//:grpc++",
     ],
 )
@@ -33,6 +37,8 @@ cc_binary(
     deps = [
         ":gimli_cc_grpc",
         ":gimli_cc_proto",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
         "@grpc//:grpc++",
     ],
 )
