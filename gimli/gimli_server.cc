@@ -7,7 +7,9 @@
 #include "gimli/gimli.grpc.pb.h"
 #include "gimli/gimli.pb.h"
 #include "grpcpp/grpcpp.h"
+#include <csignal>
 #include <cstdint>
+#include <thread>
 
 ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
 
@@ -29,13 +31,24 @@ public:
 } // namespace
 } // namespace gimli
 
+namespace {
+volatile std::sig_atomic_t interrupted = 0;
+
+void sigint_handler(int signal) {
+  interrupted = 1;
+  std::signal(signal, SIG_DFL);
+}
+} // namespace
+
 int main(int argc, char **argv) {
   absl::InitializeLog();
   absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
   absl::ParseCommandLine(argc, argv);
+
   const uint16_t port = absl::GetFlag(FLAGS_port);
   const std::string address = absl::StrCat("127.0.0.1:", port);
 
+  std::signal(SIGINT, sigint_handler);
   gimli::GimliServiceImpl service;
 
   grpc::ServerBuilder builder;
@@ -43,7 +56,10 @@ int main(int argc, char **argv) {
   builder.RegisterService(&service);
   LOG(INFO) << "Server started on " << address;
   auto server = builder.BuildAndStart();
-  server->Wait();
+  while (!interrupted) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  server->Shutdown();
   LOG(INFO) << "Server down on " << address;
 
   return 0;
