@@ -7,8 +7,9 @@
 #include "gimli/gimli.grpc.pb.h"
 #include "gimli/gimli.pb.h"
 #include "grpcpp/grpcpp.h"
+#include <cstdint>
 
-ABSL_FLAG(int32_t, port, 8080, "The port where to listen");
+ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
 
 namespace gimli {
 namespace {
@@ -32,7 +33,7 @@ int main(int argc, char **argv) {
   absl::InitializeLog();
   absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
   absl::ParseCommandLine(argc, argv);
-  const int32_t port = absl::GetFlag(FLAGS_port);
+  const uint16_t port = absl::GetFlag(FLAGS_port);
   const std::string address = absl::StrCat("127.0.0.1:", port);
 
   gimli::GimliServiceImpl service;
