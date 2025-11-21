@@ -5,5 +5,7 @@ git_override(
     remote = "https://github.com/mikael-s-persson/bazel-compile-commands-extractor",
 )
 
+bazel_dep(name = "protobuf", version = "33.1")
+bazel_dep(name = "rules_cc", version = "0.2.14")
 bazel_dep(name = "grpc", version = "1.76.0.bcr.1")
 bazel_dep(name = "abseil-cpp", version = "20250814.1")
