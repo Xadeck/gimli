@@ -41,9 +41,9 @@ void sigint_handler(int signal) {
 } // namespace
 
 int main(int argc, char **argv) {
+  absl::ParseCommandLine(argc, argv);
   absl::InitializeLog();
   absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
-  absl::ParseCommandLine(argc, argv);
 
   const uint16_t port = absl::GetFlag(FLAGS_port);
   const std::string address = absl::StrCat("127.0.0.1:", port);
