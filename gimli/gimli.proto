@@ -1,0 +1,15 @@
+edition = "2023";
+
+package gimli;
+
+service Gimli {
+  rpc Notify(NotifyRequest) returns (NotifyResponse) {}
+}
+
+message NotifyRequest {
+  string input = 1;  
+}
+
+message NotifyResponse {
+  string output = 1;  
+}
