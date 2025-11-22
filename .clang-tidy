@@ -1,0 +1,14 @@
+---
+Checks:          'clang-diagnostic-*,clang-analyzer-*,cppcoreguidelines-*,modernize-*,-modernize-use-trailing-return-type,-cppcoreguidelines-avoid-non-const-global-variables'
+WarningsAsErrors: true
+HeaderFileExtensions:
+  - ''
+  - h
+ImplementationFileExtensions:
+  - cc
+HeaderFilterRegex: ''
+ExcludeHeaderFilterRegex: ''
+FormatStyle:     google
+User:            xdecoret
+SystemHeaders:   false
+

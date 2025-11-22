@@ -5,6 +5,13 @@ git_override(
     remote = "https://github.com/mikael-s-persson/bazel-compile-commands-extractor",
 )
 
+bazel_dep(name = "bazel_clang_tidy", version = "1.0")
+git_override(
+    module_name = "bazel_clang_tidy",
+    commit = "bff5c59c843221b05ef0e37cef089ecc9d24e7da",
+    remote = "https://github.com/erenon/bazel_clang_tidy.git",
+)
+
 bazel_dep(name = "protobuf", version = "33.1")
 bazel_dep(name = "rules_cc", version = "0.2.14")
 bazel_dep(name = "grpc", version = "1.76.0.bcr.1")

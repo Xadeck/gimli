@@ -60,7 +60,8 @@ int main(int argc, char **argv) {
   LOG(INFO) << "Server started on " << address;
   auto server = builder.BuildAndStart();
   while (!interrupted) {
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    static constexpr auto kDuration = std::chrono::milliseconds(100);
+    std::this_thread::sleep_for(kDuration);
   }
   server->Shutdown();
   LOG(INFO) << "Server down on " << address;
