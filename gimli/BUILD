@@ -31,6 +31,7 @@ cc_binary(
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/log:initialize",
         "@grpc//:grpc++",
+        "@grpc//:grpc++_reflection",
     ],
 )
 

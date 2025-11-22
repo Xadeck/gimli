@@ -6,6 +6,7 @@
 #include "absl/strings/str_cat.h"
 #include "gimli/gimli.grpc.pb.h"
 #include "gimli/gimli.pb.h"
+#include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
 #include <csignal>
 #include <cstdint>
@@ -47,6 +48,8 @@ int main(int argc, char **argv) {
 
   const uint16_t port = absl::GetFlag(FLAGS_port);
   const std::string address = absl::StrCat("127.0.0.1:", port);
+
+  grpc::reflection::InitProtoReflectionServerBuilderPlugin();
 
   std::signal(SIGINT, sigint_handler);
   gimli::GimliServiceImpl service;
