@@ -30,6 +30,8 @@ cc_binary(
         "@abseil-cpp//absl/flags:parse",
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/log:initialize",
+        "@googleapis//google/devtools/build/v1:build_cc_grpc",
+        "@googleapis//google/devtools/build/v1:build_cc_proto",
         "@grpc//:grpc++",
         "@grpc//:grpc++_reflection",
     ],
