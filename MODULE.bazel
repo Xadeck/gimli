@@ -19,3 +19,15 @@ bazel_dep(name = "abseil-cpp", version = "20250814.1")
 bazel_dep(name = "googleapis", version = "0.0.0-20251111-659ea6e9")
 bazel_dep(name = "googleapis-grpc-cc", version = "1.0.0")
 bazel_dep(name = "googleapis-cc", version = "1.0.0")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "bazel",
+    integrity = "sha256-I6SWs94Y3yDoFik8HpVEPwRifp+LmsS6cN0gpeCaaVE=",
+    patches = ["//:bazel.patch"],
+    strip_prefix = "bazel-8.4.2",
+    urls = [
+        "https://github.com/bazelbuild/bazel/archive/refs/tags/8.4.2.tar.gz",
+    ],
+)

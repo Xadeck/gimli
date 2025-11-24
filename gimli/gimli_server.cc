@@ -11,6 +11,7 @@
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
+#include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
 #include <csignal>
 #include <cstdint>
 #include <thread>
@@ -60,7 +61,10 @@ public:
           return;
         }
         if (event.has_bazel_event()) {
-          LOG(INFO) << "🐱   bazel event";
+          build_event_stream::BuildEvent build_event;
+          if (event.bazel_event().UnpackTo(&build_event)) {
+            LOG(INFO) << "🐱 " << build_event;
+          }
         }
         StartRead(&request_);
       }

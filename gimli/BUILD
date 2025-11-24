@@ -20,10 +20,18 @@ cc_grpc_library(
     deps = [":gimli_cc_proto"],
 )
 
+cc_proto_library(
+    name = "build_event_stream_cc_proto",
+    deps = [
+        "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_proto",
+    ],
+)
+
 cc_binary(
     name = "gimli_server",
     srcs = ["gimli_server.cc"],
     deps = [
+        ":build_event_stream_cc_proto",
         ":gimli_cc_grpc",
         ":gimli_cc_proto",
         "@abseil-cpp//absl/flags:flag",

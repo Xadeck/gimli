@@ -1,0 +1,1009 @@
+diff --git a/MODULE.bazel b/MODULE.bazel
+index 35fd147..fc8c172 100644
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -9,430 +9,4 @@ module(
+     repo_name = "io_bazel",
+ )
+ 
+-# =========================================
+-# Bazel module dependencies
+-# =========================================
+-
+-bazel_dep(name = "rules_license", version = "1.0.0")
+-bazel_dep(name = "bazel_skylib", version = "1.7.1")
+-bazel_dep(name = "grpc", version = "1.66.0.bcr.2", repo_name = "com_github_grpc_grpc")
+-bazel_dep(name = "grpc-java", version = "1.66.0")
+-bazel_dep(name = "googleapis", version = "0.0.0-20240819-fe8ba054a")
+-bazel_dep(name = "platforms", version = "1.0.0")
+-bazel_dep(name = "rules_pkg", version = "1.0.1")
+-bazel_dep(name = "stardoc", version = "0.7.1", repo_name = "io_bazel_skydoc")
+-bazel_dep(name = "zstd-jni", version = "1.5.6-9")
+-bazel_dep(name = "blake3", version = "1.5.1.bcr.1")
+-bazel_dep(name = "zlib", version = "1.3.1.bcr.5")
+-bazel_dep(name = "rules_java", version = "8.14.0")
+-bazel_dep(name = "rules_graalvm", version = "0.11.1")
+-bazel_dep(name = "rules_proto", version = "7.0.2")
+-bazel_dep(name = "rules_jvm_external", version = "6.0")
+-bazel_dep(name = "rules_python", version = "0.40.0")
+-bazel_dep(name = "rules_testing", version = "0.6.0")
+-bazel_dep(name = "googletest", version = "1.15.2", repo_name = "com_google_googletest")
+-bazel_dep(name = "with_cfg.bzl", version = "0.6.0")
+-bazel_dep(name = "abseil-cpp", version = "20240722.0.bcr.2")
+-bazel_dep(name = "rules_shell", version = "0.2.0")
+-bazel_dep(name = "chicory", version = "1.1.0")
+-
+-# Depend on apple_support first and then rules_cc so that the Xcode toolchain
+-# from apple_support wins over the generic Unix toolchain from rules_cc.
+-bazel_dep(name = "apple_support", version = "1.23.1")
+-bazel_dep(name = "rules_cc", version = "0.1.1")
+-
+-# repo_name needs to be used, until WORKSPACE mode is to be supported in bazel_tools
+-bazel_dep(name = "protobuf", version = "29.0", repo_name = "com_google_protobuf")
+-
+-# TODO: wyv@ - add remoteapis to the BCR
+-bazel_dep(name = "remoteapis", version = "")
+-
+-# TODO: wyv@ - eventually this part should be unnecessary (after we fix up the googleapis module
+-#   in the BCR)
+-switched_rules = use_extension("@googleapis//:extensions.bzl", "switched_rules")
+-switched_rules.use_languages(
+-    cc = True,
+-    go = True,
+-    grpc = True,
+-    java = True,
+-    python = True,
+-)
+-
+-single_version_override(
+-    module_name = "rules_jvm_external",
+-    patch_strip = 1,
+-    patches = ["//third_party:rules_jvm_external_6.0.patch"],
+-    version = "6.0",
+-)
+-
+-# TODO(pcloudy): Remove once the next version of rules_graalvm is available.
+-single_version_override(
+-    module_name = "rules_graalvm",
+-    patch_strip = 1,
+-    patches = [
+-        "//third_party:rules_graalvm_fix.patch",
+-        "//third_party:rules_graalvm_unicode.patch",
+-    ],
+-)
+-
+-# Remove once the following PRs are available in a grpc-java release.
+-#   https://github.com/grpc/grpc-java/pull/12207
+-#   https://github.com/grpc/grpc-java/pull/12222
+-single_version_override(
+-    module_name = "grpc-java",
+-    patch_strip = 1,
+-    patches = [
+-        "//third_party:grpc-java-12207.patch",
+-        "//third_party:grpc-java-12222.patch",
+-    ],
+-)
+-
+-local_path_override(
+-    module_name = "remoteapis",
+-    path = "./third_party/remoteapis",
+-)
+-
+-# The following Bazel modules are not direct dependencies for building Bazel,
+-# but are required for visibility from DIST_ARCHIVE_REPOS in repositories.bzl
+-bazel_dep(name = "rules_apple", version = "3.16.0")
+-bazel_dep(name = "bazel_features", version = "1.30.0")
+-bazel_dep(name = "c-ares", version = "1.15.0")
+-bazel_dep(name = "rules_go", version = "0.48.0")
+-bazel_dep(name = "rules_kotlin", version = "1.9.6")
+-bazel_dep(name = "re2", version = "2024-07-02.bcr.1")
+-
+-# =========================================
+-# Java dependencies
+-# =========================================
+-
+-maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+-maven.install(
+-    artifacts = [
+-        # keep sorted
+-        "com.beust:jcommander:1.82",
+-        "com.github.ben-manes.caffeine:caffeine:3.0.5",
+-        "com.github.stephenc.jcip:jcip-annotations:1.0-1",
+-        "com.google.api-client:google-api-client:1.35.2",
+-        "com.google.api-client:google-api-client-gson:1.35.2",
+-        "com.google.auth:google-auth-library-credentials:1.6.0",
+-        "com.google.auth:google-auth-library-oauth2-http:1.6.0",
+-        "com.google.auto:auto-common:1.2.1",
+-        "com.google.auto.service:auto-service:1.0",
+-        "com.google.auto.service:auto-service-annotations:1.0.1",
+-        "com.google.auto.value:auto-value:1.11.0",
+-        "com.google.auto.value:auto-value-annotations:1.11.0",
+-        "com.google.code.findbugs:jsr305:3.0.2",
+-        "com.google.code.gson:gson:2.10.1",
+-        "com.google.code.java-allocation-instrumenter:java-allocation-instrumenter:3.3.4",
+-        "com.google.errorprone:error_prone_annotation:2.32.0",
+-        "com.google.errorprone:error_prone_annotations:2.32.0",
+-        "com.google.errorprone:error_prone_check_api:2.32.0",
+-        "com.google.errorprone:error_prone_core:2.32.0",
+-        "com.google.errorprone:error_prone_type_annotations:2.32.0",
+-        "com.google.flogger:flogger:0.5.1",
+-        "com.google.flogger:flogger-system-backend:0.5.1",
+-        "com.google.flogger:google-extensions:0.5.1",
+-        "com.google.guava:failureaccess:1.0.1",
+-        "com.google.guava:guava:33.4.5-jre",
+-        "com.google.http-client:google-http-client:1.42.0",
+-        "com.google.http-client:google-http-client-gson:1.42.0",
+-        "com.google.j2objc:j2objc-annotations:1.3",
+-        "com.google.turbine:turbine:0.10.0",
+-        "com.guardsquare:proguard-base:jar:7.5.0",
+-        "com.ryanharter.auto.value:auto-value-gson-extension:1.3.1",
+-        "com.ryanharter.auto.value:auto-value-gson-factory:1.3.1",
+-        "com.ryanharter.auto.value:auto-value-gson-runtime:1.3.1",
+-        "com.squareup:javapoet:1.12.0",
+-        "commons-collections:commons-collections:3.2.2",
+-        "commons-lang:commons-lang:2.6",
+-        "io.github.java-diff-utils:java-diff-utils:4.12",
+-        "io.grpc:grpc-api:1.66.0",
+-        "io.grpc:grpc-auth:1.66.0",
+-        "io.grpc:grpc-context:1.66.0",
+-        "io.grpc:grpc-core:1.66.0",
+-        "io.grpc:grpc-inprocess:1.66.0",
+-        "io.grpc:grpc-netty:1.66.0",
+-        "io.grpc:grpc-protobuf:1.66.0",
+-        "io.grpc:grpc-protobuf-lite:1.66.0",
+-        "io.grpc:grpc-stub:1.66.0",
+-        "io.netty:netty-buffer:4.1.119.Final",
+-        "io.netty:netty-codec:4.1.119.Final",
+-        "io.netty:netty-codec-http:4.1.119.Final",
+-        "io.netty:netty-codec-http2:4.1.119.Final",
+-        "io.netty:netty-common:4.1.119.Final",
+-        "io.netty:netty-handler:4.1.119.Final",
+-        "io.netty:netty-handler-proxy:4.1.119.Final",
+-        "io.netty:netty-resolver:4.1.119.Final",
+-        "io.netty:netty-resolver-dns:4.1.119.Final",
+-        "io.netty:netty-tcnative-boringssl-static:jar:linux-aarch_64:2.0.56.Final",
+-        "io.netty:netty-tcnative-boringssl-static:jar:linux-x86_64:2.0.56.Final",
+-        "io.netty:netty-tcnative-boringssl-static:jar:osx-aarch_64:2.0.56.Final",
+-        "io.netty:netty-tcnative-boringssl-static:jar:osx-x86_64:2.0.56.Final",
+-        "io.netty:netty-tcnative-boringssl-static:jar:windows-x86_64:2.0.56.Final",
+-        "io.netty:netty-tcnative-classes:2.0.56.Final",
+-        "io.netty:netty-transport:4.1.119.Final",
+-        "io.netty:netty-transport-classes-epoll:4.1.119.Final",
+-        "io.netty:netty-transport-classes-kqueue:4.1.119.Final",
+-        "io.netty:netty-transport-native-epoll:jar:linux-aarch_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-kqueue:jar:osx-aarch_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-kqueue:jar:osx-x86_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-unix-common:4.1.119.Final",
+-        "io.netty:netty-transport-native-unix-common:jar:linux-aarch_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-unix-common:jar:linux-x86_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-unix-common:jar:osx-aarch_64:4.1.119.Final",
+-        "io.netty:netty-transport-native-unix-common:jar:osx-x86_64:4.1.119.Final",
+-        "io.reactivex.rxjava3:rxjava:3.1.2",
+-        "it.unimi.dsi:fastutil:7.2.1",
+-        "javax.activation:javax.activation-api:1.2.0",
+-        "javax.annotation:javax.annotation-api:1.3.2",
+-        "javax.inject:javax.inject:1",
+-        "org.apache.commons:commons-compress:1.26.1",
+-        "org.apache.commons:commons-pool2:2.8.0",
+-        "org.apache.tomcat:tomcat-annotations-api:8.0.5",
+-        "org.apache.velocity:velocity:1.7",
+-        "org.checkerframework:checker-qual:3.19.0",
+-        "org.openjdk.jmh:jmh-core:1.37",
+-        "org.openjdk.jmh:jmh-generator-annprocess:1.37",
+-        "org.ow2.asm:asm:9.2",
+-        "org.ow2.asm:asm-analysis:9.2",
+-        "org.ow2.asm:asm-commons:9.2",
+-        "org.ow2.asm:asm-tree:9.2",
+-        "org.ow2.asm:asm-util:9.2",
+-        "org.pcollections:pcollections:3.1.4",
+-        "org.threeten:threeten-extra:1.5.0",
+-        "org.tukaani:xz:1.9",
+-        "org.yaml:snakeyaml:1.28",
+-        # The following jars are for testing.
+-        # junit is not test only due to //src/java_tools/junitrunner/java/com/google/testing/junit/junit4:runner,
+-        # and hamcrest is a dependency of junit.
+-        "junit:junit:4.13.2",
+-        "org.hamcrest:hamcrest-core:1.3",
+-    ],
+-    excluded_artifacts = [
+-        # org.apache.httpcomponents and org.eclipse.jgit:org.eclipse.jgit
+-        # require java.security.jgss module to be embedded in the Bazel binary.
+-        "org.apache.httpcomponents:httpclient",
+-        "org.apache.httpcomponents:httpcore",
+-        "org.eclipse.jgit:org.eclipse.jgit",
+-    ],
+-    fail_if_repin_required = True,
+-    lock_file = "//:maven_install.json",
+-    repositories = [
+-        "https://repo1.maven.org/maven2",
+-    ],
+-    strict_visibility = True,
+-)
+-
+-# Test only maven dependencies
+-[
+-    maven.artifact(
+-        testonly = True,
+-        artifact = artifact,
+-        group = group,
+-        version = version,
+-    )
+-    for group, artifact, version in [coord.split(":") for coord in [
+-        "com.google.guava:guava-testlib:33.2.1-jre",
+-        "com.google.jimfs:jimfs:1.2",
+-        "com.google.testing.compile:compile-testing:0.18",
+-        "com.google.testparameterinjector:test-parameter-injector:1.16",
+-        "com.google.truth:truth:1.4.0",
+-        "com.google.truth.extensions:truth-java8-extension:1.4.0",
+-        "com.google.truth.extensions:truth-liteproto-extension:1.4.0",
+-        "com.google.truth.extensions:truth-proto-extension:1.4.0",
+-        "org.mockito:mockito-core:5.4.0",
+-    ]]
+-]
+-
+-use_repo(maven, "maven")
+-
+-java_toolchains = use_extension("@rules_java//java:extensions.bzl", "toolchains")
+-use_repo(
+-    java_toolchains,
+-    "local_jdk",
+-    # The following are required for visibility in //src:test_repos
+-    "remote_java_tools",
+-    "remote_java_tools_darwin_arm64",
+-    "remote_java_tools_darwin_x86_64",
+-    "remote_java_tools_linux",
+-    "remote_java_tools_windows",
+-    "remotejdk11_linux",
+-    "remotejdk11_linux_aarch64",
+-    "remotejdk11_linux_ppc64le",
+-    "remotejdk11_linux_s390x",
+-    "remotejdk11_macos",
+-    "remotejdk11_macos_aarch64",
+-    "remotejdk11_win",
+-    "remotejdk11_win_arm64",
+-    "remotejdk17_linux",
+-    "remotejdk17_linux_s390x",
+-    "remotejdk17_macos",
+-    "remotejdk17_macos_aarch64",
+-    "remotejdk17_win",
+-    "remotejdk17_win_arm64",
+-    "remotejdk21_linux",
+-    "remotejdk21_linux_s390x",
+-    "remotejdk21_macos",
+-    "remotejdk21_macos_aarch64",
+-    "remotejdk21_win",
+-)
+-
+-# =========================================
+-# Python dependencies
+-# =========================================
+-
+-python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+-python.toolchain(
+-    ignore_root_user_error = True,
+-    is_default = True,
+-    python_version = "3.11",
+-)
+-
+-pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+-pip.parse(
+-    hub_name = "bazel_pip_dev_deps",
+-    python_version = "3.11",
+-    requirements_lock = "//:requirements.txt",
+-)
+-use_repo(pip, "bazel_pip_dev_deps")
+-
+-# =========================================
+-# Other Bazel build dependencies
+-# =========================================
+-
+-bazel_build_deps = use_extension("//:extensions.bzl", "bazel_build_deps")
+-use_repo(
+-    bazel_build_deps,
+-    "bazel_tools_repo_cache",
+-    "bootstrap_repo_cache",
+-    "debian_bin_deps",
+-    "debian_cc_deps",
+-    "debian_java_deps",
+-    "debian_proto_deps",
+-    "openjdk_linux_aarch64_vanilla",
+-    "openjdk_linux_ppc64le_vanilla",
+-    "openjdk_linux_s390x_vanilla",
+-    "openjdk_linux_riscv64_vanilla",
+-    "openjdk_linux_vanilla",
+-    "openjdk_macos_aarch64_vanilla",
+-    "openjdk_macos_x86_64_vanilla",
+-    "openjdk_win_arm64_vanilla",
+-    "openjdk_win_vanilla",
+-    "workspace_repo_cache",
+-)
+-
+-# Required only by `--extra_toolchains=@local_config_cc//:cc-toolchain-arm64_windows` from .bazelrc
+-cc_configure = use_extension("@rules_cc//cc:extensions.bzl", "cc_configure_extension")
+-use_repo(cc_configure, "local_config_cc")
+-
+-gvm = use_extension("@rules_graalvm//:extensions.bzl", "graalvm")
+-gvm.graalvm(
+-    name = "graalvm",
+-    distribution = "ce",
+-    java_version = "21",
+-    version = "21.0.2",
+-)
+-use_repo(gvm, "graalvm_toolchains")
+-
+-http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+-
+-# DO NOT UPDATE the jq versions, they are used to verify compatibility with old and new versions.
+-http_file(
+-    name = "jq_linux_amd64",
+-    executable = True,
+-    integrity = "sha256-xrOn19PntwxvUbcGo7kL0BgzhGxU0yyjLwAn8AIm/20=",
+-    urls = ["https://github.com/jqlang/jq/releases/download/jq-1.5/jq-linux64"],
+-)
+-
+-http_file(
+-    name = "jq_linux_arm64",
+-    executable = True,
+-    integrity = "sha256-TdLYoGYd8LIvG7mh+YMPBrbzuPfZEhGh7118TwaotKU=",
+-    urls = ["https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-arm64"],
+-)
+-
+-http_file(
+-    name = "jq_linux_s390x",
+-    executable = True,
+-    integrity = "sha256-hot8PKdCJKAt22EyYd38LkOxLart1etYNz29x/LF+SQ=",
+-    urls = ["https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-s390x"],
+-)
+-
+-http_file(
+-    name = "jq_macos_amd64",
+-    executable = True,
+-    integrity = "sha256-OG6SyYKlb+SFFGjXqTHfyilWDO4wag5mxqG9QGXT2sU=",
+-    urls = ["https://github.com/jqlang/jq/releases/download/jq-1.5/jq-osx-amd64"],
+-)
+-
+-http_file(
+-    name = "jq_macos_arm64",
+-    executable = True,
+-    integrity = "sha256-C75hnmY+DeLFUL4v4NJA0HZ5nW+KZStw+gSuqKg2Loo=",
+-    urls = ["https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-macos-arm64"],
+-)
+-
+-http_file(
+-    name = "jq_windows_amd64",
+-    executable = True,
+-    integrity = "sha256-6+zYQLpH779mgihoF4zHIaFRBgk396xAbj0xvQFb3pQ=",
+-    urls = ["https://github.com/jqlang/jq/releases/download/jq-1.5/jq-win64.exe"],
+-)
+-
+-async_profiler_repos = use_extension("//:repositories.bzl", "async_profiler_repos")
+-use_repo(
+-    async_profiler_repos,
+-    "async_profiler",
+-    "async_profiler_linux_arm64",
+-    "async_profiler_linux_x64",
+-    "async_profiler_macos",
+-)
+-
+-# =========================================
+-# Other Bazel testing dependencies
+-# =========================================
+-
+-bazel_dep(name = "bazel_ci_rules", version = "1.0.0")
+-bazel_dep(name = "rules_fuzzing", version = "0.5.2")
+-bazel_dep(name = "wabt", version = "1.0.37")
+-
+-rbe_preconfig = use_repo_rule("@bazel_ci_rules//:rbe_repo.bzl", "rbe_preconfig")
+-
+-rbe_preconfig(
+-    name = "rbe_ubuntu2004",
+-    toolchain = "ubuntu2004",
+-)
+-
+-list_source_repository = use_repo_rule("//src/test/shell/bazel:list_source_repository.bzl", "list_source_repository")
+-
+-list_source_repository(name = "local_bazel_source_list")
+-
+-winsdk_configure = use_repo_rule("//src/main/res:winsdk_configure.bzl", "winsdk_configure")
+-
+-winsdk_configure(name = "local_config_winsdk")
+-
+-# /usr/local/kythe is setup on Bazel CI machines
+-local_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:local.bzl", "local_repository")
+-
+-local_repository(
+-    name = "kythe_release",
+-    path = "/usr/local/kythe",
+-)
+-
+-remote_coverage_tools_extension = use_extension("//tools/test:extensions.bzl", "remote_coverage_tools_extension")
+-use_repo(remote_coverage_tools_extension, "remote_coverage_tools")
+-
+-# =========================================
+-# Register platforms & toolchains
+-# =========================================
+-
+-register_execution_platforms("//:default_host_platform")
+-
+-register_toolchains("@rules_python//python:autodetecting_toolchain")
+-
+-register_toolchains("@local_config_winsdk//:all")
+-
+-register_toolchains("//src/main/res:empty_rc_toolchain")
+-
+-register_toolchains("@graalvm_toolchains//:gvm")
++bazel_dep(name = "protobuf", version = "33.1")
+diff --git a/src/main/java/com/google/devtools/build/lib/buildeventstream/proto/BUILD b/src/main/java/com/google/devtools/build/lib/buildeventstream/proto/BUILD
+index 90cbf1d..7a9579b 100644
+--- src/main/java/com/google/devtools/build/lib/buildeventstream/proto/BUILD
++++ src/main/java/com/google/devtools/build/lib/buildeventstream/proto/BUILD
+@@ -1,25 +1,5 @@
+-load("@com_google_protobuf//bazel:java_proto_library.bzl", "java_proto_library")
+-load("@com_google_protobuf//bazel:proto_library.bzl", "proto_library")
+-load("//tools/build_rules:utilities.bzl", "java_library_srcs")
+-
+ package(default_visibility = ["//visibility:public"])
+ 
+-filegroup(
+-    name = "srcs",
+-    srcs = glob(["**"]),
+-    visibility = ["//src/main/java/com/google/devtools/build/lib:__pkg__"],
+-)
+-
+-java_library_srcs(
+-    name = "dist_jars",
+-    deps = [":build_event_stream_java_proto"],
+-)
+-
+-java_proto_library(
+-    name = "build_event_stream_java_proto",
+-    deps = ["build_event_stream_proto"],
+-)
+-
+ proto_library(
+     name = "build_event_stream_proto",
+     srcs = ["build_event_stream.proto"],
+@@ -30,8 +10,8 @@ proto_library(
+         "//src/main/protobuf:command_line_proto",
+         "//src/main/protobuf:failure_details_proto",
+         "//src/main/protobuf:invocation_policy_proto",
+-        "@com_google_protobuf//:any_proto",
+-        "@com_google_protobuf//:duration_proto",
+-        "@com_google_protobuf//:timestamp_proto",
++        "@protobuf//:any_proto",
++        "@protobuf//:duration_proto",
++        "@protobuf//:timestamp_proto",
+     ],
+ )
+diff --git a/src/main/java/com/google/devtools/build/lib/packages/metrics/BUILD b/src/main/java/com/google/devtools/build/lib/packages/metrics/BUILD
+index cf77da4..4efffb4 100644
+--- src/main/java/com/google/devtools/build/lib/packages/metrics/BUILD
++++ src/main/java/com/google/devtools/build/lib/packages/metrics/BUILD
+@@ -1,86 +1,11 @@
+-load("@com_google_protobuf//bazel:java_proto_library.bzl", "java_proto_library")
+-load("@com_google_protobuf//bazel:proto_library.bzl", "proto_library")
+-load("@rules_java//java:defs.bzl", "java_library")
+-load("//tools/build_rules:utilities.bzl", "java_library_srcs")
+-
+ package(
+-    default_applicable_licenses = ["//:license"],
+     default_visibility = ["//visibility:public"],
+ )
+ 
+-filegroup(
+-    name = "srcs",
+-    srcs = glob(["*"]),
+-    visibility = ["//src:__subpackages__"],
+-)
+-
+-java_library(
+-    name = "metrics",
+-    srcs = glob(["*.java"]),
+-    deps = [
+-        ":package_load_metrics_java_proto",
+-        ":package_metrics_java_proto",
+-        "//src/main/java/com/google/devtools/build/lib:runtime",
+-        "//src/main/java/com/google/devtools/build/lib/analysis:analysis_cluster",
+-        "//src/main/java/com/google/devtools/build/lib/cmdline",
+-        "//src/main/java/com/google/devtools/build/lib/collect:extrema",
+-        "//src/main/java/com/google/devtools/build/lib/packages",
+-        "//src/main/java/com/google/devtools/build/lib/vfs",
+-        "//src/main/java/com/google/devtools/common/options",
+-        "//src/main/java/net/starlark/java/eval",
+-        "//third_party:auto_value",
+-        "//third_party:flogger",
+-        "//third_party:guava",
+-        "//third_party:jsr305",
+-        "//third_party/protobuf:protobuf_java",
+-        "//third_party/protobuf:protobuf_java_util",
+-    ],
+-)
+-
+-proto_library(
+-    name = "package_metrics_proto",
+-    srcs = ["package_metrics.proto"],
+-    deps = [
+-        "@com_google_protobuf//:duration_proto",
+-    ],
+-)
+-
+-java_proto_library(
+-    name = "package_metrics_java_proto",
+-    deps = [
+-        ":package_metrics_proto",
+-    ],
+-)
+-
+-java_library_srcs(
+-    name = "package_metrics_java_proto_srcs",
+-    deps = [":package_metrics_java_proto"],
+-)
+-
+ proto_library(
+     name = "package_load_metrics_proto",
+     srcs = ["package_load_metrics.proto"],
+     deps = [
+-        "@com_google_protobuf//:duration_proto",
+-    ],
+-)
+-
+-java_proto_library(
+-    name = "package_load_metrics_java_proto",
+-    deps = [
+-        ":package_load_metrics_proto",
+-    ],
+-)
+-
+-java_library_srcs(
+-    name = "package_load_metrics_java_proto_srcs",
+-    deps = [":package_load_metrics_java_proto"],
+-)
+-
+-filegroup(
+-    name = "dist_jars",
+-    srcs = [
+-        ":package_load_metrics_java_proto_srcs",
+-        ":package_metrics_java_proto_srcs",
++        "@protobuf//:duration_proto",
+     ],
+ )
+diff --git a/src/main/protobuf/BUILD b/src/main/protobuf/BUILD
+index 5649080..8d7b6b5 100644
+--- src/main/protobuf/BUILD
++++ src/main/protobuf/BUILD
+@@ -1,11 +1,3 @@
+-load("@com_google_protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
+-load("@com_google_protobuf//bazel:java_proto_library.bzl", "java_proto_library")
+-load("@com_google_protobuf//bazel:proto_library.bzl", "proto_library")
+-load("@com_google_protobuf//bazel:py_proto_library.bzl", "py_proto_library")
+-load("//third_party/grpc:build_defs.bzl", "java_grpc_library")
+-load("//third_party/grpc/bazel:cc_grpc_library.bzl", "cc_grpc_library")
+-load("//tools/build_rules:utilities.bzl", "java_library_srcs")
+-
+ package(default_visibility = ["//visibility:public"])
+ 
+ FILES = [
+@@ -31,96 +23,19 @@ FILES = [
+     srcs = [s + ".proto"],
+ ) for s in FILES]
+ 
+-[java_proto_library(
+-    name = s + "_java_proto",
+-    deps = [":" + s + "_proto"],
+-) for s in FILES]
+-
+-[java_library_srcs(
+-    name = s + "_java_proto_srcs",
+-    deps = [":" + s + "_java_proto"],
+-) for s in FILES]
+-
+-proto_library(
+-    name = "build_proto",
+-    srcs = ["build.proto"],
+-    deps = [":stardoc_output_proto"],
+-)
+-
+-java_proto_library(
+-    name = "build_java_proto",
+-    deps = [":build_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "build_java_proto_srcs",
+-    deps = [":build_java_proto"],
+-)
+-
+-proto_library(
+-    name = "analysis_v2_proto",
+-    srcs = ["analysis_v2.proto"],
+-    deps = [":build_proto"],
+-)
+-
+-py_proto_library(
+-    name = "analysis_v2_py_proto",
+-    deps = [":analysis_v2_proto"],
+-)
+-
+-java_proto_library(
+-    name = "analysis_v2_java_proto",
+-    deps = [":analysis_v2_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "analysis_v2_java_proto_srcs",
+-    deps = [":analysis_v2_java_proto"],
+-)
+-
+-java_proto_library(
+-    name = "any_java_proto",
+-    deps = ["@com_google_protobuf//:any_proto"],
+-)
+-
+-java_proto_library(
+-    name = "wrappers_java_proto",
+-    deps = ["@com_google_protobuf//:wrappers_proto"],
+-)
+-
+ proto_library(
+     name = "command_server_proto",
+     srcs = ["command_server.proto"],
+     deps = [
+         ":failure_details_proto",
+-        "@com_google_protobuf//:any_proto",
++        "@protobuf//:any_proto",
+     ],
+ )
+ 
+-java_proto_library(
+-    name = "command_server_java_proto",
+-    deps = [":command_server_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "command_server_java_proto_srcs",
+-    deps = [":command_server_java_proto"],
+-)
+-
+ proto_library(
+     name = "failure_details_proto",
+     srcs = ["failure_details.proto"],
+-    deps = ["@com_google_protobuf//:descriptor_proto"],
+-)
+-
+-java_proto_library(
+-    name = "failure_details_java_proto",
+-    deps = [":failure_details_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "failure_details_java_proto_srcs",
+-    deps = [":failure_details_java_proto"],
++    deps = ["@protobuf//:descriptor_proto"],
+ )
+ 
+ proto_library(
+@@ -129,185 +44,48 @@ proto_library(
+     deps = [":strategy_policy_proto"],
+ )
+ 
+-java_proto_library(
+-    name = "invocation_policy_java_proto",
+-    deps = [":invocation_policy_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "invocation_policy_java_proto_srcs",
+-    deps = [":invocation_policy_java_proto"],
+-)
+-
+ proto_library(
+     name = "option_filters_proto",
+     srcs = ["option_filters.proto"],
+ )
+ 
+-java_proto_library(
+-    name = "option_filters_java_proto",
+-    deps = [":option_filters_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "option_filters_java_proto_srcs",
+-    deps = [":option_filters_java_proto"],
+-)
+-
+ proto_library(
+     name = "command_line_proto",
+     srcs = ["command_line.proto"],
+     deps = [":option_filters_proto"],
+ )
+ 
+-java_proto_library(
+-    name = "command_line_java_proto",
+-    deps = [":command_line_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "command_line_java_proto_srcs",
+-    deps = [":command_line_java_proto"],
+-)
+-
+-# Proto needed by singlejar and embedded into the java tools archive.
+-genrule(
+-    name = "desugar_deps_zip",
+-    srcs = ["desugar_deps.proto"],
+-    outs = ["desugar_deps.zip"],
+-    cmd = "zip -q $@ $<",
+-    visibility = ["//src/tools/singlejar:__pkg__"],
+-)
+-
+-filegroup(
+-    name = "desugar_deps_filegroup",
+-    srcs = ["desugar_deps.proto"],
+-    visibility = ["//src/tools/singlejar:__pkg__"],
+-)
+-
+-cc_proto_library(
+-    name = "desugar_deps_cc_proto",
+-    deps = [":desugar_deps_proto"],
+-)
+-
+-cc_proto_library(
+-    name = "worker_protocol_cc_proto",
+-    deps = [":worker_protocol_proto"],
+-)
+-
+-java_grpc_library(
+-    name = "command_server_java_grpc",
+-    srcs = [":command_server_proto"],
+-    deps = [":command_server_java_proto"],
+-)
+-
+-cc_proto_library(
+-    name = "command_server_cc_proto",
+-    deps = [":command_server_proto"],
+-)
+-
+-cc_grpc_library(
+-    name = "command_server_cc_grpc",
+-    srcs = [":command_server_proto"],
+-    extra_cc_library_kwargs = {"defines": ["GRPC_USE_PROTO_LITE=ON"]},
+-    deps = [
+-        ":command_server_cc_proto",
+-        "//third_party/grpc:grpc++_unsecure",
+-    ],
+-)
+-
+-py_proto_library(
+-    name = "build_pb_py",
+-    deps = [":build_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "profile_java_proto_srcs",
+-    visibility = ["//visibility:private"],
+-    deps = ["//third_party/pprof:profile_java_proto"],
+-)
+-
+-cc_proto_library(
+-    name = "execution_statistics_cc_proto",
+-    deps = [":execution_statistics_proto"],
+-)
+-
+ proto_library(
+     name = "remote_execution_log_proto",
+     srcs = ["remote_execution_log.proto"],
+     deps = [
+-        "@com_google_protobuf//:timestamp_proto",
+         "@googleapis//google/bytestream:bytestream_proto",
+         "@googleapis//google/longrunning:operations_proto",
+         "@googleapis//google/rpc:status_proto",
++        "@protobuf//:timestamp_proto",
+         "@remoteapis//:build_bazel_remote_execution_v2_remote_execution_proto",
+     ],
+ )
+ 
+-java_proto_library(
+-    name = "remote_execution_log_java_proto",
+-    deps = [":remote_execution_log_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "remote_execution_log_java_proto_srcs",
+-    deps = [":remote_execution_log_java_proto"],
+-)
+-
+ proto_library(
+     name = "cache_salt_proto",
+     srcs = ["cache_salt.proto"],
+ )
+ 
+-java_proto_library(
+-    name = "cache_salt_java_proto",
+-    deps = [":cache_salt_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "cache_salt_java_proto_srcs",
+-    deps = [":cache_salt_java_proto"],
+-)
+-
+ proto_library(
+     name = "remote_scrubbing_proto",
+     srcs = ["remote_scrubbing.proto"],
+ )
+ 
+-java_proto_library(
+-    name = "remote_scrubbing_java_proto",
+-    deps = [":remote_scrubbing_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "remote_scrubbing_java_proto_srcs",
+-    deps = [":remote_scrubbing_java_proto"],
+-)
+-
+ proto_library(
+     name = "bazel_output_service_proto",
+     srcs = ["bazel_output_service.proto"],
+     deps = [
+-        "@com_google_protobuf//:any_proto",
+         "@googleapis//google/rpc:status_proto",
++        "@protobuf//:any_proto",
+     ],
+ )
+ 
+-java_proto_library(
+-    name = "bazel_output_service_java_proto",
+-    deps = [":bazel_output_service_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "bazel_output_service_java_proto_srcs",
+-    deps = [":bazel_output_service_java_proto"],
+-)
+-
+-cc_proto_library(
+-    name = "bazel_output_service_cc_proto",
+-    deps = [":bazel_output_service_proto"],
+-)
+-
+ proto_library(
+     name = "bazel_output_service_rev2_proto",
+     srcs = ["bazel_output_service_rev2.proto"],
+@@ -316,133 +94,21 @@ proto_library(
+     ],
+ )
+ 
+-java_proto_library(
+-    name = "bazel_output_service_rev2_java_proto",
+-    deps = [":bazel_output_service_rev2_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "bazel_output_service_rev2_java_proto_srcs",
+-    deps = [":bazel_output_service_rev2_java_proto"],
+-)
+-
+-cc_proto_library(
+-    name = "bazel_output_service_rev2_cc_proto",
+-    deps = [":bazel_output_service_rev2_proto"],
+-)
+-
+-java_grpc_library(
+-    name = "bazel_output_service_java_grpc",
+-    srcs = [":bazel_output_service_proto"],
+-    deps = [":bazel_output_service_java_proto"],
+-)
+-
+-cc_grpc_library(
+-    name = "bazel_output_service_cc_grpc",
+-    srcs = [":bazel_output_service_proto"],
+-    deps = [":bazel_output_service_cc_proto"],
+-)
+-
+ proto_library(
+     name = "spawn_proto",
+     srcs = ["spawn.proto"],
+     deps = [
+-        "@com_google_protobuf//:duration_proto",
+-        "@com_google_protobuf//:timestamp_proto",
+-    ],
+-)
+-
+-java_proto_library(
+-    name = "spawn_java_proto",
+-    deps = [":spawn_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "spawn_java_proto_srcs",
+-    deps = [":spawn_java_proto"],
+-)
+-
+-# Note that stardoc_output_proto and stardoc_output_java_proto are vendored by
+-# Stardoc: https://github.com/bazelbuild/stardoc/tree/master/stardoc/proto
+-package_group(
+-    name = "stardoc_output_users",
+-    packages = [
+-        "//src/main/java/com/google/devtools/build/docgen/...",
+-        "//src/main/java/com/google/devtools/build/lib/rules/starlarkdocextract/...",
+-        "//src/main/java/com/google/devtools/build/lib/starlarkdocextract/...",
+-        "//src/test/java/com/google/devtools/build/docgen/...",
+-        "//src/test/java/com/google/devtools/build/lib/rules/starlarkdocextract/...",
+-        "//src/test/java/com/google/devtools/build/lib/starlarkdocextract/...",
++        "@protobuf//:duration_proto",
++        "@protobuf//:timestamp_proto",
+     ],
+ )
+ 
+ proto_library(
+     name = "stardoc_output_proto",
+     srcs = ["stardoc_output.proto"],
+-    visibility = [":stardoc_output_users"],
+-)
+-
+-java_proto_library(
+-    name = "stardoc_output_java_proto",
+-    visibility = [":stardoc_output_users"],
+-    deps = [":stardoc_output_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "stardoc_output_java_proto_srcs",
+-    visibility = [":stardoc_output_users"],
+-    deps = [":stardoc_output_java_proto"],
+ )
+ 
+ proto_library(
+     name = "xcode_proto",
+     srcs = ["xcode_config.proto"],
+-    visibility = ["//visibility:public"],
+-)
+-
+-java_proto_library(
+-    name = "xcode_java_proto",
+-    deps = [":xcode_proto"],
+-)
+-
+-cc_proto_library(
+-    name = "xcode_cc_proto",
+-    deps = [":xcode_proto"],
+-)
+-
+-java_library_srcs(
+-    name = "xcode_java_proto_srcs",
+-    deps = [":xcode_java_proto"],
+-)
+-
+-filegroup(
+-    name = "srcs",
+-    srcs = glob(
+-        ["**"],
+-        exclude = ["android_deploy_info.proto"],
+-    ),
+-)
+-
+-filegroup(
+-    name = "dist_jars",
+-    srcs = [s + "_java_proto_srcs" for s in FILES] + [
+-        ":analysis_v2_java_proto_srcs",
+-        ":bazel_output_service_java_grpc_srcs",
+-        ":bazel_output_service_java_proto_srcs",
+-        ":bazel_output_service_rev2_java_proto_srcs",
+-        ":build_java_proto_srcs",
+-        ":cache_salt_java_proto_srcs",
+-        ":command_line_java_proto_srcs",
+-        ":command_server_java_grpc_srcs",
+-        ":command_server_java_proto_srcs",
+-        ":failure_details_java_proto_srcs",
+-        ":invocation_policy_java_proto_srcs",
+-        ":option_filters_java_proto_srcs",
+-        ":profile_java_proto_srcs",
+-        ":remote_execution_log_java_proto_srcs",
+-        ":remote_scrubbing_java_proto_srcs",
+-        ":spawn_java_proto_srcs",
+-        ":stardoc_output_java_proto_srcs",
+-        ":xcode_java_proto_srcs",
+-    ],
+ )
