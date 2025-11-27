@@ -4,13 +4,6 @@ load("@protobuf//bazel:proto_library.bzl", "proto_library")
 load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 
 cc_proto_library(
-    name = "build_event_stream_cc_proto",
-    deps = [
-        "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_proto",
-    ],
-)
-
-cc_proto_library(
     name = "gimli_cc_proto",
     visibility = ["//visibility:public"],
     deps = [":gimli_proto"],
@@ -29,11 +22,11 @@ cc_library(
     hdrs = ["publish_build_event_callback_service_impl.h"],
     visibility = ["//visibility:public"],
     deps = [
-        ":build_event_stream_cc_proto",
         ":gimli_cc_proto",
         "@abseil-cpp//absl/cleanup",
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/strings",
+        "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_cc_proto",
         "@googleapis//google/devtools/build/v1:build_cc_grpc",
         "@googleapis//google/devtools/build/v1:build_cc_proto",
     ],

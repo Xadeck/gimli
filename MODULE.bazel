@@ -27,6 +27,7 @@ http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "ht
 http_archive(
     name = "bazel",
     integrity = "sha256-I6SWs94Y3yDoFik8HpVEPwRifp+LmsS6cN0gpeCaaVE=",
+    patch_args = ["-p1"],
     patches = ["//:bazel.patch"],
     strip_prefix = "bazel-8.4.2",
     urls = [
