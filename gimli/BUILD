@@ -17,6 +17,16 @@ cc_grpc_library(
 )
 
 cc_library(
+    name = "gimli_service_impl",
+    srcs = ["gimli_service_impl.cc"],
+    hdrs = ["gimli_service_impl.h"],
+    deps = [
+        ":gimli_cc_grpc",
+        ":gimli_cc_proto",
+    ],
+)
+
+cc_library(
     name = "publish_build_event_callback_service_impl",
     srcs = ["publish_build_event_callback_service_impl.cc"],
     hdrs = ["publish_build_event_callback_service_impl.h"],
@@ -36,8 +46,7 @@ cc_binary(
     name = "gimli_server",
     srcs = ["gimli_server.cc"],
     deps = [
-        ":gimli_cc_grpc",
-        ":gimli_cc_proto",
+        ":gimli_service_impl",
         ":publish_build_event_callback_service_impl",
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",

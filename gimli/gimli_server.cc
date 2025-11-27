@@ -5,8 +5,7 @@
 #include "absl/log/log.h"
 #include "absl/strings/str_cat.h"
 #include "absl/strings/string_view.h"
-#include "gimli/gimli.grpc.pb.h"
-#include "gimli/gimli.pb.h"
+#include "gimli/gimli_service_impl.h"
 #include "gimli/publish_build_event_callback_service_impl.h"
 #include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
@@ -20,22 +19,6 @@
 ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
 ABSL_FLAG(bool, record, false,
           "If true, even stream are recorded in testdata.");
-
-namespace gimli {
-namespace {
-
-class GimliServiceImpl final : public Gimli::Service {
-public:
-  grpc::Status Notify(grpc::ServerContext *context,
-                      const NotifyRequest *request,
-                      NotifyResponse *response) final {
-    response->set_output("PAPAGEI " + request->input());
-    return grpc::Status::OK;
-  }
-};
-
-} // namespace
-} // namespace gimli
 
 using gimli::GimliServiceImpl;
 using gimli::PublishBuildEventCallbackServiceImpl;
