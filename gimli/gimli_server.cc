@@ -4,6 +4,7 @@
 #include "absl/log/initialize.h"
 #include "absl/log/log.h"
 #include "absl/strings/str_cat.h"
+#include "absl/strings/string_view.h"
 #include "gimli/gimli.grpc.pb.h"
 #include "gimli/gimli.pb.h"
 #include "google/devtools/build/v1/build_events.pb.h"
@@ -20,6 +21,20 @@ ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
 
 namespace google::devtools::build::v1 {
 namespace {
+using build_event_stream::BuildEvent;
+using build_event_stream::BuildEventId;
+
+absl::string_view PayloadName(BuildEvent::PayloadCase payload) {
+  const auto *message_descriptor = BuildEvent::descriptor();
+  const auto *field_descriptor = message_descriptor->FindFieldByNumber(payload);
+  return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
+}
+
+absl::string_view IdName(BuildEventId::IdCase id) {
+  const auto *message_descriptor = BuildEventId::descriptor();
+  const auto *field_descriptor = message_descriptor->FindFieldByNumber(id);
+  return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
+}
 
 class PublishBuildEventCallbackServiceImpl final
     : public PublishBuildEvent::CallbackService {
@@ -28,7 +43,8 @@ public:
   PublishLifecycleEvent(grpc::CallbackServerContext *context,
                         const PublishLifecycleEventRequest *request,
                         ::google::protobuf::Empty *response) final {
-    LOG(INFO) << "Received LC event";
+    // TODO: use the life cycle event to clear & publish the results of
+    // a build for a given workspace directory.
     auto *reactor = context->DefaultReactor();
     reactor->Finish(grpc::Status::OK);
     return reactor;
@@ -41,10 +57,7 @@ public:
         : public grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
                                          PublishBuildToolEventStreamResponse> {
     public:
-      Reactor() {
-        LOG(INFO) << "Received BT event";
-        StartRead(&request_);
-      }
+      Reactor() { StartRead(&request_); }
 
       void OnReadDone(bool ok) final {
         *response_.mutable_stream_id() =
@@ -61,20 +74,31 @@ public:
           return;
         }
         if (event.has_bazel_event()) {
-          build_event_stream::BuildEvent build_event;
-          if (event.bazel_event().UnpackTo(&build_event)) {
-            LOG(INFO) << "🐱 " << build_event;
+          BuildEvent be;
+          if (event.bazel_event().UnpackTo(&be)) {
+            LOG(INFO) << "🐱" << IdName(be.id().id_case()) << "/"
+                      << PayloadName(be.payload_case()) << " -> "
+                      << be.children_size();
+            for (const auto &child : be.children()) {
+              LOG(INFO) << "  🐶" << IdName(child.id_case());
+            }
+            if (be.payload_case() == BuildEvent::kStarted) {
+              // TODO: save the workspace directory to associate errors to it.
+              LOG(INFO) << " 🔨 in " << be.started().workspace_directory();
+            }
+            if (be.payload_case() == BuildEvent::kProgress) {
+              // TODO(xdecoret): parse be.progress().stderr() into warnings,
+              // errors, and ignoring things in bazel_out.
+            }
           }
         }
         StartRead(&request_);
       }
 
-      void OnDone() final {
-        LOG(INFO) << "🐱done";
-        delete this;
-      }
+      void OnDone() final { delete this; }
 
     private:
+      std::map<std::string, std::string> label_stderr_;
       PublishBuildToolEventStreamRequest request_;
       PublishBuildToolEventStreamResponse response_;
     };
