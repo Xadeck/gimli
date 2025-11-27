@@ -6,6 +6,9 @@ load("@rules_cc//cc:defs.bzl", "cc_binary")
 proto_library(
     name = "gimli_proto",
     srcs = ["gimli.proto"],
+    deps = [
+        "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_proto",
+    ],
 )
 
 cc_proto_library(
@@ -37,6 +40,7 @@ cc_binary(
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
         "@abseil-cpp//absl/log",
+        "@abseil-cpp//absl/log:flags",
         "@abseil-cpp//absl/log:initialize",
         "@googleapis//google/devtools/build/v1:build_cc_grpc",
         "@googleapis//google/devtools/build/v1:build_cc_proto",

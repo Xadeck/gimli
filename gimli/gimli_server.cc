@@ -1,23 +1,33 @@
+#include "absl/cleanup/cleanup.h"
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
 #include "absl/log/globals.h"
 #include "absl/log/initialize.h"
 #include "absl/log/log.h"
+#include "absl/strings/match.h"
 #include "absl/strings/str_cat.h"
 #include "absl/strings/string_view.h"
+#include "absl/strings/strip.h"
 #include "gimli/gimli.grpc.pb.h"
 #include "gimli/gimli.pb.h"
 #include "google/devtools/build/v1/build_events.pb.h"
 #include "google/devtools/build/v1/publish_build_event.grpc.pb.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
+#include "google/protobuf/text_format.h"
 #include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
 #include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
 #include <csignal>
 #include <cstdint>
+#include <filesystem>
+#include <fstream>
+#include <optional>
+#include <string>
 #include <thread>
 
 ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
+ABSL_FLAG(bool, record, false,
+          "If true, even stream are recorded in testdata.");
 
 namespace google::devtools::build::v1 {
 namespace {
@@ -36,9 +46,16 @@ absl::string_view IdName(BuildEventId::IdCase id) {
   return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
 }
 
+// TODO: move to a separate library.
 class PublishBuildEventCallbackServiceImpl final
     : public PublishBuildEvent::CallbackService {
 public:
+  PublishBuildEventCallbackServiceImpl(
+      std::optional<std::filesystem::path> testdata)
+      : testdata_(testdata) {
+    //
+  }
+
   grpc::ServerUnaryReactor *
   PublishLifecycleEvent(grpc::CallbackServerContext *context,
                         const PublishLifecycleEventRequest *request,
@@ -57,9 +74,19 @@ public:
         : public grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
                                          PublishBuildToolEventStreamResponse> {
     public:
-      Reactor() { StartRead(&request_); }
+      Reactor(std::optional<std::filesystem::path> testdata)
+          : testdata_(testdata) {
+        StartRead(&request_);
+      }
 
       void OnReadDone(bool ok) final {
+        // The protocol (not very well documented) seems to be that the service
+        // must respond with the "identifiers" (stream id and sequence numnber)
+        // of the request, so the caller knows they have been acknowledged.
+        //
+        // The request will be processed once this response is written, because
+        // the request's contents will drive the termination or continuation of
+        // the streaming RPC call.
         *response_.mutable_stream_id() =
             request_.ordered_build_event().stream_id();
         response_.set_sequence_number(
@@ -68,42 +95,92 @@ public:
       }
 
       void OnWriteDone(bool ok) final {
-        const auto &event = request_.ordered_build_event().event();
-        if (event.has_component_stream_finished()) {
+        const auto &build_event = request_.ordered_build_event().event();
+        if (build_event.has_component_stream_finished()) {
           Finish(grpc::Status::OK);
           return;
         }
-        if (event.has_bazel_event()) {
-          BuildEvent be;
-          if (event.bazel_event().UnpackTo(&be)) {
-            LOG(INFO) << "🐱" << IdName(be.id().id_case()) << "/"
-                      << PayloadName(be.payload_case()) << " -> "
-                      << be.children_size();
-            for (const auto &child : be.children()) {
-              LOG(INFO) << "  🐶" << IdName(child.id_case());
-            }
-            if (be.payload_case() == BuildEvent::kStarted) {
-              // TODO: save the workspace directory to associate errors to it.
-              LOG(INFO) << " 🔨 in " << be.started().workspace_directory();
-            }
-            if (be.payload_case() == BuildEvent::kProgress) {
-              // TODO(xdecoret): parse be.progress().stderr() into warnings,
-              // errors, and ignoring things in bazel_out.
-            }
-          }
-        }
+        Process(build_event.bazel_event());
         StartRead(&request_);
       }
 
-      void OnDone() final { delete this; }
+      void OnDone() final {
+        auto _ = absl::MakeCleanup([&]() { delete this; });
+
+        if (!testdata_.has_value()) {
+          return;
+        }
+        if (auto size = labels_.size(); size != 1) {
+          LOG(ERROR) << "⏺️ Recording only works for 1 target, got " << size;
+          return;
+        }
+        absl::string_view label = labels_.front();
+        static constexpr absl::string_view kPackage = "//gimli/testdata:";
+        if (!absl::StartsWith(label, kPackage)) {
+          LOG(ERROR) << "⏺️ Recording only works for target in " << kPackage
+                     << ", got " << label;
+          return;
+        }
+        const auto path = (*testdata_ / absl::StripPrefix(label, kPackage))
+                              .replace_extension(".textproto");
+
+        std::string contents;
+        if (!google::protobuf::TextFormat::PrintToString(recording_,
+                                                         &contents)) {
+          LOG(ERROR) << "⏺️ Recording failed, couldn't print to text format";
+          return;
+        }
+
+        std::fstream stream(path, std::ios::out | std::ios::trunc);
+        stream << contents;
+        LOG(INFO) << "⏺️ Recorded " << path;
+      }
 
     private:
-      std::map<std::string, std::string> label_stderr_;
+      void Process(const google::protobuf::Any &bazel_event) {
+        BuildEvent build_event;
+        if (!bazel_event.UnpackTo(&build_event)) {
+          return;
+        }
+        // Log the events if vlog is enabled via `--vmodule=gimli_server=1`.
+        // Mostly seful for learning the poorly documented Build Event Protocol.
+        VLOG(1) << "🐱" << IdName(build_event.id().id_case()) << "/"
+                << PayloadName(build_event.payload_case()) << " -> "
+                << build_event.children_size();
+        for (const auto &child : build_event.children()) {
+          VLOG(1) << "  🐶" << IdName(child.id_case());
+        }
+        // If in recording mode, save the build event and the configured targets
+        if (testdata_.has_value()) {
+          *recording_.add_build_events() = build_event;
+          if (build_event.payload_case() == BuildEvent::kConfigured) {
+            labels_.push_back(build_event.id().target_configured().label());
+          }
+        }
+
+        if (build_event.payload_case() == BuildEvent::kStarted) {
+          // TODO: save the workspace directory to associate errors to it.
+          VLOG(1) << " 🔨 in " << build_event.started().workspace_directory();
+        }
+        if (build_event.payload_case() == BuildEvent::kProgress) {
+          // TODO(xdecoret): parse be.progress().stderr() into warnings,
+          // errors, and ignoring things in bazel_out.
+        }
+      }
+
+      std::optional<std::filesystem::path> testdata_;
+      std::vector<std::string> labels_;
+      gimli::Recording recording_;
+
       PublishBuildToolEventStreamRequest request_;
       PublishBuildToolEventStreamResponse response_;
     };
-    return new Reactor();
+
+    return new Reactor(testdata_);
   }
+
+private:
+  std::optional<std::filesystem::path> testdata_;
 };
 
 } // namespace
@@ -138,9 +215,21 @@ void sigint_handler(int signal) {
 } // namespace
 
 int main(int argc, char **argv) {
+
   absl::ParseCommandLine(argc, argv);
   absl::InitializeLog();
   absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
+
+  std::optional<std::filesystem::path> testdata;
+  if (absl::GetFlag(FLAGS_record)) {
+    const char *workspace = std::getenv("BUILD_WORKSPACE_DIRECTORY");
+    if (workspace == nullptr) {
+      std::cerr << "--record only work when executed via `blaze run`\n";
+      return 1;
+    }
+    testdata = std::filesystem::path(workspace) / "gimli" / "testdata";
+    LOG(INFO) << "⏺️ Recording in " << *testdata;
+  }
 
   const uint16_t port = absl::GetFlag(FLAGS_port);
   const std::string address = absl::StrCat("127.0.0.1:", port);
@@ -149,7 +238,7 @@ int main(int argc, char **argv) {
 
   std::signal(SIGINT, sigint_handler);
   GimliServiceImpl gimli_service;
-  PublishBuildEventCallbackServiceImpl pbes_callback_service;
+  PublishBuildEventCallbackServiceImpl pbes_callback_service(testdata);
 
   grpc::ServerBuilder builder;
   builder.AddListeningPort(address, grpc::InsecureServerCredentials());

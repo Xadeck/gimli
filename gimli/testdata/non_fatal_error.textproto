@@ -1,0 +1,1786 @@
+build_events {
+  id {
+    started {
+    }
+  }
+  children {
+    progress {
+    }
+  }
+  children {
+    unstructured_command_line {
+    }
+  }
+  children {
+    structured_command_line {
+      command_line_label: "original"
+    }
+  }
+  children {
+    structured_command_line {
+      command_line_label: "canonical"
+    }
+  }
+  children {
+    structured_command_line {
+      command_line_label: "tool"
+    }
+  }
+  children {
+    build_metadata {
+    }
+  }
+  children {
+    options_parsed {
+    }
+  }
+  children {
+    workspace_status {
+    }
+  }
+  children {
+    pattern {
+      pattern: "//gimli/testdata:non_fatal_error"
+    }
+  }
+  children {
+    build_finished {
+    }
+  }
+  started {
+    uuid: "7182f0d6-582e-460b-898f-d991e058b41b"
+    start_time_millis: 1764240432813
+    build_tool_version: "8.4.2-homebrew"
+    options_description: "--features=-module_maps --bes_backend=grpc://127.0.0.1:8080"
+    command: "build"
+    working_directory: "/Users/xdecoret/gimli"
+    workspace_directory: "/Users/xdecoret/gimli"
+    server_pid: 53967
+    start_time {
+      seconds: 1764240432
+      nanos: 813000000
+    }
+  }
+}
+build_events {
+  id {
+    build_metadata {
+    }
+  }
+  build_metadata {
+  }
+}
+build_events {
+  id {
+    unstructured_command_line {
+    }
+  }
+  unstructured_command_line {
+    args: "build"
+    args: "--startup_time=15"
+    args: "--command_wait_time=0"
+    args: "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel"
+    args: "--rc_source=client"
+    args: "--default_override=0:common=--isatty=1"
+    args: "--default_override=0:common=--terminal_columns=123"
+    args: "--rc_source=/Users/xdecoret/gimli/.bazelrc"
+    args: "--default_override=1:build:clang-tidy=--aspects"
+    args: "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect"
+    args: "--default_override=1:build:clang-tidy=--output_groups=report"
+    args: "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config"
+    args: "--default_override=1:build=--features=-module_maps"
+    args: "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:"
+    args: "--client_env=SSH_AGENT_PID=9385"
+    args: "--client_env=SHELL=/usr/local/bin/fish"
+    args: "--client_env=TERM=xterm-kitty"
+    args: "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc"
+    args: "--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/"
+    args: "--client_env=WINDOWID=19179"
+    args: "--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m"
+    args: "--client_env=USER=xdecoret"
+    args: "--client_env=_tide_pad= "
+    args: "--client_env=COMMAND_MODE=unix2003"
+    args: "--client_env=SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369"
+    args: "--client_env=__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0"
+    args: "--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'"
+    args: "--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS"
+    args: "--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment"
+    args: "--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty"
+    args: "--client_env=PWD=/Users/xdecoret/gimli"
+    args: "--client_env=LOG4J_FORMAT_MSG_NO_LOOKUPS=true"
+    args: "--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+    args: "--client_env=KITTY_PID=13292"
+    args: "--client_env=EDITOR=/opt/homebrew/bin/nvim"
+    args: "--client_env=LANG=en_US.UTF-8"
+    args: "--client_env=XPC_FLAGS=0x0"
+    args: "--client_env=XPC_SERVICE_NAME=0"
+    args: "--client_env=HOME=/Users/xdecoret"
+    args: "--client_env=SHLVL=1"
+    args: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
+    args: "--client_env=LANGUAGE=en_US"
+    args: "--client_env=LESS=-R"
+    args: "--client_env=LOGNAME=xdecoret"
+    args: "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
+    args: "--client_env=KITTY_WINDOW_ID=9"
+    args: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+    args: "--client_env=_tide_location_color=\033[38;2;0;0;0m"
+    args: "--client_env=COLORTERM=truecolor"
+    args: "--client_cwd=/Users/xdecoret/gimli"
+    args: "//gimli/testdata:non_fatal_error"
+    args: "--bes_backend=grpc://127.0.0.1:8080"
+  }
+}
+build_events {
+  id {
+    options_parsed {
+    }
+  }
+  options_parsed {
+    startup_options: "--max_idle_secs=10800"
+    startup_options: "--noshutdown_on_low_sys_mem"
+    startup_options: "--connect_timeout_secs=30"
+    startup_options: "--output_user_root=/var/tmp/_bazel_xdecoret"
+    startup_options: "--output_base=/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482"
+    startup_options: "--failure_detail_out=/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto"
+    startup_options: "--idle_server_tasks"
+    startup_options: "--write_command_log"
+    startup_options: "--nowatchfs"
+    startup_options: "--nofatal_event_bus_exceptions"
+    startup_options: "--nowindows_enable_symlinks"
+    startup_options: "--noclient_debug"
+    cmd_line: "--features=-module_maps"
+    cmd_line: "--bes_backend=grpc://127.0.0.1:8080"
+    explicit_cmd_line: "--bes_backend=grpc://127.0.0.1:8080"
+    invocation_policy {
+    }
+  }
+}
+build_events {
+  id {
+    structured_command_line {
+      command_line_label: "original"
+    }
+  }
+  structured_command_line {
+    command_line_label: "original"
+    sections {
+      section_label: "executable"
+      chunk_list {
+        chunk: "bazel"
+      }
+    }
+    sections {
+      section_label: "startup options"
+      option_list {
+      }
+    }
+    sections {
+      section_label: "command"
+      chunk_list {
+        chunk: "build"
+      }
+    }
+    sections {
+      section_label: "command options"
+      option_list {
+        option {
+          combined_form: "--rc_source=client"
+          option_name: "rc_source"
+          option_value: "client"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=0:common=--isatty=1"
+          option_name: "default_override"
+          option_value: "0:common=--isatty=1"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=0:common=--terminal_columns=123"
+          option_name: "default_override"
+          option_value: "0:common=--terminal_columns=123"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--rc_source=/Users/xdecoret/gimli/.bazelrc"
+          option_name: "rc_source"
+          option_value: "/Users/xdecoret/gimli/.bazelrc"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=--aspects"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=--aspects"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=--output_groups=report"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=--output_groups=report"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build=--features=-module_maps"
+          option_name: "default_override"
+          option_value: "1:build=--features=-module_maps"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--startup_time=15"
+          option_name: "startup_time"
+          option_value: "15"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--command_wait_time=0"
+          option_name: "command_wait_time"
+          option_value: "0"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel"
+          option_name: "binary_path"
+          option_value: "/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:"
+          option_name: "client_env"
+          option_value: "MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SSH_AGENT_PID=9385"
+          option_name: "client_env"
+          option_value: "SSH_AGENT_PID=9385"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SHELL=/usr/local/bin/fish"
+          option_name: "client_env"
+          option_value: "SHELL=/usr/local/bin/fish"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=TERM=xterm-kitty"
+          option_name: "client_env"
+          option_value: "TERM=xterm-kitty"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc"
+          option_name: "client_env"
+          option_value: "RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/"
+          option_name: "client_env"
+          option_value: "TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=WINDOWID=19179"
+          option_name: "client_env"
+          option_value: "WINDOWID=19179"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m"
+          option_name: "client_env"
+          option_value: "_tide_color_separator_same_color=\033[38;2;148;148;148m"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=USER=xdecoret"
+          option_name: "client_env"
+          option_value: "USER=xdecoret"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=_tide_pad= "
+          option_name: "client_env"
+          option_value: "_tide_pad= "
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=COMMAND_MODE=unix2003"
+          option_name: "client_env"
+          option_value: "COMMAND_MODE=unix2003"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369"
+          option_name: "client_env"
+          option_value: "SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0"
+          option_name: "client_env"
+          option_value: "__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'"
+          option_name: "client_env"
+          option_value: "FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS"
+          option_name: "client_env"
+          option_value: "PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment"
+          option_name: "client_env"
+          option_value: "SSH_ENV=/Users/xdecoret/.ssh/environment"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty"
+          option_name: "client_env"
+          option_value: "__CFBundleIdentifier=net.kovidgoyal.kitty"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=PWD=/Users/xdecoret/gimli"
+          option_name: "client_env"
+          option_value: "PWD=/Users/xdecoret/gimli"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LOG4J_FORMAT_MSG_NO_LOOKUPS=true"
+          option_name: "client_env"
+          option_value: "LOG4J_FORMAT_MSG_NO_LOOKUPS=true"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+          option_name: "client_env"
+          option_value: "JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_PID=13292"
+          option_name: "client_env"
+          option_value: "KITTY_PID=13292"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=EDITOR=/opt/homebrew/bin/nvim"
+          option_name: "client_env"
+          option_value: "EDITOR=/opt/homebrew/bin/nvim"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LANG=en_US.UTF-8"
+          option_name: "client_env"
+          option_value: "LANG=en_US.UTF-8"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=XPC_FLAGS=0x0"
+          option_name: "client_env"
+          option_value: "XPC_FLAGS=0x0"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=XPC_SERVICE_NAME=0"
+          option_name: "client_env"
+          option_value: "XPC_SERVICE_NAME=0"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=HOME=/Users/xdecoret"
+          option_name: "client_env"
+          option_value: "HOME=/Users/xdecoret"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SHLVL=1"
+          option_name: "client_env"
+          option_value: "SHLVL=1"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
+          option_name: "client_env"
+          option_value: "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LANGUAGE=en_US"
+          option_name: "client_env"
+          option_value: "LANGUAGE=en_US"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LESS=-R"
+          option_name: "client_env"
+          option_value: "LESS=-R"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LOGNAME=xdecoret"
+          option_name: "client_env"
+          option_value: "LOGNAME=xdecoret"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
+          option_name: "client_env"
+          option_value: "KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_WINDOW_ID=9"
+          option_name: "client_env"
+          option_value: "KITTY_WINDOW_ID=9"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+          option_name: "client_env"
+          option_value: "KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=_tide_location_color=\033[38;2;0;0;0m"
+          option_name: "client_env"
+          option_value: "_tide_location_color=\033[38;2;0;0;0m"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=COLORTERM=truecolor"
+          option_name: "client_env"
+          option_value: "COLORTERM=truecolor"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_cwd=/Users/xdecoret/gimli"
+          option_name: "client_cwd"
+          option_value: "/Users/xdecoret/gimli"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--bes_backend=grpc://127.0.0.1:8080"
+          option_name: "bes_backend"
+          option_value: "grpc://127.0.0.1:8080"
+          effect_tags: AFFECTS_OUTPUTS
+        }
+      }
+    }
+    sections {
+      section_label: "residual"
+      chunk_list {
+        chunk: "//gimli/testdata:non_fatal_error"
+      }
+    }
+  }
+}
+build_events {
+  id {
+    structured_command_line {
+      command_line_label: "canonical"
+    }
+  }
+  structured_command_line {
+    command_line_label: "canonical"
+    sections {
+      section_label: "executable"
+      chunk_list {
+        chunk: "bazel"
+      }
+    }
+    sections {
+      section_label: "startup options"
+      option_list {
+        option {
+          combined_form: "--max_idle_secs=10800"
+          option_name: "max_idle_secs"
+          option_value: "10800"
+          effect_tags: EAGERNESS_TO_EXIT
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--noshutdown_on_low_sys_mem"
+          option_name: "shutdown_on_low_sys_mem"
+          option_value: "0"
+          effect_tags: EAGERNESS_TO_EXIT
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--connect_timeout_secs=30"
+          option_name: "connect_timeout_secs"
+          option_value: "30"
+          effect_tags: BAZEL_INTERNAL_CONFIGURATION
+        }
+        option {
+          combined_form: "--output_user_root=/var/tmp/_bazel_xdecoret"
+          option_name: "output_user_root"
+          option_value: "/var/tmp/_bazel_xdecoret"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--install_base=/var/tmp/_bazel_xdecoret/install/e04bcadc8c3a0a826a7d4264921fb774"
+          option_name: "install_base"
+          option_value: "/var/tmp/_bazel_xdecoret/install/e04bcadc8c3a0a826a7d4264921fb774"
+          effect_tags: CHANGES_INPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--install_md5=e04bcadc8c3a0a826a7d4264921fb774"
+          option_name: "install_md5"
+          option_value: "e04bcadc8c3a0a826a7d4264921fb774"
+          effect_tags: LOSES_INCREMENTAL_STATE
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--lock_install_base"
+          option_name: "lock_install_base"
+          option_value: "1"
+          effect_tags: BAZEL_INTERNAL_CONFIGURATION
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--output_base=/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482"
+          option_name: "output_base"
+          option_value: "/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--workspace_directory=/Users/xdecoret/gimli"
+          option_name: "workspace_directory"
+          option_value: "/Users/xdecoret/gimli"
+          effect_tags: CHANGES_INPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_system_javabase=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+          option_name: "default_system_javabase"
+          option_value: "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+          effect_tags: CHANGES_INPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--failure_detail_out=/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto"
+          option_name: "failure_detail_out"
+          option_value: "/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--idle_server_tasks"
+          option_name: "idle_server_tasks"
+          option_value: "1"
+          effect_tags: LOSES_INCREMENTAL_STATE
+          effect_tags: HOST_MACHINE_RESOURCE_OPTIMIZATIONS
+        }
+        option {
+          combined_form: "--write_command_log"
+          option_name: "write_command_log"
+          option_value: "1"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--nowatchfs"
+          option_name: "watchfs"
+          option_value: "0"
+          effect_tags: UNKNOWN
+          metadata_tags: DEPRECATED
+        }
+        option {
+          combined_form: "--nofatal_event_bus_exceptions"
+          option_name: "fatal_event_bus_exceptions"
+          option_value: "0"
+          effect_tags: EAGERNESS_TO_EXIT
+          effect_tags: LOSES_INCREMENTAL_STATE
+        }
+        option {
+          combined_form: "--nowindows_enable_symlinks"
+          option_name: "windows_enable_symlinks"
+          option_value: "0"
+          effect_tags: BAZEL_INTERNAL_CONFIGURATION
+        }
+        option {
+          combined_form: "--client_debug=false"
+          option_name: "client_debug"
+          option_value: "false"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+        }
+        option {
+          combined_form: "--product_name=Bazel"
+          option_name: "product_name"
+          option_value: "Bazel"
+          effect_tags: LOSES_INCREMENTAL_STATE
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--option_sources="
+          option_name: "option_sources"
+          effect_tags: AFFECTS_OUTPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--ignore_all_rc_files"
+          option_name: "ignore_all_rc_files"
+          option_value: "1"
+          effect_tags: CHANGES_INPUTS
+        }
+      }
+    }
+    sections {
+      section_label: "command"
+      chunk_list {
+        chunk: "build"
+      }
+    }
+    sections {
+      section_label: "command options"
+      option_list {
+        option {
+          combined_form: "--isatty=1"
+          option_name: "isatty"
+          option_value: "1"
+          effect_tags: UNKNOWN
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--terminal_columns=123"
+          option_name: "terminal_columns"
+          option_value: "123"
+          effect_tags: UNKNOWN
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--features=-module_maps"
+          option_name: "features"
+          option_value: "-module_maps"
+          effect_tags: CHANGES_INPUTS
+          effect_tags: AFFECTS_OUTPUTS
+        }
+        option {
+          combined_form: "--rc_source=client"
+          option_name: "rc_source"
+          option_value: "client"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=0:common=--isatty=1"
+          option_name: "default_override"
+          option_value: "0:common=--isatty=1"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=0:common=--terminal_columns=123"
+          option_name: "default_override"
+          option_value: "0:common=--terminal_columns=123"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--rc_source=/Users/xdecoret/gimli/.bazelrc"
+          option_name: "rc_source"
+          option_value: "/Users/xdecoret/gimli/.bazelrc"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=--aspects"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=--aspects"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=--output_groups=report"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=--output_groups=report"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config"
+          option_name: "default_override"
+          option_value: "1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=1:build=--features=-module_maps"
+          option_name: "default_override"
+          option_value: "1:build=--features=-module_maps"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--startup_time=15"
+          option_name: "startup_time"
+          option_value: "15"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--command_wait_time=0"
+          option_name: "command_wait_time"
+          option_value: "0"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel"
+          option_name: "binary_path"
+          option_value: "/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel"
+          effect_tags: AFFECTS_OUTPUTS
+          effect_tags: BAZEL_MONITORING
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:"
+          option_name: "client_env"
+          option_value: "MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SSH_AGENT_PID=9385"
+          option_name: "client_env"
+          option_value: "SSH_AGENT_PID=9385"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SHELL=/usr/local/bin/fish"
+          option_name: "client_env"
+          option_value: "SHELL=/usr/local/bin/fish"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=TERM=xterm-kitty"
+          option_name: "client_env"
+          option_value: "TERM=xterm-kitty"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc"
+          option_name: "client_env"
+          option_value: "RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/"
+          option_name: "client_env"
+          option_value: "TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=WINDOWID=19179"
+          option_name: "client_env"
+          option_value: "WINDOWID=19179"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m"
+          option_name: "client_env"
+          option_value: "_tide_color_separator_same_color=\033[38;2;148;148;148m"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=USER=xdecoret"
+          option_name: "client_env"
+          option_value: "USER=xdecoret"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=_tide_pad= "
+          option_name: "client_env"
+          option_value: "_tide_pad= "
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=COMMAND_MODE=unix2003"
+          option_name: "client_env"
+          option_value: "COMMAND_MODE=unix2003"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369"
+          option_name: "client_env"
+          option_value: "SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0"
+          option_name: "client_env"
+          option_value: "__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'"
+          option_name: "client_env"
+          option_value: "FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS"
+          option_name: "client_env"
+          option_value: "PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment"
+          option_name: "client_env"
+          option_value: "SSH_ENV=/Users/xdecoret/.ssh/environment"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty"
+          option_name: "client_env"
+          option_value: "__CFBundleIdentifier=net.kovidgoyal.kitty"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=PWD=/Users/xdecoret/gimli"
+          option_name: "client_env"
+          option_value: "PWD=/Users/xdecoret/gimli"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LOG4J_FORMAT_MSG_NO_LOOKUPS=true"
+          option_name: "client_env"
+          option_value: "LOG4J_FORMAT_MSG_NO_LOOKUPS=true"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+          option_name: "client_env"
+          option_value: "JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_PID=13292"
+          option_name: "client_env"
+          option_value: "KITTY_PID=13292"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=EDITOR=/opt/homebrew/bin/nvim"
+          option_name: "client_env"
+          option_value: "EDITOR=/opt/homebrew/bin/nvim"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LANG=en_US.UTF-8"
+          option_name: "client_env"
+          option_value: "LANG=en_US.UTF-8"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=XPC_FLAGS=0x0"
+          option_name: "client_env"
+          option_value: "XPC_FLAGS=0x0"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=XPC_SERVICE_NAME=0"
+          option_name: "client_env"
+          option_value: "XPC_SERVICE_NAME=0"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=HOME=/Users/xdecoret"
+          option_name: "client_env"
+          option_value: "HOME=/Users/xdecoret"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=SHLVL=1"
+          option_name: "client_env"
+          option_value: "SHLVL=1"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
+          option_name: "client_env"
+          option_value: "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LANGUAGE=en_US"
+          option_name: "client_env"
+          option_value: "LANGUAGE=en_US"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LESS=-R"
+          option_name: "client_env"
+          option_value: "LESS=-R"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=LOGNAME=xdecoret"
+          option_name: "client_env"
+          option_value: "LOGNAME=xdecoret"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
+          option_name: "client_env"
+          option_value: "KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_WINDOW_ID=9"
+          option_name: "client_env"
+          option_value: "KITTY_WINDOW_ID=9"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+          option_name: "client_env"
+          option_value: "KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=_tide_location_color=\033[38;2;0;0;0m"
+          option_name: "client_env"
+          option_value: "_tide_location_color=\033[38;2;0;0;0m"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=COLORTERM=truecolor"
+          option_name: "client_env"
+          option_value: "COLORTERM=truecolor"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_cwd=/Users/xdecoret/gimli"
+          option_name: "client_cwd"
+          option_value: "/Users/xdecoret/gimli"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--bes_backend=grpc://127.0.0.1:8080"
+          option_name: "bes_backend"
+          option_value: "grpc://127.0.0.1:8080"
+          effect_tags: AFFECTS_OUTPUTS
+        }
+      }
+    }
+    sections {
+      section_label: "residual"
+      chunk_list {
+        chunk: "//gimli/testdata:non_fatal_error"
+      }
+    }
+  }
+}
+build_events {
+  id {
+    structured_command_line {
+      command_line_label: "tool"
+    }
+  }
+  structured_command_line {
+  }
+}
+build_events {
+  id {
+    pattern {
+      pattern: "//gimli/testdata:non_fatal_error"
+    }
+  }
+  children {
+    target_configured {
+      label: "//gimli/testdata:non_fatal_error"
+    }
+  }
+  expanded {
+  }
+}
+build_events {
+  id {
+    progress {
+    }
+  }
+  children {
+    progress {
+      opaque_count: 1
+    }
+  }
+  children {
+    workspace {
+    }
+  }
+  progress {
+    stderr: "\033[32mComputing main repo mapping:\033[0m \n\r\033[1A\033[K\033[32mLoading:\033[0m \n\r\033[1A\033[K\033[32mLoading:\033[0m 0 packages loaded\n"
+  }
+}
+build_events {
+  id {
+    workspace {
+    }
+  }
+  workspace_info {
+    local_exec_root: "/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/execroot/_main"
+  }
+}
+build_events {
+  id {
+    progress {
+      opaque_count: 1
+    }
+  }
+  children {
+    progress {
+      opaque_count: 2
+    }
+  }
+  children {
+    configuration {
+      id: "01df0d2ba075185f9589501579bd8d26621b33a83f63bfe7af88fe46ed888509"
+    }
+  }
+  progress {
+  }
+}
+build_events {
+  id {
+    configuration {
+      id: "01df0d2ba075185f9589501579bd8d26621b33a83f63bfe7af88fe46ed888509"
+    }
+  }
+  configuration {
+    mnemonic: "darwin_arm64-fastbuild"
+    platform_name: "darwin_arm64"
+    cpu: "darwin_arm64"
+    make_variable {
+      key: "BINDIR"
+      value: "bazel-out/darwin_arm64-fastbuild/bin"
+    }
+    make_variable {
+      key: "COMPILATION_MODE"
+      value: "fastbuild"
+    }
+    make_variable {
+      key: "GENDIR"
+      value: "bazel-out/darwin_arm64-fastbuild/bin"
+    }
+    make_variable {
+      key: "TARGET_CPU"
+      value: "darwin_arm64"
+    }
+  }
+}
+build_events {
+  id {
+    progress {
+      opaque_count: 2
+    }
+  }
+  children {
+    progress {
+      opaque_count: 3
+    }
+  }
+  children {
+    configuration {
+      id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+    }
+  }
+  progress {
+    stderr: "\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n"
+  }
+}
+build_events {
+  id {
+    configuration {
+      id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+    }
+  }
+  configuration {
+    mnemonic: "darwin_arm64-fastbuild"
+    platform_name: "darwin_arm64"
+    cpu: "darwin_arm64"
+    make_variable {
+      key: "BINDIR"
+      value: "bazel-out/darwin_arm64-fastbuild/bin"
+    }
+    make_variable {
+      key: "COMPILATION_MODE"
+      value: "fastbuild"
+    }
+    make_variable {
+      key: "GENDIR"
+      value: "bazel-out/darwin_arm64-fastbuild/bin"
+    }
+    make_variable {
+      key: "TARGET_CPU"
+      value: "darwin_arm64"
+    }
+  }
+}
+build_events {
+  id {
+    target_configured {
+      label: "//gimli/testdata:non_fatal_error"
+    }
+  }
+  children {
+    target_completed {
+      label: "//gimli/testdata:non_fatal_error"
+      configuration {
+        id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+      }
+    }
+  }
+  configured {
+    target_kind: "cc_binary rule"
+    tag: "manual"
+  }
+}
+build_events {
+  id {
+    workspace_status {
+    }
+  }
+  workspace_status {
+    item {
+      key: "BUILD_EMBED_LABEL"
+    }
+    item {
+      key: "BUILD_HOST"
+      value: "xdecoret-macbookpro.roam.internal"
+    }
+    item {
+      key: "BUILD_TIMESTAMP"
+      value: "1764240432"
+    }
+    item {
+      key: "BUILD_USER"
+      value: "xdecoret"
+    }
+    item {
+      key: "FORMATTED_DATE"
+      value: "2025 Nov 27 10 47 12 Thu"
+    }
+  }
+}
+build_events {
+  id {
+    progress {
+      opaque_count: 3
+    }
+  }
+  children {
+    progress {
+      opaque_count: 4
+    }
+  }
+  children {
+    action_completed {
+      primary_output: "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o"
+      label: "//gimli/testdata:non_fatal_error"
+      configuration {
+        id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+      }
+    }
+  }
+  progress {
+    stderr: "\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n\n\r\033[1A\033[K\r\033[1A\033[K\033[32mINFO: \033[0mAnalyzed target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured).\n\n\r\033[1A\033[K\033[32m[2 / 4]\033[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+  }
+}
+build_events {
+  id {
+    action_completed {
+      primary_output: "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o"
+      label: "//gimli/testdata:non_fatal_error"
+      configuration {
+        id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+      }
+    }
+  }
+  action {
+    exit_code: 1
+    stderr {
+      name: "stderr"
+      uri: "file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/execroot/_main/bazel-out/_tmp/actions/stderr-3"
+    }
+    label: "//gimli/testdata:non_fatal_error"
+    configuration {
+      id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+    }
+    type: "CppCompile"
+    command_line: "external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh"
+    command_line: "-U_FORTIFY_SOURCE"
+    command_line: "-fstack-protector"
+    command_line: "-Wall"
+    command_line: "-Wthread-safety"
+    command_line: "-Wself-assign"
+    command_line: "-Wunused-but-set-parameter"
+    command_line: "-Wno-free-nonheap-object"
+    command_line: "-fcolor-diagnostics"
+    command_line: "-fno-omit-frame-pointer"
+    command_line: "-std=c++17"
+    command_line: "-frandom-seed=bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o"
+    command_line: "-mmacosx-version-min=15.2"
+    command_line: "-MD"
+    command_line: "-MF"
+    command_line: "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.d"
+    command_line: "-iquote"
+    command_line: "."
+    command_line: "-iquote"
+    command_line: "bazel-out/darwin_arm64-fastbuild/bin"
+    command_line: "-iquote"
+    command_line: "external/bazel_tools"
+    command_line: "-iquote"
+    command_line: "bazel-out/darwin_arm64-fastbuild/bin/external/bazel_tools"
+    command_line: "-c"
+    command_line: "gimli/testdata/non_fatal_error.cc"
+    command_line: "-o"
+    command_line: "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o"
+    command_line: "-no-canonical-prefixes"
+    command_line: "-Wno-builtin-macro-redefined"
+    command_line: "-D__DATE__=\"redacted\""
+    command_line: "-D__TIMESTAMP__=\"redacted\""
+    command_line: "-D__TIME__=\"redacted\""
+    failure_detail {
+      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
+      spawn {
+        code: NON_ZERO_EXIT
+        spawn_exit_code: 1
+      }
+    }
+  }
+}
+build_events {
+  id {
+    target_completed {
+      label: "//gimli/testdata:non_fatal_error"
+      configuration {
+        id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+      }
+    }
+  }
+  children {
+    action_completed {
+      primary_output: "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o"
+      label: "//gimli/testdata:non_fatal_error"
+      configuration {
+        id: "2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633"
+      }
+    }
+  }
+  completed {
+    tag: "manual"
+    failure_detail {
+      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
+      spawn {
+        code: NON_ZERO_EXIT
+        spawn_exit_code: 1
+      }
+    }
+  }
+}
+build_events {
+  id {
+    progress {
+      opaque_count: 4
+    }
+  }
+  children {
+    progress {
+      opaque_count: 5
+    }
+  }
+  children {
+    convenience_symlinks_identified {
+    }
+  }
+  progress {
+    stderr: "\r\033[1A\033[K\033[31m\033[1mERROR: \033[0m/Users/xdecoret/gimli/gimli/testdata/BUILD:3:10: Compiling gimli/testdata/non_fatal_error.cc failed: (Exit 1): cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\n\033[1mgimli/testdata/non_fatal_error.cc:6:16: \033[0m\033[0;1;31merror: \033[0m\033[1muse of undeclared identifier \'y\'\033[0m\n    6 |   std::cout << y << std::endl;\033[0m\n      | \033[0;1;32m               ^\n\033[0m1 error generated.\n\033[32m[2 / 4]\033[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+  }
+}
+build_events {
+  id {
+    convenience_symlinks_identified {
+    }
+  }
+  convenience_symlinks_identified {
+    convenience_symlinks {
+      path: "bazel-bin"
+      action: CREATE
+      target: "execroot/_main/bazel-out/darwin_arm64-fastbuild/bin"
+    }
+    convenience_symlinks {
+      path: "bazel-testlogs"
+      action: CREATE
+      target: "execroot/_main/bazel-out/darwin_arm64-fastbuild/testlogs"
+    }
+    convenience_symlinks {
+      path: "bazel-genfiles"
+      action: DELETE
+    }
+    convenience_symlinks {
+      path: "bazel-out"
+      action: CREATE
+      target: "execroot/_main/bazel-out"
+    }
+    convenience_symlinks {
+      path: "bazel-gimli"
+      action: CREATE
+      target: "execroot/_main"
+    }
+  }
+}
+build_events {
+  id {
+    build_finished {
+    }
+  }
+  children {
+    build_tool_logs {
+    }
+  }
+  children {
+    build_metrics {
+    }
+  }
+  finished {
+    finish_time_millis: 1764240433363
+    exit_code {
+      name: "BUILD_FAILURE"
+      code: 1
+    }
+    finish_time {
+      seconds: 1764240433
+      nanos: 363000000
+    }
+    failure_detail {
+      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
+      spawn {
+        code: NON_ZERO_EXIT
+        spawn_exit_code: 1
+      }
+    }
+  }
+}
+build_events {
+  id {
+    progress {
+      opaque_count: 5
+    }
+  }
+  progress {
+    stderr: "\r\033[1A\033[KTarget //gimli/testdata:non_fatal_error failed to build\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[KUse --verbose_failures to see the command lines of failed build steps.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0mElapsed time: 0.550s, Critical Path: 0.38s\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0m2 processes: 1 action cache hit, 2 internal.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[31m\033[1mERROR: \033[0mBuild did NOT complete successfully\n\033[31m\033[1mFAILED:\033[0m \n\r\033[1A\033[K\033[31m\033[1mFAILED:\033[0m \n"
+  }
+}
+build_events {
+  id {
+    build_tool_logs {
+    }
+  }
+  build_tool_logs {
+    log {
+      name: "elapsed time"
+      contents: "0.550000"
+    }
+    log {
+      name: "critical path"
+      contents: "Critical Path: 0.38s, Remote (0.00% of the time): [parse: 0.00%, queue: 0.00%, network: 0.00%, upload: 0.00%, setup: 0.00%, process: 0.00%, fetch: 0.00%, retry: 0.00%, processOutputs: 0.00%, other: 0.00%, input files: 0, input bytes: 0, memory bytes: 0]\n  0.38s action \'Compiling gimli/testdata/non_fatal_error.cc\'"
+    }
+    log {
+      name: "process stats"
+      contents: "2 processes: 1 action cache hit, 2 internal."
+    }
+    log {
+      name: "command.profile.gz"
+      uri: "file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/command-7182f0d6-582e-460b-898f-d991e058b41b.profile.gz"
+    }
+  }
+}
+build_events {
+  id {
+    build_metrics {
+    }
+  }
+  last_message: true
+  build_metrics {
+    action_summary {
+      actions_executed: 2
+      action_data {
+        mnemonic: "BazelWorkspaceStatusAction"
+        actions_executed: 1
+        first_started_ms: 1764240432971
+        last_ended_ms: 1764240432972
+        actions_created: 7
+      }
+      action_data {
+        mnemonic: "CppCompile"
+        actions_executed: 1
+        first_started_ms: 1764240432975
+        last_ended_ms: 1764240433358
+        actions_created: 30118
+      }
+      action_data {
+        mnemonic: "TranslateBuildInfo"
+        actions_created: 56
+      }
+      action_data {
+        mnemonic: "CcStrip"
+        actions_created: 94
+      }
+      action_data {
+        mnemonic: "GenProto"
+        actions_created: 1884
+      }
+      action_data {
+        mnemonic: "Action"
+        actions_created: 27
+      }
+      action_data {
+        mnemonic: "Middleman"
+        actions_created: 104
+      }
+      action_data {
+        mnemonic: "RepoMappingManifest"
+        actions_created: 105
+      }
+      action_data {
+        mnemonic: "FileWrite"
+        actions_created: 94
+      }
+      action_data {
+        mnemonic: "PythonZipper"
+        actions_created: 1
+      }
+      action_data {
+        mnemonic: "AppleLipo"
+        actions_created: 7
+      }
+      action_data {
+        mnemonic: "TemplateExpand"
+        actions_created: 4
+      }
+      action_data {
+        mnemonic: "CppArchive"
+        actions_created: 8558
+      }
+      action_data {
+        mnemonic: "CppModuleMap"
+        actions_created: 4005
+      }
+      action_data {
+        mnemonic: "SymlinkTree"
+        actions_created: 104
+      }
+      action_data {
+        mnemonic: "Symlink"
+        actions_created: 9227
+      }
+      action_data {
+        mnemonic: "CppLink"
+        actions_created: 94
+      }
+      action_data {
+        mnemonic: "SourceSymlinkManifest"
+        actions_created: 104
+      }
+      action_data {
+        mnemonic: "CopyFile"
+        actions_created: 14
+      }
+      action_data {
+        mnemonic: "PyCompile"
+        actions_created: 2
+      }
+      runner_count {
+        name: "total"
+        count: 2
+      }
+      runner_count {
+        name: "internal"
+        count: 2
+      }
+      action_cache_statistics {
+        size_in_bytes: 3530894
+        hits: 1
+        misses: 2
+        miss_details {
+        }
+        miss_details {
+          reason: DIFFERENT_DEPS
+        }
+        miss_details {
+          reason: DIFFERENT_ENVIRONMENT
+        }
+        miss_details {
+          reason: DIFFERENT_FILES
+        }
+        miss_details {
+          reason: CORRUPTED_CACHE_ENTRY
+        }
+        miss_details {
+          reason: NOT_CACHED
+          count: 1
+        }
+        miss_details {
+          reason: UNCONDITIONAL_EXECUTION
+          count: 1
+        }
+      }
+    }
+    memory_metrics {
+    }
+    target_metrics {
+    }
+    package_metrics {
+    }
+    timing_metrics {
+      cpu_time_in_ms: 901
+      wall_time_in_ms: 536
+      analysis_phase_time_in_ms: 2
+      execution_phase_time_in_ms: 386
+      actions_execution_start_in_ms: 146
+    }
+    cumulative_metrics {
+      num_analyses: 239
+      num_builds: 233
+    }
+    artifact_metrics {
+      source_artifacts_read {
+      }
+      output_artifacts_seen {
+        size_in_bytes: 513
+        count: 3
+      }
+      output_artifacts_from_action_cache {
+        size_in_bytes: 362
+        count: 1
+      }
+      top_level_artifacts {
+      }
+    }
+    build_graph_metrics {
+      action_lookup_value_count: 52
+      action_count: 12
+      output_artifact_count: 14
+      post_invocation_skyframe_node_count: 64898
+      action_lookup_value_count_not_including_aspects: 51
+      action_count_not_including_aspects: 11
+      input_file_configured_target_count: 14
+      other_configured_target_count: 7
+      dirtied_values {
+        skyfunction_name: "DIRECTORY_LISTING"
+        count: 1
+      }
+      dirtied_values {
+        skyfunction_name: "ACTION_EXECUTION"
+        count: 1643
+      }
+      dirtied_values {
+        skyfunction_name: "TARGET_PATTERN"
+        count: 2
+      }
+      dirtied_values {
+        skyfunction_name: "BUILD_DRIVER"
+        count: 1
+      }
+      dirtied_values {
+        skyfunction_name: "ARTIFACT_NESTED_SET"
+        count: 1403
+      }
+      dirtied_values {
+        skyfunction_name: "RECURSIVE_PKG"
+        count: 2
+      }
+      dirtied_values {
+        skyfunction_name: "ARTIFACT"
+        count: 9
+      }
+      dirtied_values {
+        skyfunction_name: "TARGET_COMPLETION"
+        count: 1
+      }
+      dirtied_values {
+        skyfunction_name: "TARGET_PATTERN_PHASE"
+        count: 1
+      }
+      changed_values {
+        skyfunction_name: "CLIENT_ENVIRONMENT_VARIABLE"
+        count: 1
+      }
+      changed_values {
+        skyfunction_name: "ERROR_TRANSIENCE"
+        count: 1
+      }
+      changed_values {
+        skyfunction_name: "DIRECTORY_LISTING_STATE"
+        count: 1
+      }
+      changed_values {
+        skyfunction_name: "PRECOMPUTED"
+        count: 1
+      }
+      built_values {
+        skyfunction_name: "ACTION_EXECUTION"
+        count: 3
+      }
+      evaluated_values {
+        skyfunction_name: "ACTION_EXECUTION"
+        count: 5
+      }
+      evaluated_values {
+        skyfunction_name: "BUILD_DRIVER"
+        count: 1
+      }
+      evaluated_values {
+        skyfunction_name: "ARTIFACT"
+        count: 1
+      }
+      evaluated_values {
+        skyfunction_name: "TARGET_COMPLETION"
+        count: 1
+      }
+    }
+    network_metrics {
+      system_network_stats {
+        bytes_sent: 1784121344
+        bytes_recv: 4672821248
+        packets_sent: 2621347
+        packets_recv: 4869316
+        peak_bytes_sent_per_sec: 6838794655
+        peak_bytes_recv_per_sec: 14015105949
+        peak_packets_sent_per_sec: 8156012
+        peak_packets_recv_per_sec: 14181441
+      }
+    }
+    worker_pool_metrics {
+    }
+    dynamic_execution_metrics {
+    }
+  }
+}
