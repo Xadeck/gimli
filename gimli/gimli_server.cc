@@ -50,6 +50,7 @@ void sigint_handler(int signal) {
 } // namespace
 
 int main(int argc, char **argv) {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   absl::ParseCommandLine(argc, argv);
   absl::InitializeLog();
@@ -88,5 +89,6 @@ int main(int argc, char **argv) {
   server->Shutdown();
   LOG(INFO) << "Server down on " << address;
 
+  google::protobuf::ShutdownProtobufLibrary();
   return 0;
 }
