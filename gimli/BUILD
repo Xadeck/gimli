@@ -30,6 +30,19 @@ cc_proto_library(
     ],
 )
 
+cc_library(
+    name = "publish_build_event_callback_service_impl",
+    srcs = ["publish_build_event_callback_service_impl.cc"],
+    hdrs = ["publish_build_event_callback_service_impl.h"],
+    deps = [
+        ":build_event_stream_cc_proto",
+        ":gimli_cc_proto",
+        "@abseil-cpp//absl/log",
+        "@googleapis//google/devtools/build/v1:build_cc_grpc",
+        "@googleapis//google/devtools/build/v1:build_cc_proto",
+    ],
+)
+
 cc_binary(
     name = "gimli_server",
     srcs = ["gimli_server.cc"],
@@ -37,6 +50,7 @@ cc_binary(
         ":build_event_stream_cc_proto",
         ":gimli_cc_grpc",
         ":gimli_cc_proto",
+        ":publish_build_event_callback_service_impl",
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
         "@abseil-cpp//absl/log",
