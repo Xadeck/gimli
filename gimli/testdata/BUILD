@@ -1,3 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
 # Targets all have the "manual" tag,  see README.md in this directory.
 
 cc_binary(
