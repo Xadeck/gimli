@@ -2,13 +2,21 @@
 #include "absl/cleanup/cleanup.h"
 #include "absl/log/log.h"
 #include "absl/strings/match.h"
+#include "absl/strings/string_view.h"
 #include "absl/strings/strip.h"
-#include "gimli/gimli.pb.h"
 #include "gimli/recording.pb.h"
+#include "google/devtools/build/v1/build_events.pb.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
+#include "google/protobuf/any.pb.h"
+#include "google/protobuf/descriptor.h"
 #include "google/protobuf/text_format.h"
+#include "grpcpp/server_context.h"
+#include "grpcpp/support/server_callback.h"
+#include "grpcpp/support/status.h"
 #include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
 #include <fstream>
+#include <string>
+#include <vector>
 
 namespace gimli {
 namespace {

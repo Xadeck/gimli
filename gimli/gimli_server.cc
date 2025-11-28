@@ -1,3 +1,4 @@
+#include "absl/base/log_severity.h"
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
 #include "absl/log/globals.h"
@@ -7,11 +8,17 @@
 #include "absl/strings/string_view.h"
 #include "gimli/gimli_service_impl.h"
 #include "gimli/publish_build_event_callback_service_impl.h"
+#include "google/protobuf/stubs/common.h"
 #include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
+#include "grpcpp/security/server_credentials.h"
+#include <chrono>
 #include <csignal>
 #include <cstdint>
+#include <cstdlib>
 #include <filesystem>
+#include <iostream>
+#include <memory>
 #include <optional>
 #include <string>
 #include <thread>

@@ -1,3 +1,4 @@
+#include "absl/base/log_severity.h"
 #include "absl/log/globals.h"
 #include "absl/log/initialize.h"
 #include "absl/strings/str_cat.h"
@@ -6,9 +7,15 @@
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "google/protobuf/text_format.h"
 #include "grpcpp/grpcpp.h"
+#include "grpcpp/security/credentials.h"
+#include "grpcpp/security/server_credentials.h"
+#include "grpcpp/support/sync_stream.h"
 #include "gtest/gtest.h"
+#include <cstddef>
 #include <fstream>
-#include <gmock/gmock.h>
+#include <iterator>
+#include <memory>
+#include <string>
 
 namespace gimli {
 namespace {
