@@ -1,7 +1,7 @@
 load("@grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
 load("@protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
 load("@protobuf//bazel:proto_library.bzl", "proto_library")
-load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
 
 cc_proto_library(
     name = "gimli_cc_proto",
@@ -41,6 +41,24 @@ cc_library(
         "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_cc_proto",
         "@googleapis//google/devtools/build/v1:build_cc_grpc",
         "@googleapis//google/devtools/build/v1:build_cc_proto",
+    ],
+)
+
+cc_test(
+    name = "publish_build_event_callback_service_impl_test",
+    size = "small",
+    srcs = ["publish_build_event_callback_service_impl_test.cc"],
+    data = ["//gimli/testdata"],
+    deps = [
+        ":publish_build_event_callback_service_impl",
+        ":recording_cc_proto",
+        "@abseil-cpp//absl/log",
+        "@abseil-cpp//absl/log:globals",
+        "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/strings",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+        "@grpc//:grpc++",
     ],
 )
 
