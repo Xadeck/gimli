@@ -52,12 +52,11 @@ cc_test(
     deps = [
         ":publish_build_event_callback_service_impl",
         ":recording_cc_proto",
-        "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/log:globals",
         "@abseil-cpp//absl/log:initialize",
         "@abseil-cpp//absl/strings",
         "@googletest//:gtest",
-        "@googletest//:gtest_main",
+        "@googletest//:gtest_main",  # keep
         "@grpc//:grpc++",
     ],
 )
@@ -90,6 +89,12 @@ cc_binary(
     ],
 )
 
+cc_proto_library(
+    name = "recording_cc_proto",
+    visibility = ["//visibility:public"],
+    deps = [":recording_proto"],
+)
+
 proto_library(
     name = "gimli_proto",
     srcs = ["gimli.proto"],
@@ -104,10 +109,4 @@ proto_library(
         "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_proto",
         "@googleapis//google/devtools/build/v1:build_proto",
     ],
-)
-
-cc_proto_library(
-    name = "recording_cc_proto",
-    visibility = ["//visibility:public"],
-    deps = [":recording_proto"],
 )

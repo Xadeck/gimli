@@ -1,0 +1,4 @@
+{
+  "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto": "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_proto",
+  "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h": "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_cc_proto"
+}

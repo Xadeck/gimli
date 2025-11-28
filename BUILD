@@ -1,5 +1,6 @@
 # gazelle:cc_group unit
 # gazelle:proto file
+# gazelle:resolve cc grpcpp/grpcpp.h @grpc//:grpc++
 
 load("@gazelle//:def.bzl", "gazelle", "gazelle_binary")
 
