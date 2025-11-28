@@ -2,13 +2,6 @@ edition = "2023";
 
 package gimli;
 
-import "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto";
-
-// List of 
-message Recording {
-  // List of bazel build events extracted from the stream of events received.
-  repeated build_event_stream.BuildEvent build_events = 1;
-}
 
 service Gimli {
   rpc Notify(NotifyRequest) returns (NotifyResponse) {}

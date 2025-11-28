@@ -10,7 +10,6 @@ $ bazel run //gimli:gimli_server -- --record
 In another terminal, run the commands:
 
 ```shell
-$ bazel clean
 $ bazel build --bes_backend=grpc://127.0.0.1:8080 \
     //gimli/external:non_fatal_error
 ```

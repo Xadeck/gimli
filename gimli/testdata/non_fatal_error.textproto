@@ -1,3 +1,524 @@
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 1
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\002\032\000\022\002\022\000\022\002Z\000\022\r\222\001\n\n\010original\022\016\222\001\013\n\tcanonical\022\t\222\001\006\n\004tool\022\003\302\001\000\022\002b\000\022\002r\000\022$\"\"\n //gimli/testdata:non_fatal_error\022\002J\000*\301\001\n$01eefcda-c683-42a2-ad49-68c3313af515\020\344\316\245\344\2543\032\0168.4.2-homebrew\";--features=-module_maps --bes_backend=grpc://127.0.0.1:8080*\005build2\025/Users/xdecoret/gimli:\025/Users/xdecoret/gimli@\317\245\003J\014\010\224\276\250\311\006\020\200\262\277\232\001"
+      }
+    }
+  }
+  notification_keywords: "command_name=build"
+  notification_keywords: "protocol_name=BEP"
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 2
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\003\302\001\000\322\001\000"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 3
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\002Z\000b\306\033\n\005build\n\021--startup_time=31\n\025--command_wait_time=0\n@--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel\n\022--rc_source=client\n&--default_override=0:common=--isatty=1\n2--default_override=0:common=--terminal_columns=123\n*--rc_source=/Users/xdecoret/gimli/.bazelrc\n$--rc_source=/Users/xdecoret/.bazelrc\n/--default_override=1:build:clang-tidy=--aspects\nd--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect\n<--default_override=1:build:clang-tidy=--output_groups=report\nb--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config\n2--default_override=1:build=--features=-module_maps\n+--default_override=2:test=--test_output=all\n4--default_override=2:test=--test_env=GUNIT_COLOR=yes\n#--default_override=2:test=--nostamp\nh--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:\n\037--client_env=SSH_AGENT_PID=9385\n\035--client_env=TERM=xterm-kitty\n&--client_env=SHELL=/usr/local/bin/fish\n;--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc\nE--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/\n\033--client_env=WINDOWID=22151\nA--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m\n\032--client_env=USER=xdecoret\n\030--client_env=_tide_pad= \n\"--client_env=COMMAND_MODE=unix2003\nh--client_env=SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369\n4--client_env=__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0\n\337\002--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'\n\351\004--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS\n5--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment\n6--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty\n&--client_env=PWD=/Users/xdecoret/gimli\n---client_env=LOG4J_FORMAT_MSG_NO_LOOKUPS=true\nU--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\n\034--client_env=KITTY_PID=13292\n*--client_env=EDITOR=/opt/homebrew/bin/nvim\n\035--client_env=LANG=en_US.UTF-8\n\032--client_env=XPC_FLAGS=0x0\n\037--client_env=XPC_SERVICE_NAME=0\n!--client_env=HOME=/Users/xdecoret\n\024--client_env=SHLVL=1\n\033--client_env=LANGUAGE=en_US\nO--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo\n\035--client_env=LOGNAME=xdecoret\n\024--client_env=LESS=-R\n\037--client_env=KITTY_WINDOW_ID=39\nT--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty\n --client_env=COLORTERM=truecolor\n/--client_env=_tide_location_color=\033[38;2;0;0;0m\nH--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2\n\"--client_cwd=/Users/xdecoret/gimli\n#--bes_backend=grpc://127.0.0.1:8080\n //gimli/testdata:non_fatal_error"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 4
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\002b\000j\240\004\n\025--max_idle_secs=10800\n\033--noshutdown_on_low_sys_mem\n\031--connect_timeout_secs=30\n+--output_user_root=/var/tmp/_bazel_xdecoret\nO--output_base=/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482\nf--failure_detail_out=/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto\n\023--idle_server_tasks\n\023--write_command_log\n\013--nowatchfs\n\036--nofatal_event_bus_exceptions\n\033--nowindows_enable_symlinks\n\020--noclient_debug\032\027--features=-module_maps\032#--bes_backend=grpc://127.0.0.1:8080\"#--bes_backend=grpc://127.0.0.1:8080*\000"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 5
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\r\222\001\n\n\010original\262\001\323:\n\010original\022\025\n\nexecutable\022\007\n\005bazel\022\023\n\017startup options\032\000\022\022\n\007command\022\007\n\005build\022\3269\n\017command options\032\3029\n-\n\022--rc_source=client\022\trc_source\032\006client\"\001\003*\001\003\nU\n&--default_override=0:common=--isatty=1\022\020default_override\032\0230:common=--isatty=1\"\001\003*\001\003\nm\n2--default_override=0:common=--terminal_columns=123\022\020default_override\032\0370:common=--terminal_columns=123\"\001\003*\001\003\n]\n*--rc_source=/Users/xdecoret/gimli/.bazelrc\022\trc_source\032\036/Users/xdecoret/gimli/.bazelrc\"\001\003*\001\003\nQ\n$--rc_source=/Users/xdecoret/.bazelrc\022\trc_source\032\030/Users/xdecoret/.bazelrc\"\001\003*\001\003\ng\n/--default_override=1:build:clang-tidy=--aspects\022\020default_override\032\0341:build:clang-tidy=--aspects\"\001\003*\001\003\n\321\001\nd--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect\022\020default_override\032Q1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect\"\001\003*\001\003\n\201\001\n<--default_override=1:build:clang-tidy=--output_groups=report\022\020default_override\032)1:build:clang-tidy=--output_groups=report\"\001\003*\001\003\n\315\001\nb--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config\022\020default_override\032O1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config\"\001\003*\001\003\nm\n2--default_override=1:build=--features=-module_maps\022\020default_override\032\0371:build=--features=-module_maps\"\001\003*\001\003\n_\n+--default_override=2:test=--test_output=all\022\020default_override\032\0302:test=--test_output=all\"\001\003*\001\003\nq\n4--default_override=2:test=--test_env=GUNIT_COLOR=yes\022\020default_override\032!2:test=--test_env=GUNIT_COLOR=yes\"\001\003*\001\003\nO\n#--default_override=2:test=--nostamp\022\020default_override\032\0202:test=--nostamp\"\001\003*\001\003\n,\n\021--startup_time=31\022\014startup_time\032\00231\"\002\004\013*\001\003\n4\n\025--command_wait_time=0\022\021command_wait_time\032\0010\"\002\004\013*\001\003\n\212\001\n@--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel\022\013binary_path\0322/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel\"\002\004\013*\001\003\n\331\001\nh--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:\022\nclient_env\032[MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:\"\001\003*\001\003\nG\n\037--client_env=SSH_AGENT_PID=9385\022\nclient_env\032\022SSH_AGENT_PID=9385\"\001\003*\001\003\nC\n\035--client_env=TERM=xterm-kitty\022\nclient_env\032\020TERM=xterm-kitty\"\001\003*\001\003\nU\n&--client_env=SHELL=/usr/local/bin/fish\022\nclient_env\032\031SHELL=/usr/local/bin/fish\"\001\003*\001\003\n\177\n;--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc\022\nclient_env\032.RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc\"\001\003*\001\003\n\223\001\nE--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/\022\nclient_env\0328TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/\"\001\003*\001\003\n?\n\033--client_env=WINDOWID=22151\022\nclient_env\032\016WINDOWID=22151\"\001\003*\001\003\n\213\001\nA--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m\022\nclient_env\0324_tide_color_separator_same_color=\033[38;2;148;148;148m\"\001\003*\001\003\n=\n\032--client_env=USER=xdecoret\022\nclient_env\032\rUSER=xdecoret\"\001\003*\001\003\n9\n\030--client_env=_tide_pad= \022\nclient_env\032\013_tide_pad= \"\001\003*\001\003\nM\n\"--client_env=COMMAND_MODE=unix2003\022\nclient_env\032\025COMMAND_MODE=unix2003\"\001\003*\001\003\n\331\001\nh--client_env=SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369\022\nclient_env\032[SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369\"\001\003*\001\003\nq\n4--client_env=__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0\022\nclient_env\032\'__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0\"\001\003*\001\003\n\311\005\n\337\002--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'\022\nclient_env\032\322\002FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'\"\001\003*\001\003\n\335\t\n\351\004--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS\022\nclient_env\032\334\004PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS\"\001\003*\001\003\ns\n5--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment\022\nclient_env\032(SSH_ENV=/Users/xdecoret/.ssh/environment\"\001\003*\001\003\nu\n6--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty\022\nclient_env\032)__CFBundleIdentifier=net.kovidgoyal.kitty\"\001\003*\001\003\nU\n&--client_env=PWD=/Users/xdecoret/gimli\022\nclient_env\032\031PWD=/Users/xdecoret/gimli\"\001\003*\001\003\nc\n---client_env=LOG4J_FORMAT_MSG_NO_LOOKUPS=true\022\nclient_env\032 LOG4J_FORMAT_MSG_NO_LOOKUPS=true\"\001\003*\001\003\n\263\001\nU--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\022\nclient_env\032HJAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\"\001\003*\001\003\nA\n\034--client_env=KITTY_PID=13292\022\nclient_env\032\017KITTY_PID=13292\"\001\003*\001\003\n]\n*--client_env=EDITOR=/opt/homebrew/bin/nvim\022\nclient_env\032\035EDITOR=/opt/homebrew/bin/nvim\"\001\003*\001\003\nC\n\035--client_env=LANG=en_US.UTF-8\022\nclient_env\032\020LANG=en_US.UTF-8\"\001\003*\001\003\n=\n\032--client_env=XPC_FLAGS=0x0\022\nclient_env\032\rXPC_FLAGS=0x0\"\001\003*\001\003\nG\n\037--client_env=XPC_SERVICE_NAME=0\022\nclient_env\032\022XPC_SERVICE_NAME=0\"\001\003*\001\003\nK\n!--client_env=HOME=/Users/xdecoret\022\nclient_env\032\024HOME=/Users/xdecoret\"\001\003*\001\003\n1\n\024--client_env=SHLVL=1\022\nclient_env\032\007SHLVL=1\"\001\003*\001\003\n?\n\033--client_env=LANGUAGE=en_US\022\nclient_env\032\016LANGUAGE=en_US\"\001\003*\001\003\n\247\001\nO--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo\022\nclient_env\032BTERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo\"\001\003*\001\003\nC\n\035--client_env=LOGNAME=xdecoret\022\nclient_env\032\020LOGNAME=xdecoret\"\001\003*\001\003\n1\n\024--client_env=LESS=-R\022\nclient_env\032\007LESS=-R\"\001\003*\001\003\nG\n\037--client_env=KITTY_WINDOW_ID=39\022\nclient_env\032\022KITTY_WINDOW_ID=39\"\001\003*\001\003\n\261\001\nT--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty\022\nclient_env\032GKITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty\"\001\003*\001\003\nI\n --client_env=COLORTERM=truecolor\022\nclient_env\032\023COLORTERM=truecolor\"\001\003*\001\003\ng\n/--client_env=_tide_location_color=\033[38;2;0;0;0m\022\nclient_env\032\"_tide_location_color=\033[38;2;0;0;0m\"\001\003*\001\003\n\231\001\nH--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2\022\nclient_env\032;KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2\"\001\003*\001\003\nM\n\"--client_cwd=/Users/xdecoret/gimli\022\nclient_cwd\032\025/Users/xdecoret/gimli\"\001\003*\001\003\nL\n#--bes_backend=grpc://127.0.0.1:8080\022\013bes_backend\032\025grpc://127.0.0.1:8080\"\001\004\022.\n\010residual\022\"\n //gimli/testdata:non_fatal_error"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 6
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\016\222\001\013\n\tcanonical\262\001\236I\n\tcanonical\022\025\n\nexecutable\022\007\n\005bazel\022\317\r\n\017startup options\032\273\r\n1\n\025--max_idle_secs=10800\022\rmax_idle_secs\032\00510800\"\002\n\002\n=\n\033--noshutdown_on_low_sys_mem\022\027shutdown_on_low_sys_mem\032\0010\"\002\n\002\n8\n\031--connect_timeout_secs=30\022\024connect_timeout_secs\032\00230\"\001\006\n]\n+--output_user_root=/var/tmp/_bazel_xdecoret\022\020output_user_root\032\030/var/tmp/_bazel_xdecoret\"\002\004\002\n\252\001\nP--install_base=/var/tmp/_bazel_xdecoret/install/e04bcadc8c3a0a826a7d4264921fb774\022\014install_base\032A/var/tmp/_bazel_xdecoret/install/e04bcadc8c3a0a826a7d4264921fb774\"\002\003\002*\001\003\nf\n.--install_md5=e04bcadc8c3a0a826a7d4264921fb774\022\013install_md5\032 e04bcadc8c3a0a826a7d4264921fb774\"\002\002\013*\001\003\n1\n\023--lock_install_base\022\021lock_install_base\032\0011\"\001\006*\001\003\n\245\001\nO--output_base=/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482\022\013output_base\032A/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482\"\002\004\002\n`\n+--workspace_directory=/Users/xdecoret/gimli\022\023workspace_directory\032\025/Users/xdecoret/gimli\"\002\003\002*\001\003\n\272\001\nX--default_system_javabase=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\022\027default_system_javabase\032>/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\"\002\003\002*\001\003\n\323\001\nf--failure_detail_out=/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto\022\022failure_detail_out\032Q/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto\"\002\004\002\n/\n\023--idle_server_tasks\022\021idle_server_tasks\032\0011\"\002\002\t\n/\n\023--write_command_log\022\021write_command_log\032\0011\"\002\004\002\n\037\n\013--nowatchfs\022\007watchfs\032\0010\"\001\000*\001\002\nC\n\036--nofatal_event_bus_exceptions\022\032fatal_event_bus_exceptions\032\0010\"\002\n\002\n<\n\033--nowindows_enable_symlinks\022\027windows_enable_symlinks\032\0010\"\001\006\n/\n\024--client_debug=false\022\014client_debug\032\005false\"\002\004\013\n3\n\024--product_name=Bazel\022\014product_name\032\005Bazel\"\003\002\004\013*\001\003\n)\n\021--option_sources=\022\016option_sources\"\001\004*\001\003\n2\n\025--ignore_all_rc_files\022\023ignore_all_rc_files\032\0011\"\001\003\022\022\n\007command\022\007\n\005build\022\343:\n\017command options\032\317:\n\035\n\n--isatty=1\022\006isatty\032\0011\"\001\000*\001\003\n5\n\026--terminal_columns=123\022\020terminal_columns\032\003123\"\001\000*\001\003\n5\n\027--features=-module_maps\022\010features\032\014-module_maps\"\002\003\004\n-\n\022--rc_source=client\022\trc_source\032\006client\"\001\003*\001\003\nU\n&--default_override=0:common=--isatty=1\022\020default_override\032\0230:common=--isatty=1\"\001\003*\001\003\nm\n2--default_override=0:common=--terminal_columns=123\022\020default_override\032\0370:common=--terminal_columns=123\"\001\003*\001\003\n]\n*--rc_source=/Users/xdecoret/gimli/.bazelrc\022\trc_source\032\036/Users/xdecoret/gimli/.bazelrc\"\001\003*\001\003\nQ\n$--rc_source=/Users/xdecoret/.bazelrc\022\trc_source\032\030/Users/xdecoret/.bazelrc\"\001\003*\001\003\ng\n/--default_override=1:build:clang-tidy=--aspects\022\020default_override\032\0341:build:clang-tidy=--aspects\"\001\003*\001\003\n\321\001\nd--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect\022\020default_override\032Q1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect\"\001\003*\001\003\n\201\001\n<--default_override=1:build:clang-tidy=--output_groups=report\022\020default_override\032)1:build:clang-tidy=--output_groups=report\"\001\003*\001\003\n\315\001\nb--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config\022\020default_override\032O1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config\"\001\003*\001\003\nm\n2--default_override=1:build=--features=-module_maps\022\020default_override\032\0371:build=--features=-module_maps\"\001\003*\001\003\n_\n+--default_override=2:test=--test_output=all\022\020default_override\032\0302:test=--test_output=all\"\001\003*\001\003\nq\n4--default_override=2:test=--test_env=GUNIT_COLOR=yes\022\020default_override\032!2:test=--test_env=GUNIT_COLOR=yes\"\001\003*\001\003\nO\n#--default_override=2:test=--nostamp\022\020default_override\032\0202:test=--nostamp\"\001\003*\001\003\n,\n\021--startup_time=31\022\014startup_time\032\00231\"\002\004\013*\001\003\n4\n\025--command_wait_time=0\022\021command_wait_time\032\0010\"\002\004\013*\001\003\n\212\001\n@--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel\022\013binary_path\0322/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel\"\002\004\013*\001\003\n\331\001\nh--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:\022\nclient_env\032[MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:\"\001\003*\001\003\nG\n\037--client_env=SSH_AGENT_PID=9385\022\nclient_env\032\022SSH_AGENT_PID=9385\"\001\003*\001\003\nC\n\035--client_env=TERM=xterm-kitty\022\nclient_env\032\020TERM=xterm-kitty\"\001\003*\001\003\nU\n&--client_env=SHELL=/usr/local/bin/fish\022\nclient_env\032\031SHELL=/usr/local/bin/fish\"\001\003*\001\003\n\177\n;--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc\022\nclient_env\032.RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc\"\001\003*\001\003\n\223\001\nE--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/\022\nclient_env\0328TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/\"\001\003*\001\003\n?\n\033--client_env=WINDOWID=22151\022\nclient_env\032\016WINDOWID=22151\"\001\003*\001\003\n\213\001\nA--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m\022\nclient_env\0324_tide_color_separator_same_color=\033[38;2;148;148;148m\"\001\003*\001\003\n=\n\032--client_env=USER=xdecoret\022\nclient_env\032\rUSER=xdecoret\"\001\003*\001\003\n9\n\030--client_env=_tide_pad= \022\nclient_env\032\013_tide_pad= \"\001\003*\001\003\nM\n\"--client_env=COMMAND_MODE=unix2003\022\nclient_env\032\025COMMAND_MODE=unix2003\"\001\003*\001\003\n\331\001\nh--client_env=SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369\022\nclient_env\032[SSH_AUTH_SOCK=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T//ssh-LZWfIhwL9Mlk/agent.9369\"\001\003*\001\003\nq\n4--client_env=__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0\022\nclient_env\032\'__CF_USER_TEXT_ENCODING=0x1B2AD:0x0:0x0\"\001\003*\001\003\n\311\005\n\337\002--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'\022\nclient_env\032\322\002FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind=\'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\'\"\001\003*\001\003\n\335\t\n\351\004--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS\022\nclient_env\032\334\004PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/xdecoret/.fzf/bin:/usr/local/git/git-google/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/kitty.app/Contents/MacOS\"\001\003*\001\003\ns\n5--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment\022\nclient_env\032(SSH_ENV=/Users/xdecoret/.ssh/environment\"\001\003*\001\003\nu\n6--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty\022\nclient_env\032)__CFBundleIdentifier=net.kovidgoyal.kitty\"\001\003*\001\003\nU\n&--client_env=PWD=/Users/xdecoret/gimli\022\nclient_env\032\031PWD=/Users/xdecoret/gimli\"\001\003*\001\003\nc\n---client_env=LOG4J_FORMAT_MSG_NO_LOOKUPS=true\022\nclient_env\032 LOG4J_FORMAT_MSG_NO_LOOKUPS=true\"\001\003*\001\003\n\263\001\nU--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\022\nclient_env\032HJAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home\"\001\003*\001\003\nA\n\034--client_env=KITTY_PID=13292\022\nclient_env\032\017KITTY_PID=13292\"\001\003*\001\003\n]\n*--client_env=EDITOR=/opt/homebrew/bin/nvim\022\nclient_env\032\035EDITOR=/opt/homebrew/bin/nvim\"\001\003*\001\003\nC\n\035--client_env=LANG=en_US.UTF-8\022\nclient_env\032\020LANG=en_US.UTF-8\"\001\003*\001\003\n=\n\032--client_env=XPC_FLAGS=0x0\022\nclient_env\032\rXPC_FLAGS=0x0\"\001\003*\001\003\nG\n\037--client_env=XPC_SERVICE_NAME=0\022\nclient_env\032\022XPC_SERVICE_NAME=0\"\001\003*\001\003\nK\n!--client_env=HOME=/Users/xdecoret\022\nclient_env\032\024HOME=/Users/xdecoret\"\001\003*\001\003\n1\n\024--client_env=SHLVL=1\022\nclient_env\032\007SHLVL=1\"\001\003*\001\003\n?\n\033--client_env=LANGUAGE=en_US\022\nclient_env\032\016LANGUAGE=en_US\"\001\003*\001\003\n\247\001\nO--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo\022\nclient_env\032BTERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo\"\001\003*\001\003\nC\n\035--client_env=LOGNAME=xdecoret\022\nclient_env\032\020LOGNAME=xdecoret\"\001\003*\001\003\n1\n\024--client_env=LESS=-R\022\nclient_env\032\007LESS=-R\"\001\003*\001\003\nG\n\037--client_env=KITTY_WINDOW_ID=39\022\nclient_env\032\022KITTY_WINDOW_ID=39\"\001\003*\001\003\n\261\001\nT--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty\022\nclient_env\032GKITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty\"\001\003*\001\003\nI\n --client_env=COLORTERM=truecolor\022\nclient_env\032\023COLORTERM=truecolor\"\001\003*\001\003\ng\n/--client_env=_tide_location_color=\033[38;2;0;0;0m\022\nclient_env\032\"_tide_location_color=\033[38;2;0;0;0m\"\001\003*\001\003\n\231\001\nH--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2\022\nclient_env\032;KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2\"\001\003*\001\003\nM\n\"--client_cwd=/Users/xdecoret/gimli\022\nclient_cwd\032\025/Users/xdecoret/gimli\"\001\003*\001\003\nL\n#--bes_backend=grpc://127.0.0.1:8080\022\013bes_backend\032\025grpc://127.0.0.1:8080\"\001\004\022.\n\010residual\022\"\n //gimli/testdata:non_fatal_error"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 7
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 492000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\t\222\001\006\n\004tool\262\001\000"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 8
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 493000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n$\"\"\n //gimli/testdata:non_fatal_error\022%\202\001\"\n //gimli/testdata:non_fatal_error2\000"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 9
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 493000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\002\022\000\022\004\022\002\010\001\022\003\272\001\000\032p\022n\033[32mComputing main repo mapping:\033[0m \n\r\033[1A\033[K\033[32mLoading:\033[0m \n\r\033[1A\033[K\033[32mLoading:\033[0m 0 packages loaded\n"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 10
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 493000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\003\272\001\000\312\001R\nP/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/execroot/_main"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 11
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 534000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\004\022\002\010\001\022\004\022\002\010\002\022DzB\n@01df0d2ba075185f9589501579bd8d26621b33a83f63bfe7af88fe46ed888509\032\000"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 12
+    event {
+      event_time {
+        seconds: 1764368148
+        nanos: 534000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\nDzB\n@01df0d2ba075185f9589501579bd8d26621b33a83f63bfe7af88fe46ed888509\212\001\317\001\n\026darwin_arm64-fastbuild\022\014darwin_arm64\032\014darwin_arm64\"\032\n\nTARGET_CPU\022\014darwin_arm64\"\035\n\020COMPILATION_MODE\022\tfastbuild\".\n\006BINDIR\022$bazel-out/darwin_arm64-fastbuild/bin\".\n\006GENDIR\022$bazel-out/darwin_arm64-fastbuild/bin"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 13
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 118000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\004\022\002\010\002\022\004\022\002\010\003\022DzB\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633\032\311\001\022\306\001\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded)\n\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 14
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 118000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\nDzB\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633\212\001\317\001\n\026darwin_arm64-fastbuild\022\014darwin_arm64\032\014darwin_arm64\"\032\n\nTARGET_CPU\022\014darwin_arm64\"\035\n\020COMPILATION_MODE\022\tfastbuild\".\n\006BINDIR\022$bazel-out/darwin_arm64-fastbuild/bin\".\n\006GENDIR\022$bazel-out/darwin_arm64-fastbuild/bin"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 15
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 118000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n%\202\001\"\n //gimli/testdata:non_fatal_error\022h*f\n //gimli/testdata:non_fatal_error\032B\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633\222\001\030\n\016cc_binary rule\032\006manual"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 16
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 119000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\002r\000\202\001\251\001\n\023\n\021BUILD_EMBED_LABEL\n/\n\nBUILD_HOST\022!xdecoret-macbookpro.roam.internal\n\035\n\017BUILD_TIMESTAMP\022\n1764368149\n\026\n\nBUILD_USER\022\010xdecoret\n*\n\016FORMATTED_DATE\022\0302025 Nov 28 22 15 49 Fri"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 17
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 534000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\004\022\002\010\003\022\004\022\002\010\004\022\306\0012\303\001\n[bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o\022 //gimli/testdata:non_fatal_error\032B\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633\032\306\002\022\303\002\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n\n\r\033[1A\033[K\r\033[1A\033[K\033[32mINFO: \033[0mAnalyzed target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured).\n\n\r\033[1A\033[K\033[32m[2 / 4]\033[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 18
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 534000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\306\0012\303\001\n[bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o\022 //gimli/testdata:non_fatal_error\032B\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633:\273\r\020\001\"\201\001\n\006stderr\022wfile:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/execroot/_main/bazel-out/_tmp/actions/stderr-3* //gimli/testdata:non_fatal_error:B\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633B\nCppCompileJGexternal/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.shJ\021-U_FORTIFY_SOURCEJ\021-fstack-protectorJ\005-WallJ\017-Wthread-safetyJ\r-Wself-assignJ\032-Wunused-but-set-parameterJ\030-Wno-free-nonheap-objectJ\023-fcolor-diagnosticsJ\027-fno-omit-frame-pointerJ\n-std=c++17Ji-frandom-seed=bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.oJ\031-mmacosx-version-min=15.2J\003-MDJ\003-MFJ[bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.dJ\007-iquoteJ\001.J\007-iquoteJ$bazel-out/darwin_arm64-fastbuild/binJ\007-iquoteJ\022external/rules_cc+J\007-iquoteJ7bazel-out/darwin_arm64-fastbuild/bin/external/rules_cc+J\007-iquoteJ\024external/bazel_toolsJ\007-iquoteJ9bazel-out/darwin_arm64-fastbuild/bin/external/bazel_toolsJ\002-cJ!gimli/testdata/non_fatal_error.ccJ\002-oJ[bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.oJ\026-no-canonical-prefixesJ\034-Wno-builtin-macro-redefinedJ\025-D__DATE__=\"redacted\"J\032-D__TIMESTAMP__=\"redacted\"J\025-D__TIME__=\"redacted\"Z\310\003\n\276\003cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\332\007\004\010\001\030\001"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 19
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 536000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\nh*f\n //gimli/testdata:non_fatal_error\032B\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633\022\306\0012\303\001\n[bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o\022 //gimli/testdata:non_fatal_error\032B\n@2b38fb69616d844c2bb26b00284e652f2994e9555c6c05930158097ba4947633B\323\003\032\006manualJ\310\003\n\276\003cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\332\007\004\010\001\030\001"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 20
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 540000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\004\022\002\010\004\022\004\022\002\010\005\022\003\312\001\000\032\356\006\022\353\006\r\033[1A\033[K\033[31m\033[1mERROR: \033[0m/Users/xdecoret/gimli/gimli/testdata/BUILD:5:10: Compiling gimli/testdata/non_fatal_error.cc failed: (Exit 1): cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\n\033[1mgimli/testdata/non_fatal_error.cc:6:16: \033[0m\033[0;1;31merror: \033[0m\033[1muse of undeclared identifier \'y\'\033[0m\n    6 |   std::cout << y << std::endl;\033[0m\n      | \033[0;1;32m               ^\n\033[0m1 error generated.\n\033[32m[2 / 4]\033[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 21
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 540000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\003\312\001\000\332\001\360\001\nB\n\tbazel-bin\020\001\0323execroot/_main/bazel-out/darwin_arm64-fastbuild/bin\nL\n\016bazel-testlogs\020\001\0328execroot/_main/bazel-out/darwin_arm64-fastbuild/testlogs\n\022\n\016bazel-genfiles\020\002\n\'\n\tbazel-out\020\001\032\030execroot/_main/bazel-out\n\037\n\013bazel-gimli\020\001\032\016execroot/_main"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 22
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 546000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\002J\000\022\003\242\001\000\022\003\262\001\000r\363\003\020\247\330\245\344\2543\032\021\n\rBUILD_FAILURE\020\001*\014\010\225\276\250\311\006\020\300\213\366\202\0022\310\003\n\276\003cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\332\007\004\010\001\030\001"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 23
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 546000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\004\022\002\010\005\032\260\004\022\255\004\r\033[1A\033[KTarget //gimli/testdata:non_fatal_error failed to build\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[KUse --verbose_failures to see the command lines of failed build steps.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0mElapsed time: 1.219s, Critical Path: 0.40s\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0m2 processes: 1 action cache hit, 2 internal.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[31m\033[1mERROR: \033[0mBuild did NOT complete successfully\n\033[31m\033[1mFAILED:\033[0m \n\r\033[1A\033[K\033[31m\033[1mFAILED:\033[0m \n"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 24
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 546000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\003\242\001\000\272\001\302\004\n\030\n\014elapsed time\032\0101.219000\n\314\002\n\rcritical path\032\272\002Critical Path: 0.40s, Remote (0.00% of the time): [parse: 0.00%, queue: 0.00%, network: 0.00%, upload: 0.00%, setup: 0.00%, process: 0.00%, fetch: 0.00%, retry: 0.00%, processOutputs: 0.00%, other: 0.00%, input files: 0, input bytes: 0, memory bytes: 0]\n  0.40s action \'Compiling gimli/testdata/non_fatal_error.cc\'\n=\n\rprocess stats\032,2 processes: 1 action cache hit, 2 internal.\n\227\001\n\022command.profile.gz\022\200\001file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/command-01eefcda-c683-42a2-ad49-68c3313af515.profile.gz"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 25
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 547000000
+      }
+      bazel_event {
+        type_url: "type.googleapis.com/build_event_stream.BuildEvent"
+        value: "\n\003\262\001\000\240\001\001\302\001\361\006\n\334\003\020\002\".\n\032BazelWorkspaceStatusAction\020\001\030\376\324\245\344\2543 \200\325\245\344\25438\027\" \n\nCppCompile\020\001\030\212\325\245\344\2543 \236\330\245\344\25438\260\276\t\"\014\n\007CcStrip8\227\004\"\r\n\010GenProto8\356L\"\013\n\006Action8\325\001\"\r\n\tAppleLipo8$\"\n\n\006GoLink8i\"\022\n\014CppModuleMap8\366\240\001\"\014\n\010GoStdlib82\"\031\n\025DwyuProcessTargetInfo8\036\"\014\n\010CopyFile8M\"\014\n\007Genrule8\324\003\"\025\n\021ExecutableSymlink8\177\"\027\n\023DwyuAnalyzeIncludes8\004\"\032\n\025GenProtoDescriptorSet8\201#\"\024\n\020GoStdPackageList8\031\"\027\n\022TranslateBuildInfo8\210\003\"\016\n\tMiddleman8\340\006\"\020\n\014GoStdlibList82\"\t\n\005Rustc8\0042\t\n\005total\020\0022\014\n\010internal\020\002:\'\010\345\331\222\001\030\001 \002*\000*\002\010\001*\002\010\002*\002\010\003*\002\010\004*\004\010\005\020\001*\004\010\006\020\001\022\000\032\000\"\000*\016\010\316\034\020\246\t\030\006 \233\003(\206\0062\006X\314\003`\273\003:\022\022\000\032\005\010\201\004\020\003\"\005\010\352\002\020\001*\000B\251\002\0107\020\014\030\016 \312\237\003(60\0138\016H\010R\025\n\020ACTION_EXECUTION\020\357\014R\020\n\014BUILD_DRIVER\020\001R\014\n\010ARTIFACT\020\tR\025\n\021TARGET_COMPLETION\020\001R\030\n\023ARTIFACT_NESTED_SET\020\353\007Z\037\n\033CLIENT_ENVIRONMENT_VARIABLE\020\001Z\024\n\020ERROR_TRANSIENCE\020\001Z\017\n\013PRECOMPUTED\020\001b\024\n\020ACTION_EXECUTION\020\003\212\001\024\n\020ACTION_EXECUTION\020\005\212\001\020\n\014BUILD_DRIVER\020\001\212\001\014\n\010ARTIFACT\020\001\212\001\025\n\021TARGET_COMPLETION\020\001R.\n,\010\200\200\302\272\013\020\200\250\274\274\032\030\262\326\227\002 \306\337\344\003(\237\363\376\274\0310\235\227\366\23248\354\346\361\003@\301\310\341\006Z\000b\000"
+      }
+    }
+  }
+}
+requests {
+  ordered_build_event {
+    stream_id {
+      build_id: "834b8157-2f03-4869-a62e-952deda26814"
+      component: TOOL
+      invocation_id: "01eefcda-c683-42a2-ad49-68c3313af515"
+    }
+    sequence_number: 26
+    event {
+      event_time {
+        seconds: 1764368149
+        nanos: 547000000
+      }
+      component_stream_finished {
+        type: FINISHED
+      }
+    }
+  }
+}
 build_events {
   id {
     started {
@@ -48,8 +569,8 @@ build_events {
     }
   }
   started {
-    uuid: "7182f0d6-582e-460b-898f-d991e058b41b"
-    start_time_millis: 1764240432813
+    uuid: "01eefcda-c683-42a2-ad49-68c3313af515"
+    start_time_millis: 1764368148324
     build_tool_version: "8.4.2-homebrew"
     options_description: "--features=-module_maps --bes_backend=grpc://127.0.0.1:8080"
     command: "build"
@@ -57,8 +578,8 @@ build_events {
     workspace_directory: "/Users/xdecoret/gimli"
     server_pid: 53967
     start_time {
-      seconds: 1764240432
-      nanos: 813000000
+      seconds: 1764368148
+      nanos: 324000000
     }
   }
 }
@@ -77,25 +598,29 @@ build_events {
   }
   unstructured_command_line {
     args: "build"
-    args: "--startup_time=15"
+    args: "--startup_time=31"
     args: "--command_wait_time=0"
     args: "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel"
     args: "--rc_source=client"
     args: "--default_override=0:common=--isatty=1"
     args: "--default_override=0:common=--terminal_columns=123"
     args: "--rc_source=/Users/xdecoret/gimli/.bazelrc"
+    args: "--rc_source=/Users/xdecoret/.bazelrc"
     args: "--default_override=1:build:clang-tidy=--aspects"
     args: "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect"
     args: "--default_override=1:build:clang-tidy=--output_groups=report"
     args: "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config"
     args: "--default_override=1:build=--features=-module_maps"
+    args: "--default_override=2:test=--test_output=all"
+    args: "--default_override=2:test=--test_env=GUNIT_COLOR=yes"
+    args: "--default_override=2:test=--nostamp"
     args: "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:"
     args: "--client_env=SSH_AGENT_PID=9385"
-    args: "--client_env=SHELL=/usr/local/bin/fish"
     args: "--client_env=TERM=xterm-kitty"
+    args: "--client_env=SHELL=/usr/local/bin/fish"
     args: "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc"
     args: "--client_env=TMPDIR=/var/folders/gz/fn8rq8p51xz81v4kzcx9b__m003cnd/T/"
-    args: "--client_env=WINDOWID=19179"
+    args: "--client_env=WINDOWID=22151"
     args: "--client_env=_tide_color_separator_same_color=\033[38;2;148;148;148m"
     args: "--client_env=USER=xdecoret"
     args: "--client_env=_tide_pad= "
@@ -116,18 +641,18 @@ build_events {
     args: "--client_env=XPC_SERVICE_NAME=0"
     args: "--client_env=HOME=/Users/xdecoret"
     args: "--client_env=SHLVL=1"
-    args: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
     args: "--client_env=LANGUAGE=en_US"
-    args: "--client_env=LESS=-R"
+    args: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
     args: "--client_env=LOGNAME=xdecoret"
+    args: "--client_env=LESS=-R"
+    args: "--client_env=KITTY_WINDOW_ID=39"
     args: "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
-    args: "--client_env=KITTY_WINDOW_ID=9"
-    args: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
-    args: "--client_env=_tide_location_color=\033[38;2;0;0;0m"
     args: "--client_env=COLORTERM=truecolor"
+    args: "--client_env=_tide_location_color=\033[38;2;0;0;0m"
+    args: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
     args: "--client_cwd=/Users/xdecoret/gimli"
-    args: "//gimli/testdata:non_fatal_error"
     args: "--bes_backend=grpc://127.0.0.1:8080"
+    args: "//gimli/testdata:non_fatal_error"
   }
 }
 build_events {
@@ -212,6 +737,13 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
+          combined_form: "--rc_source=/Users/xdecoret/.bazelrc"
+          option_name: "rc_source"
+          option_value: "/Users/xdecoret/.bazelrc"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
           combined_form: "--default_override=1:build:clang-tidy=--aspects"
           option_name: "default_override"
           option_value: "1:build:clang-tidy=--aspects"
@@ -247,9 +779,30 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--startup_time=15"
+          combined_form: "--default_override=2:test=--test_output=all"
+          option_name: "default_override"
+          option_value: "2:test=--test_output=all"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=2:test=--test_env=GUNIT_COLOR=yes"
+          option_name: "default_override"
+          option_value: "2:test=--test_env=GUNIT_COLOR=yes"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=2:test=--nostamp"
+          option_name: "default_override"
+          option_value: "2:test=--nostamp"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--startup_time=31"
           option_name: "startup_time"
-          option_value: "15"
+          option_value: "31"
           effect_tags: AFFECTS_OUTPUTS
           effect_tags: BAZEL_MONITORING
           metadata_tags: HIDDEN
@@ -285,16 +838,16 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=SHELL=/usr/local/bin/fish"
+          combined_form: "--client_env=TERM=xterm-kitty"
           option_name: "client_env"
-          option_value: "SHELL=/usr/local/bin/fish"
+          option_value: "TERM=xterm-kitty"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=TERM=xterm-kitty"
+          combined_form: "--client_env=SHELL=/usr/local/bin/fish"
           option_name: "client_env"
-          option_value: "TERM=xterm-kitty"
+          option_value: "SHELL=/usr/local/bin/fish"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -313,9 +866,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=WINDOWID=19179"
+          combined_form: "--client_env=WINDOWID=22151"
           option_name: "client_env"
-          option_value: "WINDOWID=19179"
+          option_value: "WINDOWID=22151"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -460,13 +1013,6 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
-          option_name: "client_env"
-          option_value: "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
-          effect_tags: CHANGES_INPUTS
-          metadata_tags: HIDDEN
-        }
-        option {
           combined_form: "--client_env=LANGUAGE=en_US"
           option_name: "client_env"
           option_value: "LANGUAGE=en_US"
@@ -474,9 +1020,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=LESS=-R"
+          combined_form: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
           option_name: "client_env"
-          option_value: "LESS=-R"
+          option_value: "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -488,6 +1034,20 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
+          combined_form: "--client_env=LESS=-R"
+          option_name: "client_env"
+          option_value: "LESS=-R"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_WINDOW_ID=39"
+          option_name: "client_env"
+          option_value: "KITTY_WINDOW_ID=39"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
           combined_form: "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
           option_name: "client_env"
           option_value: "KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
@@ -495,16 +1055,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=KITTY_WINDOW_ID=9"
+          combined_form: "--client_env=COLORTERM=truecolor"
           option_name: "client_env"
-          option_value: "KITTY_WINDOW_ID=9"
-          effect_tags: CHANGES_INPUTS
-          metadata_tags: HIDDEN
-        }
-        option {
-          combined_form: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
-          option_name: "client_env"
-          option_value: "KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+          option_value: "COLORTERM=truecolor"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -516,9 +1069,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=COLORTERM=truecolor"
+          combined_form: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
           option_name: "client_env"
-          option_value: "COLORTERM=truecolor"
+          option_value: "KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -765,6 +1318,13 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
+          combined_form: "--rc_source=/Users/xdecoret/.bazelrc"
+          option_name: "rc_source"
+          option_value: "/Users/xdecoret/.bazelrc"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
           combined_form: "--default_override=1:build:clang-tidy=--aspects"
           option_name: "default_override"
           option_value: "1:build:clang-tidy=--aspects"
@@ -800,9 +1360,30 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--startup_time=15"
+          combined_form: "--default_override=2:test=--test_output=all"
+          option_name: "default_override"
+          option_value: "2:test=--test_output=all"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=2:test=--test_env=GUNIT_COLOR=yes"
+          option_name: "default_override"
+          option_value: "2:test=--test_env=GUNIT_COLOR=yes"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--default_override=2:test=--nostamp"
+          option_name: "default_override"
+          option_value: "2:test=--nostamp"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--startup_time=31"
           option_name: "startup_time"
-          option_value: "15"
+          option_value: "31"
           effect_tags: AFFECTS_OUTPUTS
           effect_tags: BAZEL_MONITORING
           metadata_tags: HIDDEN
@@ -838,16 +1419,16 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=SHELL=/usr/local/bin/fish"
+          combined_form: "--client_env=TERM=xterm-kitty"
           option_name: "client_env"
-          option_value: "SHELL=/usr/local/bin/fish"
+          option_value: "TERM=xterm-kitty"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=TERM=xterm-kitty"
+          combined_form: "--client_env=SHELL=/usr/local/bin/fish"
           option_name: "client_env"
-          option_value: "TERM=xterm-kitty"
+          option_value: "SHELL=/usr/local/bin/fish"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -866,9 +1447,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=WINDOWID=19179"
+          combined_form: "--client_env=WINDOWID=22151"
           option_name: "client_env"
-          option_value: "WINDOWID=19179"
+          option_value: "WINDOWID=22151"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -1013,13 +1594,6 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
-          option_name: "client_env"
-          option_value: "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
-          effect_tags: CHANGES_INPUTS
-          metadata_tags: HIDDEN
-        }
-        option {
           combined_form: "--client_env=LANGUAGE=en_US"
           option_name: "client_env"
           option_value: "LANGUAGE=en_US"
@@ -1027,9 +1601,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=LESS=-R"
+          combined_form: "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
           option_name: "client_env"
-          option_value: "LESS=-R"
+          option_value: "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -1041,6 +1615,20 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
+          combined_form: "--client_env=LESS=-R"
+          option_name: "client_env"
+          option_value: "LESS=-R"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
+          combined_form: "--client_env=KITTY_WINDOW_ID=39"
+          option_name: "client_env"
+          option_value: "KITTY_WINDOW_ID=39"
+          effect_tags: CHANGES_INPUTS
+          metadata_tags: HIDDEN
+        }
+        option {
           combined_form: "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
           option_name: "client_env"
           option_value: "KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty"
@@ -1048,16 +1636,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=KITTY_WINDOW_ID=9"
+          combined_form: "--client_env=COLORTERM=truecolor"
           option_name: "client_env"
-          option_value: "KITTY_WINDOW_ID=9"
-          effect_tags: CHANGES_INPUTS
-          metadata_tags: HIDDEN
-        }
-        option {
-          combined_form: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
-          option_name: "client_env"
-          option_value: "KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
+          option_value: "COLORTERM=truecolor"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -1069,9 +1650,9 @@ build_events {
           metadata_tags: HIDDEN
         }
         option {
-          combined_form: "--client_env=COLORTERM=truecolor"
+          combined_form: "--client_env=KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
           option_name: "client_env"
-          option_value: "COLORTERM=truecolor"
+          option_value: "KITTY_PUBLIC_KEY=1:DBYmdH6>(%k70HsMJ=<RHT$f7mV{mZXS5<-Pyva2"
           effect_tags: CHANGES_INPUTS
           metadata_tags: HIDDEN
         }
@@ -1212,7 +1793,7 @@ build_events {
     }
   }
   progress {
-    stderr: "\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n"
+    stderr: "\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded)\n\r\033[1A\033[K\033[32mAnalyzing:\033[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n"
   }
 }
 build_events {
@@ -1277,7 +1858,7 @@ build_events {
     }
     item {
       key: "BUILD_TIMESTAMP"
-      value: "1764240432"
+      value: "1764368149"
     }
     item {
       key: "BUILD_USER"
@@ -1285,7 +1866,7 @@ build_events {
     }
     item {
       key: "FORMATTED_DATE"
-      value: "2025 Nov 27 10 47 12 Thu"
+      value: "2025 Nov 28 22 15 49 Fri"
     }
   }
 }
@@ -1355,6 +1936,10 @@ build_events {
     command_line: "-iquote"
     command_line: "bazel-out/darwin_arm64-fastbuild/bin"
     command_line: "-iquote"
+    command_line: "external/rules_cc+"
+    command_line: "-iquote"
+    command_line: "bazel-out/darwin_arm64-fastbuild/bin/external/rules_cc+"
+    command_line: "-iquote"
     command_line: "external/bazel_tools"
     command_line: "-iquote"
     command_line: "bazel-out/darwin_arm64-fastbuild/bin/external/bazel_tools"
@@ -1368,7 +1953,7 @@ build_events {
     command_line: "-D__TIMESTAMP__=\"redacted\""
     command_line: "-D__TIME__=\"redacted\""
     failure_detail {
-      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
+      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
       spawn {
         code: NON_ZERO_EXIT
         spawn_exit_code: 1
@@ -1397,7 +1982,7 @@ build_events {
   completed {
     tag: "manual"
     failure_detail {
-      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
+      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
       spawn {
         code: NON_ZERO_EXIT
         spawn_exit_code: 1
@@ -1421,7 +2006,7 @@ build_events {
     }
   }
   progress {
-    stderr: "\r\033[1A\033[K\033[31m\033[1mERROR: \033[0m/Users/xdecoret/gimli/gimli/testdata/BUILD:3:10: Compiling gimli/testdata/non_fatal_error.cc failed: (Exit 1): cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\n\033[1mgimli/testdata/non_fatal_error.cc:6:16: \033[0m\033[0;1;31merror: \033[0m\033[1muse of undeclared identifier \'y\'\033[0m\n    6 |   std::cout << y << std::endl;\033[0m\n      | \033[0;1;32m               ^\n\033[0m1 error generated.\n\033[32m[2 / 4]\033[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+    stderr: "\r\033[1A\033[K\033[31m\033[1mERROR: \033[0m/Users/xdecoret/gimli/gimli/testdata/BUILD:5:10: Compiling gimli/testdata/non_fatal_error.cc failed: (Exit 1): cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\n\033[1mgimli/testdata/non_fatal_error.cc:6:16: \033[0m\033[0;1;31merror: \033[0m\033[1muse of undeclared identifier \'y\'\033[0m\n    6 |   std::cout << y << std::endl;\033[0m\n      | \033[0;1;32m               ^\n\033[0m1 error generated.\n\033[32m[2 / 4]\033[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
   }
 }
 build_events {
@@ -1470,17 +2055,17 @@ build_events {
     }
   }
   finished {
-    finish_time_millis: 1764240433363
+    finish_time_millis: 1764368149543
     exit_code {
       name: "BUILD_FAILURE"
       code: 1
     }
     finish_time {
-      seconds: 1764240433
-      nanos: 363000000
+      seconds: 1764368149
+      nanos: 543000000
     }
     failure_detail {
-      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 25 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
+      message: "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging"
       spawn {
         code: NON_ZERO_EXIT
         spawn_exit_code: 1
@@ -1495,7 +2080,7 @@ build_events {
     }
   }
   progress {
-    stderr: "\r\033[1A\033[KTarget //gimli/testdata:non_fatal_error failed to build\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[KUse --verbose_failures to see the command lines of failed build steps.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0mElapsed time: 0.550s, Critical Path: 0.38s\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0m2 processes: 1 action cache hit, 2 internal.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[31m\033[1mERROR: \033[0mBuild did NOT complete successfully\n\033[31m\033[1mFAILED:\033[0m \n\r\033[1A\033[K\033[31m\033[1mFAILED:\033[0m \n"
+    stderr: "\r\033[1A\033[KTarget //gimli/testdata:non_fatal_error failed to build\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[KUse --verbose_failures to see the command lines of failed build steps.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0mElapsed time: 1.219s, Critical Path: 0.40s\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[32mINFO: \033[0m2 processes: 1 action cache hit, 2 internal.\n\033[32m[3 / 4]\033[0m checking cached actions\n\r\033[1A\033[K\033[31m\033[1mERROR: \033[0mBuild did NOT complete successfully\n\033[31m\033[1mFAILED:\033[0m \n\r\033[1A\033[K\033[31m\033[1mFAILED:\033[0m \n"
   }
 }
 build_events {
@@ -1506,11 +2091,11 @@ build_events {
   build_tool_logs {
     log {
       name: "elapsed time"
-      contents: "0.550000"
+      contents: "1.219000"
     }
     log {
       name: "critical path"
-      contents: "Critical Path: 0.38s, Remote (0.00% of the time): [parse: 0.00%, queue: 0.00%, network: 0.00%, upload: 0.00%, setup: 0.00%, process: 0.00%, fetch: 0.00%, retry: 0.00%, processOutputs: 0.00%, other: 0.00%, input files: 0, input bytes: 0, memory bytes: 0]\n  0.38s action \'Compiling gimli/testdata/non_fatal_error.cc\'"
+      contents: "Critical Path: 0.40s, Remote (0.00% of the time): [parse: 0.00%, queue: 0.00%, network: 0.00%, upload: 0.00%, setup: 0.00%, process: 0.00%, fetch: 0.00%, retry: 0.00%, processOutputs: 0.00%, other: 0.00%, input files: 0, input bytes: 0, memory bytes: 0]\n  0.40s action \'Compiling gimli/testdata/non_fatal_error.cc\'"
     }
     log {
       name: "process stats"
@@ -1518,7 +2103,7 @@ build_events {
     }
     log {
       name: "command.profile.gz"
-      uri: "file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/command-7182f0d6-582e-460b-898f-d991e058b41b.profile.gz"
+      uri: "file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/command-01eefcda-c683-42a2-ad49-68c3313af515.profile.gz"
     }
   }
 }
@@ -1534,88 +2119,88 @@ build_events {
       action_data {
         mnemonic: "BazelWorkspaceStatusAction"
         actions_executed: 1
-        first_started_ms: 1764240432971
-        last_ended_ms: 1764240432972
-        actions_created: 7
+        first_started_ms: 1764368149118
+        last_ended_ms: 1764368149120
+        actions_created: 23
       }
       action_data {
         mnemonic: "CppCompile"
         actions_executed: 1
-        first_started_ms: 1764240432975
-        last_ended_ms: 1764240433358
-        actions_created: 30118
-      }
-      action_data {
-        mnemonic: "TranslateBuildInfo"
-        actions_created: 56
+        first_started_ms: 1764368149130
+        last_ended_ms: 1764368149534
+        actions_created: 155440
       }
       action_data {
         mnemonic: "CcStrip"
-        actions_created: 94
+        actions_created: 535
       }
       action_data {
         mnemonic: "GenProto"
-        actions_created: 1884
+        actions_created: 9838
       }
       action_data {
         mnemonic: "Action"
-        actions_created: 27
-      }
-      action_data {
-        mnemonic: "Middleman"
-        actions_created: 104
-      }
-      action_data {
-        mnemonic: "RepoMappingManifest"
-        actions_created: 105
-      }
-      action_data {
-        mnemonic: "FileWrite"
-        actions_created: 94
-      }
-      action_data {
-        mnemonic: "PythonZipper"
-        actions_created: 1
+        actions_created: 213
       }
       action_data {
         mnemonic: "AppleLipo"
-        actions_created: 7
+        actions_created: 36
       }
       action_data {
-        mnemonic: "TemplateExpand"
-        actions_created: 4
-      }
-      action_data {
-        mnemonic: "CppArchive"
-        actions_created: 8558
+        mnemonic: "GoLink"
+        actions_created: 105
       }
       action_data {
         mnemonic: "CppModuleMap"
-        actions_created: 4005
+        actions_created: 20598
       }
       action_data {
-        mnemonic: "SymlinkTree"
-        actions_created: 104
+        mnemonic: "GoStdlib"
+        actions_created: 50
       }
       action_data {
-        mnemonic: "Symlink"
-        actions_created: 9227
-      }
-      action_data {
-        mnemonic: "CppLink"
-        actions_created: 94
-      }
-      action_data {
-        mnemonic: "SourceSymlinkManifest"
-        actions_created: 104
+        mnemonic: "DwyuProcessTargetInfo"
+        actions_created: 30
       }
       action_data {
         mnemonic: "CopyFile"
-        actions_created: 14
+        actions_created: 77
       }
       action_data {
-        mnemonic: "PyCompile"
-        actions_created: 2
+        mnemonic: "Genrule"
+        actions_created: 468
+      }
+      action_data {
+        mnemonic: "ExecutableSymlink"
+        actions_created: 127
+      }
+      action_data {
+        mnemonic: "DwyuAnalyzeIncludes"
+        actions_created: 4
+      }
+      action_data {
+        mnemonic: "GenProtoDescriptorSet"
+        actions_created: 4481
+      }
+      action_data {
+        mnemonic: "GoStdPackageList"
+        actions_created: 25
+      }
+      action_data {
+        mnemonic: "TranslateBuildInfo"
+        actions_created: 392
+      }
+      action_data {
+        mnemonic: "Middleman"
+        actions_created: 864
+      }
+      action_data {
+        mnemonic: "GoStdlibList"
+        actions_created: 50
+      }
+      action_data {
+        mnemonic: "Rustc"
+        actions_created: 4
       }
       runner_count {
         name: "total"
@@ -1626,7 +2211,7 @@ build_events {
         count: 2
       }
       action_cache_statistics {
-        size_in_bytes: 3530894
+        size_in_bytes: 2403557
         hits: 1
         misses: 2
         miss_details {
@@ -1660,15 +2245,15 @@ build_events {
     package_metrics {
     }
     timing_metrics {
-      cpu_time_in_ms: 901
-      wall_time_in_ms: 536
-      analysis_phase_time_in_ms: 2
-      execution_phase_time_in_ms: 386
-      actions_execution_start_in_ms: 146
+      cpu_time_in_ms: 3662
+      wall_time_in_ms: 1190
+      analysis_phase_time_in_ms: 6
+      execution_phase_time_in_ms: 411
+      actions_execution_start_in_ms: 774
     }
     cumulative_metrics {
-      num_analyses: 239
-      num_builds: 233
+      num_analyses: 460
+      num_builds: 443
     }
     artifact_metrics {
       source_artifacts_read {
@@ -1685,37 +2270,21 @@ build_events {
       }
     }
     build_graph_metrics {
-      action_lookup_value_count: 52
+      action_lookup_value_count: 55
       action_count: 12
       output_artifact_count: 14
-      post_invocation_skyframe_node_count: 64898
-      action_lookup_value_count_not_including_aspects: 51
+      post_invocation_skyframe_node_count: 53194
+      action_lookup_value_count_not_including_aspects: 54
       action_count_not_including_aspects: 11
       input_file_configured_target_count: 14
-      other_configured_target_count: 7
-      dirtied_values {
-        skyfunction_name: "DIRECTORY_LISTING"
-        count: 1
-      }
+      other_configured_target_count: 8
       dirtied_values {
         skyfunction_name: "ACTION_EXECUTION"
-        count: 1643
-      }
-      dirtied_values {
-        skyfunction_name: "TARGET_PATTERN"
-        count: 2
+        count: 1647
       }
       dirtied_values {
         skyfunction_name: "BUILD_DRIVER"
         count: 1
-      }
-      dirtied_values {
-        skyfunction_name: "ARTIFACT_NESTED_SET"
-        count: 1403
-      }
-      dirtied_values {
-        skyfunction_name: "RECURSIVE_PKG"
-        count: 2
       }
       dirtied_values {
         skyfunction_name: "ARTIFACT"
@@ -1726,8 +2295,8 @@ build_events {
         count: 1
       }
       dirtied_values {
-        skyfunction_name: "TARGET_PATTERN_PHASE"
-        count: 1
+        skyfunction_name: "ARTIFACT_NESTED_SET"
+        count: 1003
       }
       changed_values {
         skyfunction_name: "CLIENT_ENVIRONMENT_VARIABLE"
@@ -1735,10 +2304,6 @@ build_events {
       }
       changed_values {
         skyfunction_name: "ERROR_TRANSIENCE"
-        count: 1
-      }
-      changed_values {
-        skyfunction_name: "DIRECTORY_LISTING_STATE"
         count: 1
       }
       changed_values {
@@ -1768,10 +2333,10 @@ build_events {
     }
     network_metrics {
       system_network_stats {
-        bytes_sent: 1784121344
-        bytes_recv: 4672821248
-        packets_sent: 2621347
-        packets_recv: 4869316
+        bytes_sent: 3075506176
+        bytes_recv: 7106139136
+        packets_sent: 4582194
+        packets_recv: 7942086
         peak_bytes_sent_per_sec: 6838794655
         peak_bytes_recv_per_sec: 14015105949
         peak_packets_sent_per_sec: 8156012

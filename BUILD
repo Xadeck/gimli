@@ -1,5 +1,5 @@
 # gazelle:cc_group unit
-# gazelle:proto_group unit
+# gazelle:proto file
 
 load("@gazelle//:def.bzl", "gazelle", "gazelle_binary")
 

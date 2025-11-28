@@ -1,0 +1,14 @@
+edition = "2023";
+
+package gimli;
+
+import "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto";
+import "google/devtools/build/v1/publish_build_event.proto";
+
+message Recording {
+  // List of requests received.
+  repeated google.devtools.build.v1.PublishBuildToolEventStreamRequest requests = 1;
+  // List of bazel build events extracted from the requests above , for
+  // convenience; they are as Any proto, it's easier to parse when unpacked.
+  repeated build_event_stream.BuildEvent build_events = 2;
+}

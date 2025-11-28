@@ -34,6 +34,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         ":gimli_cc_proto",
+        ":recording_cc_proto",
         "@abseil-cpp//absl/cleanup",
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/strings",
@@ -75,7 +76,20 @@ proto_library(
     name = "gimli_proto",
     srcs = ["gimli.proto"],
     visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "recording_proto",
+    srcs = ["recording.proto"],
+    visibility = ["//visibility:public"],
     deps = [
         "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_proto",
+        "@googleapis//google/devtools/build/v1:build_proto",
     ],
+)
+
+cc_proto_library(
+    name = "recording_cc_proto",
+    visibility = ["//visibility:public"],
+    deps = [":recording_proto"],
 )

@@ -4,6 +4,8 @@
 #include "absl/strings/match.h"
 #include "absl/strings/strip.h"
 #include "gimli/gimli.pb.h"
+#include "gimli/recording.pb.h"
+#include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "google/protobuf/text_format.h"
 #include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
 #include <fstream>
@@ -60,6 +62,9 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
     }
 
     void OnReadDone(bool ok) final {
+      if (testdata_.has_value()) {
+        *recording_.add_requests() = request_;
+      }
       // The protocol (not very well documented) seems to be that the service
       // must respond with the "identifiers" (stream id and sequence numnber)
       // of the request, so the caller knows they have been acknowledged.
