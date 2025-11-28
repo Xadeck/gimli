@@ -20,6 +20,7 @@ cc_library(
     name = "gimli_service_impl",
     srcs = ["gimli_service_impl.cc"],
     hdrs = ["gimli_service_impl.h"],
+    visibility = ["//visibility:public"],
     deps = [
         ":gimli_cc_grpc",
         ":gimli_cc_proto",
