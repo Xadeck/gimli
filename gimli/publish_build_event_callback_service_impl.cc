@@ -5,6 +5,7 @@
 #include "absl/strings/strip.h"
 #include "gimli/gimli.pb.h"
 #include "google/protobuf/text_format.h"
+#include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
 #include <fstream>
 
 namespace gimli {
