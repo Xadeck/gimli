@@ -5,7 +5,6 @@
 #include "absl/log/initialize.h"
 #include "absl/log/log.h"
 #include "absl/strings/str_cat.h"
-#include "absl/strings/string_view.h"
 #include "gimli/gimli_service_impl.h"
 #include "gimli/publish_build_event_callback_service_impl.h"
 #include "google/protobuf/stubs/common.h"
