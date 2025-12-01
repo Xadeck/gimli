@@ -10,7 +10,9 @@
 #include "absl/log/globals.h"
 #include "absl/log/initialize.h"
 #include "absl/strings/str_cat.h"
+#include "absl/time/time.h"
 #include "gimli/recording.pb.h"
+#include "gmock/gmock.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "google/protobuf/text_format.h"
 #include "grpcpp/grpcpp.h"
@@ -21,9 +23,10 @@
 
 namespace gimli {
 namespace {
-
 using ::google::devtools::build::v1::PublishBuildEvent;
 using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
+using ::testing::ElementsAreArray;
+using ::testing::SizeIs;
 
 class PublishBuildEventCallbackServiceImplTest : public testing::Test {
  protected:
@@ -50,7 +53,8 @@ TEST_F(PublishBuildEventCallbackServiceImplTest, Works) {
 
   // Create a server with the service to be tested. This selects a random port
   // automatically, which we save for connecting to it later.
-  PublishBuildEventCallbackServiceImpl under_test(std::nullopt);
+  Reporter reporter;
+  PublishBuildEventCallbackServiceImpl under_test(reporter, std::nullopt);
   int port_selected = -1;
   grpc::ServerBuilder builder;
   builder.AddListeningPort("localhost:0", grpc::InsecureServerCredentials(),
@@ -90,6 +94,28 @@ TEST_F(PublishBuildEventCallbackServiceImplTest, Works) {
   // Shutdown the server and wait for termination.
   server->Shutdown();
   server->Wait();
+
+  // Check that the reporter has a report
+  auto report = reporter.GetReportFor("/Users/xdecoret/gimli");
+  ASSERT_TRUE(report.has_value());
+  ASSERT_EQ(report->workspace_path, "/Users/xdecoret/gimli");
+
+  // The report time is known from the testdata: grep for `start_time`,
+  // ignore the deprecated `start_time_millis`.
+  ASSERT_EQ(report->time,
+            absl::FromUnixSeconds(1764368148) + absl::Nanoseconds(324000000));
+  ASSERT_THAT(report->errors, SizeIs(1));
+  EXPECT_EQ(report->errors[0].path_in_workspace,
+            "gimli/testdata/non_fatal_error.cc");
+  EXPECT_EQ(report->errors[0].line, 6);
+  EXPECT_EQ(report->errors[0].column, 16);
+  EXPECT_EQ(report->errors[0].message,
+            "error: use of undeclared identifier 'y'");
+  EXPECT_THAT(report->errors[0].context,
+              ElementsAreArray({
+                R"(    6 |   std::cout << y << std::endl;)",
+                R"(      |                ^)",
+              }));
 }
 
 }  // namespace

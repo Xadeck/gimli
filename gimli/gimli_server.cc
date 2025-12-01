@@ -18,6 +18,7 @@
 #include "absl/strings/str_cat.h"
 #include "gimli/gimli_service_impl.h"
 #include "gimli/publish_build_event_callback_service_impl.h"
+#include "gimli/reporter.h"
 #include "google/protobuf/stubs/common.h"
 #include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
@@ -29,6 +30,7 @@ ABSL_FLAG(bool, record, false,
 
 using gimli::GimliServiceImpl;
 using gimli::PublishBuildEventCallbackServiceImpl;
+using gimli::Reporter;
 
 namespace {
 volatile std::sig_atomic_t interrupted = 0;
@@ -63,8 +65,10 @@ int main(int argc, char** argv) {
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();
 
   std::signal(SIGINT, sigint_handler);
+  Reporter reporter;
   GimliServiceImpl gimli_service;
-  PublishBuildEventCallbackServiceImpl pbes_callback_service(testdata);
+  PublishBuildEventCallbackServiceImpl pbes_callback_service(reporter,
+                                                             testdata);
 
   grpc::ServerBuilder builder;
   builder.AddListeningPort(address, grpc::InsecureServerCredentials());

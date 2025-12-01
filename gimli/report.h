@@ -15,14 +15,16 @@ struct Report {
   struct Error {
     // Path of the file where error occured, inside the workspace for a report.
     std::filesystem::path path_in_workspace;
-    // Line where error occured.
-    int line;
+    // Line and column where error occured.
+    int line = -1;
+    int column = -1;
     // Lines of the error message.
-    std::vector<std::string> contents;
+    std::string message;
+    std::vector<std::string> context;
   };
 
-  std::filesystem::path workspace_path;
-  absl::Time time;
+  std::filesystem::path workspace_path = "";
+  absl::Time time = absl::UnixEpoch();
   std::vector<Error> errors;
 };
 

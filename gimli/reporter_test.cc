@@ -25,10 +25,11 @@ TEST(ReporterTest, Works) {
         {
           .path_in_workspace = "main.cc",
           .line = 5,
-          .contents =
+          .message = "Problem",
+          .context =
             {
-              "This is an error",
-              "on two lines",
+              "Here...",
+              "...or there",
             },
         },
       },

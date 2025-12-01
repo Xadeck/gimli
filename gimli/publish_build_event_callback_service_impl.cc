@@ -1,20 +1,25 @@
 #include "gimli/publish_build_event_callback_service_impl.h"
 
 #include <fstream>
+#include <optional>
 #include <string>
 #include <string_view>
 #include <vector>
 
+#include "absl/base/nullability.h"
 #include "absl/cleanup/cleanup.h"
 #include "absl/log/log.h"
 #include "absl/strings/match.h"
 #include "absl/strings/strip.h"
 #include "gimli/recording.pb.h"
+#include "gimli/report.h"
+#include "gimli/reporter.h"
 #include "google/devtools/build/v1/build_events.pb.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "google/protobuf/any.pb.h"
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/text_format.h"
+#include "google/protobuf/util/time_util.h"
 #include "grpcpp/server_context.h"
 #include "grpcpp/support/server_callback.h"
 #include "grpcpp/support/status.h"
@@ -27,6 +32,7 @@ using ::build_event_stream::BuildEventId;
 using ::google::devtools::build::v1::PublishBuildToolEventStreamRequest;
 using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
 using ::google::devtools::build::v1::PublishLifecycleEventRequest;
+using ::google::protobuf::util::TimeUtil;
 
 std::string_view PayloadName(BuildEvent::PayloadCase payload) {
   const auto* message_descriptor = BuildEvent::descriptor();
@@ -43,8 +49,8 @@ std::string_view IdName(BuildEventId::IdCase id) {
 }  // namespace
 
 PublishBuildEventCallbackServiceImpl::PublishBuildEventCallbackServiceImpl(
-  std::optional<std::filesystem::path> testdata)
-  : testdata_(testdata) {}
+  Reporter& reporter, std::optional<std::filesystem::path> testdata)
+  : reporter_(&reporter), testdata_(std::move(testdata)) {}
 
 grpc::ServerUnaryReactor*
 PublishBuildEventCallbackServiceImpl::PublishLifecycleEvent(
@@ -66,8 +72,12 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
     : public grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
                                      PublishBuildToolEventStreamResponse> {
    public:
-    Reactor(std::optional<std::filesystem::path> testdata)
-      : testdata_(testdata) {
+    Reactor(Reporter* absl_nonnull reporter,
+            const StderrProcessor* absl_nonnull stderr_processor,
+            std::optional<std::filesystem::path> testdata)
+      : reporter_(reporter),
+        stderr_processor_(stderr_processor),
+        testdata_(std::move(testdata)) {
       StartRead(&request_);
     }
 
@@ -101,6 +111,9 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
 
     void OnDone() final {
       auto _ = absl::MakeCleanup([&]() { delete this; });
+      if (report_.has_value()) {
+        reporter_->AddReport(*std::move(report_));
+      }
 
       if (!testdata_.has_value()) return;
       if (auto size = labels_.size(); size != 1) {
@@ -149,24 +162,37 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
       }
 
       if (build_event.payload_case() == BuildEvent::kStarted) {
-        // TODO: save the workspace directory to associate errors to it.
+        report_ = Report{
+          .workspace_path = build_event.started().workspace_directory(),
+          // The precision of timestamp is in nanoseconds so we use that
+          // to convert from protobuf timestamp to absl::Time.
+          .time = absl::FromUnixNanos(TimeUtil::TimestampToNanoseconds(
+            build_event.started().start_time())),
+        };
         VLOG(1) << " 🔨 in " << build_event.started().workspace_directory();
       }
       if (build_event.payload_case() == BuildEvent::kProgress) {
-        // TODO(xdecoret): parse be.progress().stderr() into warnings,
-        // errors, and ignoring things in bazel_out.
+        if (report_.has_value()) {
+          for (auto&& error :
+               stderr_processor_->ToErrors(build_event.progress().stderr())) {
+            report_->errors.push_back(std::move(error));
+          }
+        }
       }
     }
 
+    Reporter* absl_nonnull reporter_;
+    const StderrProcessor* absl_nonnull stderr_processor_;
     std::optional<std::filesystem::path> testdata_;
-    std::vector<std::string> labels_;
-    gimli::Recording recording_;
+    std::vector<std::string> labels_ = {};
+    gimli::Recording recording_ = {};
+    std::optional<Report> report_;
 
     PublishBuildToolEventStreamRequest request_;
     PublishBuildToolEventStreamResponse response_;
   };
 
-  return new Reactor(testdata_);
+  return new Reactor(reporter_, &stderr_processor_, testdata_);
 }
 
 }  // namespace gimli

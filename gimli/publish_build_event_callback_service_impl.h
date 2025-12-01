@@ -3,6 +3,9 @@
 
 #include <optional>
 
+#include "absl/base/nullability.h"
+#include "gimli/reporter.h"
+#include "gimli/stderr_processor.h"
 #include "google/devtools/build/v1/publish_build_event.grpc.pb.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 
@@ -11,8 +14,9 @@ namespace gimli {
 class PublishBuildEventCallbackServiceImpl final
   : public google::devtools::build::v1::PublishBuildEvent::CallbackService {
  public:
+  // Reporter's scope must encompass the scope of this object.
   PublishBuildEventCallbackServiceImpl(
-    std::optional<std::filesystem::path> testdata);
+    Reporter& reporter, std::optional<std::filesystem::path> testdata);
 
   grpc::ServerUnaryReactor* PublishLifecycleEvent(
     grpc::CallbackServerContext* context,
@@ -25,6 +29,8 @@ class PublishBuildEventCallbackServiceImpl final
   PublishBuildToolEventStream(grpc::CallbackServerContext* context) final;
 
  private:
+  Reporter* absl_nonnull reporter_;
+  StderrProcessor stderr_processor_;
   std::optional<std::filesystem::path> testdata_;
 };
 

@@ -32,6 +32,27 @@ cc_library(
     ],
 )
 
+cc_library(
+    name = "stderr_processor",
+    srcs = ["stderr_processor.cc"],
+    hdrs = ["stderr_processor.h"],
+    deps = [
+        ":report",
+        "@abseil-cpp//absl/log",
+        "@abseil-cpp//absl/strings",
+    ],
+)
+
+cc_test(
+    name = "stderr_processor_test",
+    srcs = ["stderr_processor_test.cc"],
+    deps = [
+        ":stderr_processor",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",  # keep
+    ],
+)
+
 cc_test(
     name = "reporter_test",
     srcs = ["reporter_test.cc"],
@@ -60,7 +81,6 @@ cc_library(
     srcs = ["publish_build_event_callback_service_impl.cc"],
     hdrs = ["publish_build_event_callback_service_impl.h"],
     implementation_deps = [
-        ":recording_cc_proto",
         "@abseil-cpp//absl/cleanup",
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/strings",
@@ -68,6 +88,11 @@ cc_library(
     ],
     visibility = ["//visibility:public"],
     deps = [
+        # Next one is technically in implementation_deps but clang-tidy doesn't
+        # see it then. Maybe https://github.com/erenon/bazel_clang_tidy/issues/30?
+        ":recording_cc_proto",
+        ":reporter",
+        ":stderr_processor",
         "@googleapis//google/devtools/build/v1:build_cc_grpc",  # keep
         "@googleapis//google/devtools/build/v1:build_cc_proto",  # keep
     ],
@@ -97,6 +122,7 @@ cc_binary(
     deps = [
         ":gimli_service_impl",
         ":publish_build_event_callback_service_impl",
+        ":reporter",
         "@abseil-cpp//absl/base:log_severity",
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
