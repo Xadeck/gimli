@@ -20,11 +20,11 @@ cc_library(
     name = "gimli_service_impl",
     srcs = ["gimli_service_impl.cc"],
     hdrs = ["gimli_service_impl.h"],
+    implementation_deps = ["@grpc//:grpc++"],
     visibility = ["//visibility:public"],
     deps = [
         ":gimli_cc_grpc",  # keep
         ":gimli_cc_proto",
-        "@grpc//:grpc++",
     ],
 )
 
@@ -32,13 +32,15 @@ cc_library(
     name = "publish_build_event_callback_service_impl",
     srcs = ["publish_build_event_callback_service_impl.cc"],
     hdrs = ["publish_build_event_callback_service_impl.h"],
-    visibility = ["//visibility:public"],
-    deps = [
+    implementation_deps = [
         ":recording_cc_proto",
         "@abseil-cpp//absl/cleanup",
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/strings",
         "@bazel//src/main/java/com/google/devtools/build/lib/buildeventstream/proto:build_event_stream_cc_proto",  # keep
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
         "@googleapis//google/devtools/build/v1:build_cc_grpc",  # keep
         "@googleapis//google/devtools/build/v1:build_cc_proto",  # keep
     ],
@@ -67,12 +69,14 @@ cc_binary(
     deps = [
         ":gimli_service_impl",
         ":publish_build_event_callback_service_impl",
+        "@abseil-cpp//absl/base:log_severity",
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
         "@abseil-cpp//absl/log",
         "@abseil-cpp//absl/log:globals",
         "@abseil-cpp//absl/log:initialize",
         "@abseil-cpp//absl/strings",
+        "@grpc//:grpc++",
         "@grpc//:grpc++_reflection",
     ],
 )
