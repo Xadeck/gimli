@@ -1,4 +1,10 @@
 #include "gimli/publish_build_event_callback_service_impl.h"
+
+#include <fstream>
+#include <string>
+#include <string_view>
+#include <vector>
+
 #include "absl/cleanup/cleanup.h"
 #include "absl/log/log.h"
 #include "absl/strings/match.h"
@@ -13,10 +19,6 @@
 #include "grpcpp/support/server_callback.h"
 #include "grpcpp/support/status.h"
 #include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
-#include <fstream>
-#include <string>
-#include <string_view>
-#include <vector>
 
 namespace gimli {
 namespace {
@@ -27,43 +29,43 @@ using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
 using ::google::devtools::build::v1::PublishLifecycleEventRequest;
 
 std::string_view PayloadName(BuildEvent::PayloadCase payload) {
-  const auto *message_descriptor = BuildEvent::descriptor();
-  const auto *field_descriptor = message_descriptor->FindFieldByNumber(payload);
+  const auto* message_descriptor = BuildEvent::descriptor();
+  const auto* field_descriptor = message_descriptor->FindFieldByNumber(payload);
   return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
 }
 
 std::string_view IdName(BuildEventId::IdCase id) {
-  const auto *message_descriptor = BuildEventId::descriptor();
-  const auto *field_descriptor = message_descriptor->FindFieldByNumber(id);
+  const auto* message_descriptor = BuildEventId::descriptor();
+  const auto* field_descriptor = message_descriptor->FindFieldByNumber(id);
   return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
 }
 
-} // namespace
+}  // namespace
 
 PublishBuildEventCallbackServiceImpl::PublishBuildEventCallbackServiceImpl(
     std::optional<std::filesystem::path> testdata)
     : testdata_(testdata) {}
 
-grpc::ServerUnaryReactor *
+grpc::ServerUnaryReactor*
 PublishBuildEventCallbackServiceImpl::PublishLifecycleEvent(
-    grpc::CallbackServerContext *context,
-    const PublishLifecycleEventRequest *request,
-    ::google::protobuf::Empty *response) {
+    grpc::CallbackServerContext* context,
+    const PublishLifecycleEventRequest* request,
+    ::google::protobuf::Empty* response) {
   // TODO: use the life cycle event to clear & publish the results of
   // a build for a given workspace directory.
-  auto *reactor = context->DefaultReactor();
+  auto* reactor = context->DefaultReactor();
   reactor->Finish(grpc::Status::OK);
   return reactor;
 }
 
 grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
-                        PublishBuildToolEventStreamResponse> *
+                        PublishBuildToolEventStreamResponse>*
 PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
-    grpc::CallbackServerContext *context) {
+    grpc::CallbackServerContext* context) {
   class Reactor final
       : public grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
                                        PublishBuildToolEventStreamResponse> {
-  public:
+   public:
     Reactor(std::optional<std::filesystem::path> testdata)
         : testdata_(testdata) {
       StartRead(&request_);
@@ -88,7 +90,7 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
     }
 
     void OnWriteDone(bool ok) final {
-      const auto &build_event = request_.ordered_build_event().event();
+      const auto& build_event = request_.ordered_build_event().event();
       if (build_event.has_component_stream_finished()) {
         Finish(grpc::Status::OK);
         return;
@@ -126,8 +128,8 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
       LOG(INFO) << "⏺️ Recorded " << path;
     }
 
-  private:
-    void Process(const google::protobuf::Any &bazel_event) {
+   private:
+    void Process(const google::protobuf::Any& bazel_event) {
       BuildEvent build_event;
       if (!bazel_event.UnpackTo(&build_event)) return;
       // Log the events if vlog is enabled via `--vmodule=gimli_server=1`.
@@ -135,7 +137,7 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
       VLOG(1) << "🐱" << IdName(build_event.id().id_case()) << "/"
               << PayloadName(build_event.payload_case()) << " -> "
               << build_event.children_size();
-      for (const auto &child : build_event.children()) {
+      for (const auto& child : build_event.children()) {
         VLOG(1) << "  🐶" << IdName(child.id_case());
       }
       // If in recording mode, save the build event and the configured targets
@@ -167,4 +169,4 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
   return new Reactor(testdata_);
 }
 
-} // namespace gimli
+}  // namespace gimli

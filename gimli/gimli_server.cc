@@ -1,3 +1,14 @@
+#include <chrono>
+#include <csignal>
+#include <cstdint>
+#include <cstdlib>
+#include <filesystem>
+#include <iostream>
+#include <memory>
+#include <optional>
+#include <string>
+#include <thread>
+
 #include "absl/base/log_severity.h"
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
@@ -11,16 +22,6 @@
 #include "grpcpp/ext/proto_server_reflection_plugin.h"
 #include "grpcpp/grpcpp.h"
 #include "grpcpp/security/server_credentials.h"
-#include <chrono>
-#include <csignal>
-#include <cstdint>
-#include <cstdlib>
-#include <filesystem>
-#include <iostream>
-#include <memory>
-#include <optional>
-#include <string>
-#include <thread>
 
 ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
 ABSL_FLAG(bool, record, false,
@@ -36,9 +37,9 @@ void sigint_handler(int signal) {
   interrupted = 1;
   std::signal(signal, SIG_DFL);
 }
-} // namespace
+}  // namespace
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   absl::ParseCommandLine(argc, argv);
@@ -47,7 +48,7 @@ int main(int argc, char **argv) {
 
   std::optional<std::filesystem::path> testdata;
   if (absl::GetFlag(FLAGS_record)) {
-    const char *workspace = std::getenv("BUILD_WORKSPACE_DIRECTORY");
+    const char* workspace = std::getenv("BUILD_WORKSPACE_DIRECTORY");
     if (workspace == nullptr) {
       std::cerr << "--record only work when executed via `blaze run`\n";
       return 1;

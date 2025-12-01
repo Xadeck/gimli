@@ -1,8 +1,15 @@
+#include "gimli/publish_build_event_callback_service_impl.h"
+
+#include <cstddef>
+#include <fstream>
+#include <iterator>
+#include <memory>
+#include <string>
+
 #include "absl/base/log_severity.h"
 #include "absl/log/globals.h"
 #include "absl/log/initialize.h"
 #include "absl/strings/str_cat.h"
-#include "gimli/publish_build_event_callback_service_impl.h"
 #include "gimli/recording.pb.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "google/protobuf/text_format.h"
@@ -11,11 +18,6 @@
 #include "grpcpp/security/server_credentials.h"
 #include "grpcpp/support/sync_stream.h"
 #include "gtest/gtest.h"
-#include <cstddef>
-#include <fstream>
-#include <iterator>
-#include <memory>
-#include <string>
 
 namespace gimli {
 namespace {
@@ -24,7 +26,7 @@ using ::google::devtools::build::v1::PublishBuildEvent;
 using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
 
 class PublishBuildEventCallbackServiceImplTest : public testing::Test {
-protected:
+ protected:
   static void SetUpTestCase() {
     absl::InitializeLog();
     absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
@@ -64,7 +66,7 @@ TEST_F(PublishBuildEventCallbackServiceImplTest, Works) {
   // Write all recorded requests.
   grpc::ClientContext context;
   auto stream = stub->PublishBuildToolEventStream(&context);
-  for (const auto &request : recording.requests()) {
+  for (const auto& request : recording.requests()) {
     EXPECT_TRUE(stream->Write(request));
   }
   stream->WritesDone();
@@ -90,5 +92,5 @@ TEST_F(PublishBuildEventCallbackServiceImplTest, Works) {
   server->Wait();
 }
 
-} // namespace
-} // namespace gimli
+}  // namespace
+}  // namespace gimli

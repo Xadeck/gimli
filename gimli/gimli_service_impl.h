@@ -7,12 +7,12 @@
 namespace gimli {
 
 class GimliServiceImpl final : public Gimli::Service {
-public:
-  grpc::Status Notify(grpc::ServerContext *context,
-                      const NotifyRequest *request,
-                      NotifyResponse *response) final;
+ public:
+  grpc::Status Notify(grpc::ServerContext* context,
+                      const NotifyRequest* request,
+                      NotifyResponse* response) final;
 };
 
-} // namespace gimli
+}  // namespace gimli
 
-#endif // _GIMLI_SERVICE_IMPL_H_
+#endif  // _GIMLI_SERVICE_IMPL_H_
