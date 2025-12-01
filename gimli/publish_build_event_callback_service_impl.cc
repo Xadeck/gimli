@@ -100,9 +100,7 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
     void OnDone() final {
       auto _ = absl::MakeCleanup([&]() { delete this; });
 
-      if (!testdata_.has_value()) {
-        return;
-      }
+      if (!testdata_.has_value()) return;
       if (auto size = labels_.size(); size != 1) {
         LOG(ERROR) << "⏺️ Recording only works for 1 target, got " << size;
         return;
@@ -131,9 +129,7 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
   private:
     void Process(const google::protobuf::Any &bazel_event) {
       BuildEvent build_event;
-      if (!bazel_event.UnpackTo(&build_event)) {
-        return;
-      }
+      if (!bazel_event.UnpackTo(&build_event)) return;
       // Log the events if vlog is enabled via `--vmodule=gimli_server=1`.
       // Mostly seful for learning the poorly documented Build Event Protocol.
       VLOG(1) << "🐱" << IdName(build_event.id().id_case()) << "/"

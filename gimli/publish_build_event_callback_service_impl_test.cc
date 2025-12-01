@@ -33,9 +33,7 @@ protected:
 
 std::optional<std::string> GetData(std::filesystem::path workspace_path) {
   std::ifstream stream(workspace_path);
-  if (!stream.is_open()) {
-    return std::nullopt;
-  }
+  if (!stream.is_open()) return std::nullopt;
 
   return std::string(std::istreambuf_iterator<char>(stream),
                      std::istreambuf_iterator<char>());
