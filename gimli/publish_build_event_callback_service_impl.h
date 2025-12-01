@@ -9,19 +9,19 @@
 namespace gimli {
 
 class PublishBuildEventCallbackServiceImpl final
-    : public google::devtools::build::v1::PublishBuildEvent::CallbackService {
+  : public google::devtools::build::v1::PublishBuildEvent::CallbackService {
  public:
   PublishBuildEventCallbackServiceImpl(
-      std::optional<std::filesystem::path> testdata);
+    std::optional<std::filesystem::path> testdata);
 
   grpc::ServerUnaryReactor* PublishLifecycleEvent(
-      grpc::CallbackServerContext* context,
-      const google::devtools::build::v1::PublishLifecycleEventRequest* request,
-      google::protobuf::Empty* response) final;
+    grpc::CallbackServerContext* context,
+    const google::devtools::build::v1::PublishLifecycleEventRequest* request,
+    google::protobuf::Empty* response) final;
 
   grpc::ServerBidiReactor<
-      google::devtools::build::v1::PublishBuildToolEventStreamRequest,
-      google::devtools::build::v1::PublishBuildToolEventStreamResponse>*
+    google::devtools::build::v1::PublishBuildToolEventStreamRequest,
+    google::devtools::build::v1::PublishBuildToolEventStreamResponse>*
   PublishBuildToolEventStream(grpc::CallbackServerContext* context) final;
 
  private:

@@ -43,14 +43,14 @@ std::string_view IdName(BuildEventId::IdCase id) {
 }  // namespace
 
 PublishBuildEventCallbackServiceImpl::PublishBuildEventCallbackServiceImpl(
-    std::optional<std::filesystem::path> testdata)
-    : testdata_(testdata) {}
+  std::optional<std::filesystem::path> testdata)
+  : testdata_(testdata) {}
 
 grpc::ServerUnaryReactor*
 PublishBuildEventCallbackServiceImpl::PublishLifecycleEvent(
-    grpc::CallbackServerContext* context,
-    const PublishLifecycleEventRequest* request,
-    ::google::protobuf::Empty* response) {
+  grpc::CallbackServerContext* context,
+  const PublishLifecycleEventRequest* request,
+  ::google::protobuf::Empty* response) {
   // TODO: use the life cycle event to clear & publish the results of
   // a build for a given workspace directory.
   auto* reactor = context->DefaultReactor();
@@ -61,13 +61,13 @@ PublishBuildEventCallbackServiceImpl::PublishLifecycleEvent(
 grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
                         PublishBuildToolEventStreamResponse>*
 PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
-    grpc::CallbackServerContext* context) {
+  grpc::CallbackServerContext* context) {
   class Reactor final
-      : public grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
-                                       PublishBuildToolEventStreamResponse> {
+    : public grpc::ServerBidiReactor<PublishBuildToolEventStreamRequest,
+                                     PublishBuildToolEventStreamResponse> {
    public:
     Reactor(std::optional<std::filesystem::path> testdata)
-        : testdata_(testdata) {
+      : testdata_(testdata) {
       StartRead(&request_);
     }
 
@@ -83,9 +83,9 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
       // the request's contents will drive the termination or continuation of
       // the streaming RPC call.
       *response_.mutable_stream_id() =
-          request_.ordered_build_event().stream_id();
+        request_.ordered_build_event().stream_id();
       response_.set_sequence_number(
-          request_.ordered_build_event().sequence_number());
+        request_.ordered_build_event().sequence_number());
       StartWrite(&response_);
     }
 
@@ -115,7 +115,7 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
         return;
       }
       const auto path = (*testdata_ / absl::StripPrefix(label, kPackage))
-                            .replace_extension(".textproto");
+                          .replace_extension(".textproto");
 
       std::string contents;
       if (!google::protobuf::TextFormat::PrintToString(recording_, &contents)) {

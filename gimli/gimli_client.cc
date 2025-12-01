@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
   const std::string address = absl::StrCat("127.0.0.1:", port);
 
   auto channel =
-      grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
+    grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
   auto stub = gimli::Gimli::NewStub(channel);
 
   grpc::ClientContext context;

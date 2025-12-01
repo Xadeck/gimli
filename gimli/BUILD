@@ -17,6 +17,32 @@ cc_grpc_library(
 )
 
 cc_library(
+    name = "report",
+    hdrs = ["report.h"],
+    visibility = ["//visibility:public"],
+    deps = ["@abseil-cpp//absl/time"],
+)
+
+cc_library(
+    name = "reporter",
+    srcs = ["reporter.cc"],
+    hdrs = ["reporter.h"],
+    deps = [
+        ":report",
+    ],
+)
+
+cc_test(
+    name = "reporter_test",
+    srcs = ["reporter_test.cc"],
+    deps = [
+        ":reporter",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",  # keep
+    ],
+)
+
+cc_library(
     name = "gimli_service_impl",
     srcs = ["gimli_service_impl.cc"],
     hdrs = ["gimli_service_impl.h"],
