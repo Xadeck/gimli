@@ -54,6 +54,7 @@ cc_test(
     deps = [
         ":publish_build_event_callback_service_impl",
         ":recording_cc_proto",
+        "@abseil-cpp//absl/base:log_severity",
         "@abseil-cpp//absl/log:globals",
         "@abseil-cpp//absl/log:initialize",
         "@abseil-cpp//absl/strings",
