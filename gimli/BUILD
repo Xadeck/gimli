@@ -25,6 +25,7 @@ cc_library(
     deps = [
         ":gimli_cc_grpc",  # keep
         ":gimli_cc_proto",
+        "@grpc//:grpc++",
     ],
 )
 
