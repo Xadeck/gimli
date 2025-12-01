@@ -2,7 +2,6 @@
 #include "absl/cleanup/cleanup.h"
 #include "absl/log/log.h"
 #include "absl/strings/match.h"
-#include "absl/strings/string_view.h"
 #include "absl/strings/strip.h"
 #include "gimli/recording.pb.h"
 #include "google/devtools/build/v1/build_events.pb.h"
@@ -16,6 +15,7 @@
 #include "src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.pb.h"
 #include <fstream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace gimli {
@@ -26,13 +26,13 @@ using ::google::devtools::build::v1::PublishBuildToolEventStreamRequest;
 using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
 using ::google::devtools::build::v1::PublishLifecycleEventRequest;
 
-absl::string_view PayloadName(BuildEvent::PayloadCase payload) {
+std::string_view PayloadName(BuildEvent::PayloadCase payload) {
   const auto *message_descriptor = BuildEvent::descriptor();
   const auto *field_descriptor = message_descriptor->FindFieldByNumber(payload);
   return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
 }
 
-absl::string_view IdName(BuildEventId::IdCase id) {
+std::string_view IdName(BuildEventId::IdCase id) {
   const auto *message_descriptor = BuildEventId::descriptor();
   const auto *field_descriptor = message_descriptor->FindFieldByNumber(id);
   return (field_descriptor == nullptr) ? "Unknown" : field_descriptor->name();
@@ -107,8 +107,8 @@ PublishBuildEventCallbackServiceImpl::PublishBuildToolEventStream(
         LOG(ERROR) << "⏺️ Recording only works for 1 target, got " << size;
         return;
       }
-      absl::string_view label = labels_.front();
-      static constexpr absl::string_view kPackage = "//gimli/testdata:";
+      std::string_view label = labels_.front();
+      static constexpr std::string_view kPackage = "//gimli/testdata:";
       if (!absl::StartsWith(label, kPackage)) {
         LOG(ERROR) << "⏺️ Recording only works for target in " << kPackage
                    << ", got " << label;
