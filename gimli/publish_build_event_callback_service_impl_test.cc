@@ -3,20 +3,15 @@
 #include <cstddef>
 #include <fstream>
 #include <iterator>
-#include <memory>
 #include <string>
 
-#include "absl/log/log.h"
-#include "absl/strings/str_cat.h"
 #include "absl/time/time.h"
+#include "gimli/grpc_test_server.h"
 #include "gimli/recording.pb.h"
 #include "gmock/gmock.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
 #include "google/protobuf/text_format.h"
 #include "grpcpp/grpcpp.h"
-#include "grpcpp/security/credentials.h"
-#include "grpcpp/security/server_credentials.h"
-#include "grpcpp/support/sync_stream.h"
 #include "gtest/gtest.h"
 
 namespace gimli {
@@ -45,17 +40,10 @@ TEST(PublishBuildEventCallbackServiceImplTest, Works) {
   // automatically, which we save for connecting to it later.
   Reporter reporter;
   PublishBuildEventCallbackServiceImpl under_test(reporter, std::nullopt);
-  int port_selected = -1;
-  grpc::ServerBuilder builder;
-  builder.AddListeningPort("localhost:0", grpc::InsecureServerCredentials(),
-                           &port_selected);
-  builder.RegisterService(&under_test);
-  auto server = builder.BuildAndStart();
 
-  // Creates a channel to the server, and a stub to the service.
-  auto channel = grpc::CreateChannel(absl::StrCat("localhost:", port_selected),
-                                     grpc::InsecureChannelCredentials());
-  auto stub = PublishBuildEvent::NewStub(channel);
+  auto test_server =
+    TestServer::Builder().RegisterService(&under_test).BuildAndStart();
+  auto stub = test_server.NewStub<PublishBuildEvent>();
 
   // Write all recorded requests.
   grpc::ClientContext context;
@@ -81,9 +69,7 @@ TEST(PublishBuildEventCallbackServiceImplTest, Works) {
   // Close the stream.
   stream->Finish();
 
-  // Shutdown the server and wait for termination.
-  server->Shutdown();
-  server->Wait();
+  std::move(test_server).Shutdown();
 
   // Check that the reporter has a report
   auto report = reporter.GetReportFor("/Users/xdecoret/gimli");

@@ -17,15 +17,23 @@ cc_grpc_library(
 )
 
 cc_library(
-  name = "gtest_logging",
-  srcs = ["gtest_logging.cc"],
-  testonly = True,
-  alwayslink = 1,
-  deps = [
-        "@googletest//:gtest",
-        "@abseil-cpp//absl/log:initialize",
+    name = "gtest_logging",
+    testonly = True,
+    srcs = ["gtest_logging.cc"],
+    deps = [
         "@abseil-cpp//absl/log",
-  ],
+        "@abseil-cpp//absl/log:initialize",
+        "@googletest//:gtest",
+    ],
+    alwayslink = 1,
+)
+
+cc_library(
+    name = "grpc_test_server",
+    testonly = True,
+    srcs = ["grpc_test_server.cc"],
+    hdrs = ["grpc_test_server.h"],
+    deps = ["@grpc//:grpc++"],
 )
 
 cc_library(
@@ -60,10 +68,10 @@ cc_test(
     size = "small",
     srcs = ["stderr_processor_test.cc"],
     deps = [
+        ":gtest_logging",  # keep
         ":stderr_processor",
         "@googletest//:gtest",
         "@googletest//:gtest_main",  # keep
-        ":gtest_logging",  # keep
     ],
 )
 
@@ -118,6 +126,7 @@ cc_test(
     srcs = ["publish_build_event_callback_service_impl_test.cc"],
     data = ["//gimli/testdata"],
     deps = [
+        ":grpc_test_server",
         ":gtest_logging",  # keep
         ":publish_build_event_callback_service_impl",
         ":recording_cc_proto",
