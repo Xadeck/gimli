@@ -18,15 +18,18 @@ class PublishBuildEventCallbackServiceImpl final
   PublishBuildEventCallbackServiceImpl(
     Reporter& reporter, std::optional<std::filesystem::path> testdata);
 
-  grpc::ServerUnaryReactor* PublishLifecycleEvent(
-    grpc::CallbackServerContext* context,
-    const google::devtools::build::v1::PublishLifecycleEventRequest* request,
-    google::protobuf::Empty* response) final;
+  grpc::ServerUnaryReactor* absl_nonnull PublishLifecycleEvent(
+    grpc::CallbackServerContext* absl_nonnull context,
+    const google::devtools::build::v1::
+      PublishLifecycleEventRequest* absl_nonnull request,
+    google::protobuf::Empty* absl_nonnull response) final;
 
   grpc::ServerBidiReactor<
     google::devtools::build::v1::PublishBuildToolEventStreamRequest,
-    google::devtools::build::v1::PublishBuildToolEventStreamResponse>*
-  PublishBuildToolEventStream(grpc::CallbackServerContext* context) final;
+    google::devtools::build::v1::
+      PublishBuildToolEventStreamResponse>* absl_nonnull
+  PublishBuildToolEventStream(
+    grpc::CallbackServerContext* absl_nonnull context) final;
 
  private:
   Reporter* absl_nonnull reporter_;

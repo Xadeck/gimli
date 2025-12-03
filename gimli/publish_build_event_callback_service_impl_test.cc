@@ -6,9 +6,7 @@
 #include <memory>
 #include <string>
 
-#include "absl/base/log_severity.h"
-#include "absl/log/globals.h"
-#include "absl/log/initialize.h"
+#include "absl/log/log.h"
 #include "absl/strings/str_cat.h"
 #include "absl/time/time.h"
 #include "gimli/recording.pb.h"
@@ -28,14 +26,6 @@ using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
 using ::testing::ElementsAreArray;
 using ::testing::SizeIs;
 
-class PublishBuildEventCallbackServiceImplTest : public testing::Test {
- protected:
-  static void SetUpTestCase() {
-    absl::InitializeLog();
-    absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
-  }
-};
-
 std::optional<std::string> GetData(std::filesystem::path workspace_path) {
   std::ifstream stream(workspace_path);
   if (!stream.is_open()) return std::nullopt;
@@ -44,7 +34,7 @@ std::optional<std::string> GetData(std::filesystem::path workspace_path) {
                      std::istreambuf_iterator<char>());
 }
 
-TEST_F(PublishBuildEventCallbackServiceImplTest, Works) {
+TEST(PublishBuildEventCallbackServiceImplTest, Works) {
   // Read the recording from testdata.
   auto data = GetData("gimli/testdata/non_fatal_error.textproto");
   ASSERT_TRUE(data.has_value());
