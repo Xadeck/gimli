@@ -1,5 +1,7 @@
 #include "gimli/gimli_service_impl.h"
 
+#include <filesystem>
+
 #include "absl/base/nullability.h"
 #include "absl/strings/substitute.h"
 #include "gimli/gimli.pb.h"
@@ -20,13 +22,19 @@ grpc::Status GimliServiceImpl::GetReport(
     return {grpc::StatusCode::INVALID_ARGUMENT,
             "missing `workspace_path` in request"};
   }
+  const std::filesystem::path workspace_path(request->workspace_path());
+  if (!workspace_path.is_absolute()) {
+    return {grpc::StatusCode::INVALID_ARGUMENT,
+            "`workspace_path` must be absolute"};
+  }
 
-  const auto report = reporter_->GetReportFor(request->workspace_path());
+  const auto report = reporter_->GetReportFor(workspace_path);
   if (!report.has_value()) {
     return {grpc::StatusCode::NOT_FOUND,
             absl::Substitute("No report for workspace `$0`",
                              request->workspace_path())};
   }
+
   auto& report_proto = *response->mutable_report();
   *report_proto.mutable_time() =
     TimeUtil::NanosecondsToTimestamp(absl::ToUnixNanos(report->time));

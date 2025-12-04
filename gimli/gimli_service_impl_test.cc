@@ -32,6 +32,18 @@ TEST_F(GimliServiceImplTest, ReturnsErrorForInvalidRequest) {
 
   auto status = stub_->GetReport(&context, request, &response);
   ASSERT_EQ(status.error_code(), grpc::StatusCode::INVALID_ARGUMENT);
+  ASSERT_EQ(status.error_message(), R"(missing `workspace_path` in request)");
+}
+
+TEST_F(GimliServiceImplTest, ReturnsErrorForRelativeWorkspace) {
+  grpc::ClientContext context;
+  proto::GetReportRequest request;
+  proto::GetReportResponse response;
+
+  request.set_workspace_path("some/project");
+  auto status = stub_->GetReport(&context, request, &response);
+  ASSERT_EQ(status.error_code(), grpc::StatusCode::INVALID_ARGUMENT);
+  ASSERT_EQ(status.error_message(), R"(`workspace_path` must be absolute)");
 }
 
 TEST_F(GimliServiceImplTest, ReturnsErrorForNotFoundWorkspace) {

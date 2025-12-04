@@ -50,6 +50,9 @@ TEST(ReporterTest, Works) {
   report = under_test.GetReportFor("/some/project");
   ASSERT_TRUE(report.has_value());
   ASSERT_THAT(report->errors, IsEmpty());
+
+  report = under_test.GetReportFor("/some/project/");
+  ASSERT_TRUE(report.has_value());
 }
 
 }  // namespace
