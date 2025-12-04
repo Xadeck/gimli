@@ -22,6 +22,7 @@ cc_library(
     srcs = ["gtest_logging.cc"],
     deps = [
         "@abseil-cpp//absl/log",
+        "@abseil-cpp//absl/log:flags",  # keep
         "@abseil-cpp//absl/log:initialize",
         "@googletest//:gtest",
     ],
@@ -94,7 +95,22 @@ cc_library(
     deps = [
         ":gimli_cc_grpc",  # keep
         ":gimli_cc_proto",
+        ":reporter",
         "@grpc//:grpc++",
+    ],
+)
+
+cc_test(
+    name = "gimli_service_impl_test",
+    srcs = ["gimli_service_impl_test.cc"],
+    deps = [
+        ":gimli_service_impl",  # keep
+        ":grpc_test_server",
+        ":gtest_logging",
+        ":reporter",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",  # keep
+        "@protobuf-matchers//protobuf-matchers",
     ],
 )
 
@@ -131,7 +147,6 @@ cc_test(
         ":publish_build_event_callback_service_impl",
         ":recording_cc_proto",
         "@abseil-cpp//absl/base:log_severity",
-        "@abseil-cpp//absl/log:globals",
         "@abseil-cpp//absl/log:initialize",
         "@abseil-cpp//absl/strings",
         "@googletest//:gtest",
@@ -151,7 +166,7 @@ cc_binary(
         "@abseil-cpp//absl/flags:flag",
         "@abseil-cpp//absl/flags:parse",
         "@abseil-cpp//absl/log",
-        "@abseil-cpp//absl/log:globals",
+        "@abseil-cpp//absl/log:flags",  # keep
         "@abseil-cpp//absl/log:initialize",
         "@abseil-cpp//absl/strings",
         "@grpc//:grpc++",
@@ -178,9 +193,21 @@ cc_proto_library(
 )
 
 proto_library(
+    name = "report_proto",
+    srcs = ["report.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@protobuf//:timestamp_proto",
+    ],
+)
+
+proto_library(
     name = "gimli_proto",
     srcs = ["gimli.proto"],
     visibility = ["//visibility:public"],
+    deps = [
+        ":report_proto",
+    ],
 )
 
 proto_library(

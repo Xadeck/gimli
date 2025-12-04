@@ -1,0 +1,21 @@
+edition = "2023";
+
+package gimli.proto;
+
+import "google/protobuf/timestamp.proto";
+
+message Report {
+  message Error {
+    // Path of the file where error occured, inside the workspace for a report.
+    string path_in_workspace = 1;
+    // Line and column where error occured.
+    int32 line = 2;
+    int32 column = 3;
+    // Lines of the error message.
+    string message = 4;
+    repeated string context = 5;
+  }
+
+  google.protobuf.Timestamp time = 1;
+  repeated Error errors = 2;
+}

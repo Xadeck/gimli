@@ -9,10 +9,8 @@
 #include <string>
 #include <thread>
 
-#include "absl/base/log_severity.h"
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
-#include "absl/log/globals.h"
 #include "absl/log/initialize.h"
 #include "absl/log/log.h"
 #include "absl/strings/str_cat.h"
@@ -46,7 +44,6 @@ int main(int argc, char** argv) {
 
   absl::ParseCommandLine(argc, argv);
   absl::InitializeLog();
-  absl::SetStderrThreshold(absl::LogSeverityAtLeast::kInfo);
 
   std::optional<std::filesystem::path> testdata;
   if (absl::GetFlag(FLAGS_record)) {
@@ -66,7 +63,7 @@ int main(int argc, char** argv) {
 
   std::signal(SIGINT, sigint_handler);
   Reporter reporter;
-  GimliServiceImpl gimli_service;
+  GimliServiceImpl gimli_service(&reporter);
   PublishBuildEventCallbackServiceImpl pbes_callback_service(reporter,
                                                              testdata);
 

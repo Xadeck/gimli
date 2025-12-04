@@ -17,20 +17,24 @@ int main(int argc, char** argv) {
 
   auto channel =
     grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
-  auto stub = gimli::Gimli::NewStub(channel);
+  auto stub = gimli::proto::Gimli::NewStub(channel);
 
   grpc::ClientContext context;
-  gimli::NotifyRequest request;
-  gimli::NotifyResponse response;
+  gimli::proto::GetReportRequest request;
+  gimli::proto::GetReportResponse response;
 
-  request.set_input("hello");
-  auto status = stub->Notify(&context, request, &response);
+  if (argc != 2) {
+    std::cerr << "Expected 1 argument, got " << argc << "\n";
+    return 1;
+  }
+  request.set_workspace_path(argv[1]);
+  auto status = stub->GetReport(&context, request, &response);
   if (!status.ok()) {
     std::cerr << status.error_message();
     return 1;
   }
 
-  std::cout << response.output();
+  std::cout << response.DebugString();
 
   google::protobuf::ShutdownProtobufLibrary();
   return 0;

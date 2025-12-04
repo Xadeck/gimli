@@ -1,16 +1,17 @@
 edition = "2023";
 
-package gimli;
+package gimli.proto;
 
+import "gimli/report.proto";
 
 service Gimli {
-  rpc Notify(NotifyRequest) returns (NotifyResponse) {}
+  rpc GetReport(GetReportRequest) returns (GetReportResponse) {}
 }
 
-message NotifyRequest {
-  string input = 1;  
+message GetReportRequest {
+  string workspace_path = 1;
 }
 
-message NotifyResponse {
-  string output = 1;  
+message GetReportResponse {
+  Report report = 1;
 }
