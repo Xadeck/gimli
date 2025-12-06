@@ -32,7 +32,7 @@ TEST_F(GimliServiceImplTest, ReturnsErrorForInvalidRequest) {
 
   auto status = stub_->GetReport(&context, request, &response);
   ASSERT_EQ(status.error_code(), grpc::StatusCode::INVALID_ARGUMENT);
-  ASSERT_EQ(status.error_message(), R"(missing `workspace_path` in request)");
+  ASSERT_EQ(status.error_message(), R"(missing `path` in request)");
 }
 
 TEST_F(GimliServiceImplTest, ReturnsErrorForRelativeWorkspace) {
@@ -40,10 +40,10 @@ TEST_F(GimliServiceImplTest, ReturnsErrorForRelativeWorkspace) {
   proto::GetReportRequest request;
   proto::GetReportResponse response;
 
-  request.set_workspace_path("some/project");
+  request.set_path("some/project");
   auto status = stub_->GetReport(&context, request, &response);
   ASSERT_EQ(status.error_code(), grpc::StatusCode::INVALID_ARGUMENT);
-  ASSERT_EQ(status.error_message(), R"(`workspace_path` must be absolute)");
+  ASSERT_EQ(status.error_message(), R"(`path` must be absolute)");
 }
 
 TEST_F(GimliServiceImplTest, ReturnsErrorForNotFoundWorkspace) {
@@ -51,7 +51,7 @@ TEST_F(GimliServiceImplTest, ReturnsErrorForNotFoundWorkspace) {
   proto::GetReportRequest request;
   proto::GetReportResponse response;
 
-  request.set_workspace_path("/not/existing");
+  request.set_path("/not/existing");
   auto status = stub_->GetReport(&context, request, &response);
   ASSERT_EQ(status.error_code(), grpc::StatusCode::NOT_FOUND);
 }
@@ -80,11 +80,12 @@ TEST_F(GimliServiceImplTest, ReturnsReportWhenExisting) {
   proto::GetReportRequest request;
   proto::GetReportResponse response;
 
-  request.set_workspace_path("/some/project");
+  request.set_path("/some/project/file.cc");
   const auto status = stub_->GetReport(&context, request, &response);
   ASSERT_TRUE(status.ok()) << status.error_message();
   EXPECT_THAT(response,
               EqualsProto(R"pb(report {
+                                 workspace_path: "/some/project"
                                  time { seconds: 1764 nanos: 863274000 }
                                  errors {
                                    path_in_workspace: "main.cc"

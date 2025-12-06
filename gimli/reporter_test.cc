@@ -53,6 +53,9 @@ TEST(ReporterTest, Works) {
 
   report = under_test.GetReportFor("/some/project/");
   ASSERT_TRUE(report.has_value());
+
+  report = under_test.GetReportFor("/some/project/file/under.cc");
+  ASSERT_TRUE(report.has_value());
 }
 
 }  // namespace

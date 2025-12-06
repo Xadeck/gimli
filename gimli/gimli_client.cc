@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
     std::cerr << "Expected 1 argument, got " << argc << "\n";
     return 1;
   }
-  request.set_workspace_path(argv[1]);
+  request.set_path(argv[1]);
   auto status = stub->GetReport(&context, request, &response);
   if (!status.ok()) {
     std::cerr << status.error_message();

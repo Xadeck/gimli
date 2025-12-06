@@ -16,6 +16,7 @@ message Report {
     repeated string context = 5;
   }
 
-  google.protobuf.Timestamp time = 1;
-  repeated Error errors = 2;
+  string workspace_path = 1;
+  google.protobuf.Timestamp time = 2;
+  repeated Error errors = 3;
 }

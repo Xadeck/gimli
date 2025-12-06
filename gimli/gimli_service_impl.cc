@@ -18,24 +18,22 @@ grpc::Status GimliServiceImpl::GetReport(
   grpc::ServerContext* absl_nonnull context,
   const proto::GetReportRequest* absl_nonnull request,
   proto::GetReportResponse* absl_nonnull response) {
-  if (!request->has_workspace_path()) {
-    return {grpc::StatusCode::INVALID_ARGUMENT,
-            "missing `workspace_path` in request"};
+  if (!request->has_path()) {
+    return {grpc::StatusCode::INVALID_ARGUMENT, "missing `path` in request"};
   }
-  const std::filesystem::path workspace_path(request->workspace_path());
-  if (!workspace_path.is_absolute()) {
-    return {grpc::StatusCode::INVALID_ARGUMENT,
-            "`workspace_path` must be absolute"};
+  const std::filesystem::path path(request->path());
+  if (!path.is_absolute()) {
+    return {grpc::StatusCode::INVALID_ARGUMENT, "`path` must be absolute"};
   }
 
-  const auto report = reporter_->GetReportFor(workspace_path);
+  const auto report = reporter_->GetReportFor(path);
   if (!report.has_value()) {
     return {grpc::StatusCode::NOT_FOUND,
-            absl::Substitute("No report for workspace `$0`",
-                             request->workspace_path())};
+            absl::Substitute("No report for workspace `$0`", request->path())};
   }
 
   auto& report_proto = *response->mutable_report();
+  report_proto.set_workspace_path(report->workspace_path);
   *report_proto.mutable_time() =
     TimeUtil::NanosecondsToTimestamp(absl::ToUnixNanos(report->time));
 

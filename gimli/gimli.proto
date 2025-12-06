@@ -9,7 +9,7 @@ service Gimli {
 }
 
 message GetReportRequest {
-  string workspace_path = 1;
+  string path = 1;
 }
 
 message GetReportResponse {
