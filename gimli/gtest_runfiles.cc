@@ -17,6 +17,7 @@ class RunfilesEnvironment final : public ::testing::Environment {
   void SetUp() final {
     std::string error;
     runfiles = ::rules_cc::cc::runfiles::Runfiles::CreateForTest(&error);
+    ASSERT_NE(runfiles, nullptr) << error;
   }
 
   void TearDown() final { delete runfiles; }
