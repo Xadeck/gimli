@@ -1,5 +1,5 @@
-#ifndef _USERS_XDECORET_GIMLI_GIMLI_REPORTER_H_
-#define _USERS_XDECORET_GIMLI_GIMLI_REPORTER_H_
+#ifndef GIMLI_REPORTER_H_
+#define GIMLI_REPORTER_H_
 
 #include <filesystem>
 #include <mutex>
@@ -25,4 +25,4 @@ class Reporter {
 
 }  // namespace gimli
 
-#endif  // _USERS_XDECORET_GIMLI_GIMLI_REPORTER_H_
+#endif  // GIMLI_REPORTER_H_

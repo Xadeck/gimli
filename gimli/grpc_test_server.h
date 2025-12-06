@@ -1,5 +1,5 @@
-#ifndef _GRPC_TEST_SERVER_H_
-#define _GRPC_TEST_SERVER_H_
+#ifndef _GIMLI_GRPC_TEST_SERVER_H_
+#define _GIMLI_GRPC_TEST_SERVER_H_
 
 #include <memory>
 
@@ -39,4 +39,4 @@ class TestServer {
 
 }  // namespace gimli
 
-#endif  // _GRPC_TEST_SERVER_H_
+#endif  // _GIMLI_GRPC_TEST_SERVER_H_

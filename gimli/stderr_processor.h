@@ -1,5 +1,5 @@
-#ifndef _USERS_XDECORET_GIMLI_GIMLI_STDERR_PROCESSOR_H_
-#define _USERS_XDECORET_GIMLI_GIMLI_STDERR_PROCESSOR_H_
+#ifndef GIMLI_STDERR_PROCESSOR_H_
+#define GIMLI_STDERR_PROCESSOR_H_
 
 #include <regex>
 #include <string>
@@ -29,4 +29,4 @@ class StderrProcessor {
 
 }  // namespace gimli
 
-#endif  // _USERS_XDECORET_GIMLI_GIMLI_STDERR_PROCESSOR_H_
+#endif  // GIMLI_STDERR_PROCESSOR_H_
