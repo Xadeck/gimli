@@ -1,12 +1,11 @@
 #include "gimli/publish_build_event_callback_service_impl.h"
 
 #include <cstddef>
-#include <fstream>
-#include <iterator>
-#include <string>
 
+#include "absl/status/status_matchers.h"
 #include "absl/time/time.h"
 #include "gimli/grpc_test_server.h"
+#include "gimli/gtest_runfiles.h"
 #include "gimli/recording.pb.h"
 #include "gmock/gmock.h"
 #include "google/devtools/build/v1/publish_build_event.pb.h"
@@ -16,23 +15,16 @@
 
 namespace gimli {
 namespace {
+using ::absl_testing::IsOk;
 using ::google::devtools::build::v1::PublishBuildEvent;
 using ::google::devtools::build::v1::PublishBuildToolEventStreamResponse;
 using ::testing::ElementsAreArray;
 using ::testing::SizeIs;
 
-std::optional<std::string> GetData(std::filesystem::path workspace_path) {
-  std::ifstream stream(workspace_path);
-  if (!stream.is_open()) return std::nullopt;
-
-  return std::string(std::istreambuf_iterator<char>(stream),
-                     std::istreambuf_iterator<char>());
-}
-
 TEST(PublishBuildEventCallbackServiceImplTest, Works) {
   // Read the recording from testdata.
-  auto data = GetData("gimli/testdata/non_fatal_error.textproto");
-  ASSERT_TRUE(data.has_value());
+  auto data = Runfiles::ContentsOf("gimli/testdata/non_fatal_error.textproto");
+  ASSERT_THAT(data, IsOk());
   gimli::Recording recording;
   ASSERT_TRUE(google::protobuf::TextFormat::ParseFromString(*data, &recording));
 

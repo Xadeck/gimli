@@ -26,7 +26,22 @@ cc_library(
         "@abseil-cpp//absl/log:initialize",
         "@googletest//:gtest",
     ],
-    alwayslink = 1,
+    alwayslink = True,
+)
+
+cc_library(
+    name = "gtest_runfiles",
+    testonly = True,
+    srcs = ["gtest_runfiles.cc"],
+    hdrs = ["gtest_runfiles.h"],
+    deps = [
+        "@abseil-cpp//absl/log",
+        "@abseil-cpp//absl/status:statusor",
+        "@abseil-cpp//absl/strings",
+        "@googletest//:gtest",
+        "@rules_cc//cc/runfiles",
+    ],
+    alwayslink = True,
 )
 
 cc_library(
@@ -107,6 +122,7 @@ cc_test(
         ":gimli_service_impl",  # keep
         ":grpc_test_server",
         ":gtest_logging",
+        ":gtest_runfiles",
         ":reporter",
         "@googletest//:gtest",
         "@googletest//:gtest_main",  # keep
@@ -144,10 +160,12 @@ cc_test(
     deps = [
         ":grpc_test_server",
         ":gtest_logging",  # keep
+        ":gtest_runfiles",  # keep
         ":publish_build_event_callback_service_impl",
         ":recording_cc_proto",
         "@abseil-cpp//absl/base:log_severity",
         "@abseil-cpp//absl/log:initialize",
+        "@abseil-cpp//absl/status:status_matchers",
         "@abseil-cpp//absl/strings",
         "@googletest//:gtest",
         "@googletest//:gtest_main",  # keep
