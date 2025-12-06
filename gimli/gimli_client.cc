@@ -7,7 +7,7 @@
 #include "gimli/gimli.pb.h"
 #include "grpcpp/grpcpp.h"
 
-ABSL_FLAG(uint16_t, port, 8080, "The port on which ");
+ABSL_FLAG(uint16_t, port, 9090, "The port on which ");
 ABSL_FLAG(
   std::optional<std::string>, path, std::nullopt,
   R"(If set, retrieves the report for the workspace containing this file.)"

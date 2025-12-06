@@ -22,7 +22,7 @@
 #include "grpcpp/grpcpp.h"
 #include "grpcpp/security/server_credentials.h"
 
-ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
+ABSL_FLAG(uint16_t, port, 9090, "The port where to listen");
 ABSL_FLAG(bool, record, false,
           "If true, even stream are recorded in testdata.");
 
