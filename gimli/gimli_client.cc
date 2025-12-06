@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <filesystem>
 
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
@@ -6,7 +7,11 @@
 #include "gimli/gimli.pb.h"
 #include "grpcpp/grpcpp.h"
 
-ABSL_FLAG(uint16_t, port, 8080, "The port where to listen");
+ABSL_FLAG(uint16_t, port, 8080, "The port on which ");
+ABSL_FLAG(
+  std::optional<std::string>, path, std::nullopt,
+  R"(If set, retrieves the report for the workspace containing this file.)"
+  R"(If not set, retreives the report for the current working directory.)");
 
 int main(int argc, char** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -23,11 +28,9 @@ int main(int argc, char** argv) {
   gimli::proto::GetReportRequest request;
   gimli::proto::GetReportResponse response;
 
-  if (argc != 2) {
-    std::cerr << "Expected 1 argument, got " << argc << "\n";
-    return 1;
-  }
-  request.set_path(argv[1]);
+  request.set_path(
+    absl::GetFlag(FLAGS_path).value_or(std::filesystem::current_path()));
+
   auto status = stub->GetReport(&context, request, &response);
   if (!status.ok()) {
     std::cerr << status.error_message();
