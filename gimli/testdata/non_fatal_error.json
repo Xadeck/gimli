@@ -1,0 +1,2574 @@
+{
+  "id": {
+    "started": {}
+  },
+  "children": [
+    {
+      "progress": {}
+    },
+    {
+      "unstructuredCommandLine": {}
+    },
+    {
+      "structuredCommandLine": {
+        "commandLineLabel": "original"
+      }
+    },
+    {
+      "structuredCommandLine": {
+        "commandLineLabel": "canonical"
+      }
+    },
+    {
+      "structuredCommandLine": {
+        "commandLineLabel": "tool"
+      }
+    },
+    {
+      "buildMetadata": {}
+    },
+    {
+      "optionsParsed": {}
+    },
+    {
+      "workspaceStatus": {}
+    },
+    {
+      "pattern": {
+        "pattern": [
+          "//gimli/testdata:non_fatal_error"
+        ]
+      }
+    },
+    {
+      "buildFinished": {}
+    }
+  ],
+  "started": {
+    "uuid": "9d8656d7-512f-44c6-bb66-813ff1a26369",
+    "startTimeMillis": "1765124704345",
+    "buildToolVersion": "8.4.2-homebrew",
+    "optionsDescription": "--features=-module_maps --define='grpc_no_xds=true' --build_event_json_file=gimli/testdata/non_fatal_error.json",
+    "command": "build",
+    "workingDirectory": "/Users/xdecoret/gimli",
+    "workspaceDirectory": "/Users/xdecoret/gimli",
+    "serverPid": "71651",
+    "startTime": "2025-12-07T16:25:04.345Z"
+  }
+}
+{
+  "id": {
+    "buildMetadata": {}
+  },
+  "buildMetadata": {}
+}
+{
+  "id": {
+    "unstructuredCommandLine": {}
+  },
+  "unstructuredCommandLine": {
+    "args": [
+      "build",
+      "--startup_time=14",
+      "--command_wait_time=0",
+      "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel",
+      "--rc_source=client",
+      "--default_override=0:common=--isatty=1",
+      "--default_override=0:common=--terminal_columns=122",
+      "--rc_source=/Users/xdecoret/gimli/.bazelrc",
+      "--rc_source=/Users/xdecoret/.bazelrc",
+      "--default_override=1:build:clang-tidy=--aspects",
+      "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect",
+      "--default_override=1:build:clang-tidy=--output_groups=report",
+      "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config",
+      "--default_override=1:build=--features=-module_maps",
+      "--default_override=1:build=--define=grpc_no_xds=true",
+      "--default_override=1:test=--define=grpc_no_xds=true",
+      "--default_override=2:test=--test_summary=detailed",
+      "--default_override=2:test=--test_output=all",
+      "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:",
+      "--client_env=SSH_AGENT_PID=1464",
+      "--client_env=SHELL=/opt/homebrew/bin/fish",
+      "--client_env=TERM=xterm-kitty",
+      "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc",
+      "--client_env=TMPDIR=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T/",
+      "--client_env=WINDOWID=142",
+      "--client_env=_tide_color_separator_same_color=\u001b[38;2;148;148;148m",
+      "--client_env=_tide_pad= ",
+      "--client_env=USER=xdecoret",
+      "--client_env=COMMAND_MODE=unix2003",
+      "--client_env=SSH_AUTH_SOCK=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T//ssh-DAsF3a6CFs0l/agent.1462",
+      "--client_env=__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0",
+      "--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind='ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'",
+      "--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/opt/homebrew/bin:/Applications/kitty.app/Contents/MacOS",
+      "--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment",
+      "--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty",
+      "--client_env=PWD=/Users/xdecoret/gimli",
+      "--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+      "--client_env=EDITOR=/opt/homebrew/bin/nvim",
+      "--client_env=KITTY_PID=1454",
+      "--client_env=LANG=en_US.UTF-8",
+      "--client_env=XPC_FLAGS=0x0",
+      "--client_env=XPC_SERVICE_NAME=0",
+      "--client_env=SHLVL=1",
+      "--client_env=HOME=/Users/xdecoret",
+      "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo",
+      "--client_env=LANGUAGE=en_US",
+      "--client_env=LOGNAME=xdecoret",
+      "--client_env=LESS=-R",
+      "--client_env=KITTY_WINDOW_ID=37",
+      "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty",
+      "--client_env=OSLogRateLimit=64",
+      "--client_env=KITTY_PUBLIC_KEY=1:_RI?Y=hZPHKRw)AgSJ2<X@4{;t0si{9FtX+U{r7{",
+      "--client_env=_tide_location_color=\u001b[38;2;0;0;0m",
+      "--client_env=COLORTERM=truecolor",
+      "--client_cwd=/Users/xdecoret/gimli",
+      "//gimli/testdata:non_fatal_error",
+      "--build_event_json_file=gimli/testdata/non_fatal_error.json"
+    ]
+  }
+}
+{
+  "id": {
+    "optionsParsed": {}
+  },
+  "optionsParsed": {
+    "startupOptions": [
+      "--max_idle_secs=10800",
+      "--noshutdown_on_low_sys_mem",
+      "--connect_timeout_secs=30",
+      "--output_user_root=/var/tmp/_bazel_xdecoret",
+      "--output_base=/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482",
+      "--failure_detail_out=/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto",
+      "--idle_server_tasks",
+      "--write_command_log",
+      "--nowatchfs",
+      "--nofatal_event_bus_exceptions",
+      "--nowindows_enable_symlinks",
+      "--noclient_debug"
+    ],
+    "cmdLine": [
+      "--features=-module_maps",
+      "--define=grpc_no_xds=true",
+      "--build_event_json_file=gimli/testdata/non_fatal_error.json"
+    ],
+    "explicitCmdLine": [
+      "--build_event_json_file=gimli/testdata/non_fatal_error.json"
+    ],
+    "invocationPolicy": {}
+  }
+}
+{
+  "id": {
+    "structuredCommandLine": {
+      "commandLineLabel": "original"
+    }
+  },
+  "structuredCommandLine": {
+    "commandLineLabel": "original",
+    "sections": [
+      {
+        "sectionLabel": "executable",
+        "chunkList": {
+          "chunk": [
+            "bazel"
+          ]
+        }
+      },
+      {
+        "sectionLabel": "startup options",
+        "optionList": {}
+      },
+      {
+        "sectionLabel": "command",
+        "chunkList": {
+          "chunk": [
+            "build"
+          ]
+        }
+      },
+      {
+        "sectionLabel": "command options",
+        "optionList": {
+          "option": [
+            {
+              "combinedForm": "--rc_source=client",
+              "optionName": "rc_source",
+              "optionValue": "client",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=0:common=--isatty=1",
+              "optionName": "default_override",
+              "optionValue": "0:common=--isatty=1",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=0:common=--terminal_columns=122",
+              "optionName": "default_override",
+              "optionValue": "0:common=--terminal_columns=122",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--rc_source=/Users/xdecoret/gimli/.bazelrc",
+              "optionName": "rc_source",
+              "optionValue": "/Users/xdecoret/gimli/.bazelrc",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--rc_source=/Users/xdecoret/.bazelrc",
+              "optionName": "rc_source",
+              "optionValue": "/Users/xdecoret/.bazelrc",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=--aspects",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=--aspects",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=--output_groups=report",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=--output_groups=report",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build=--features=-module_maps",
+              "optionName": "default_override",
+              "optionValue": "1:build=--features=-module_maps",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build=--define=grpc_no_xds=true",
+              "optionName": "default_override",
+              "optionValue": "1:build=--define=grpc_no_xds=true",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:test=--define=grpc_no_xds=true",
+              "optionName": "default_override",
+              "optionValue": "1:test=--define=grpc_no_xds=true",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=2:test=--test_summary=detailed",
+              "optionName": "default_override",
+              "optionValue": "2:test=--test_summary=detailed",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=2:test=--test_output=all",
+              "optionName": "default_override",
+              "optionValue": "2:test=--test_output=all",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--startup_time=14",
+              "optionName": "startup_time",
+              "optionValue": "14",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--command_wait_time=0",
+              "optionName": "command_wait_time",
+              "optionValue": "0",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel",
+              "optionName": "binary_path",
+              "optionValue": "/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:",
+              "optionName": "client_env",
+              "optionValue": "MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SSH_AGENT_PID=1464",
+              "optionName": "client_env",
+              "optionValue": "SSH_AGENT_PID=1464",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SHELL=/opt/homebrew/bin/fish",
+              "optionName": "client_env",
+              "optionValue": "SHELL=/opt/homebrew/bin/fish",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=TERM=xterm-kitty",
+              "optionName": "client_env",
+              "optionValue": "TERM=xterm-kitty",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc",
+              "optionName": "client_env",
+              "optionValue": "RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=TMPDIR=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T/",
+              "optionName": "client_env",
+              "optionValue": "TMPDIR=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T/",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=WINDOWID=142",
+              "optionName": "client_env",
+              "optionValue": "WINDOWID=142",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=_tide_color_separator_same_color=\u001b[38;2;148;148;148m",
+              "optionName": "client_env",
+              "optionValue": "_tide_color_separator_same_color=\u001b[38;2;148;148;148m",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=_tide_pad= ",
+              "optionName": "client_env",
+              "optionValue": "_tide_pad= ",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=USER=xdecoret",
+              "optionName": "client_env",
+              "optionValue": "USER=xdecoret",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=COMMAND_MODE=unix2003",
+              "optionName": "client_env",
+              "optionValue": "COMMAND_MODE=unix2003",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SSH_AUTH_SOCK=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T//ssh-DAsF3a6CFs0l/agent.1462",
+              "optionName": "client_env",
+              "optionValue": "SSH_AUTH_SOCK=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T//ssh-DAsF3a6CFs0l/agent.1462",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0",
+              "optionName": "client_env",
+              "optionValue": "__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind='ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'",
+              "optionName": "client_env",
+              "optionValue": "FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind='ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/opt/homebrew/bin:/Applications/kitty.app/Contents/MacOS",
+              "optionName": "client_env",
+              "optionValue": "PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/opt/homebrew/bin:/Applications/kitty.app/Contents/MacOS",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment",
+              "optionName": "client_env",
+              "optionValue": "SSH_ENV=/Users/xdecoret/.ssh/environment",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty",
+              "optionName": "client_env",
+              "optionValue": "__CFBundleIdentifier=net.kovidgoyal.kitty",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=PWD=/Users/xdecoret/gimli",
+              "optionName": "client_env",
+              "optionValue": "PWD=/Users/xdecoret/gimli",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+              "optionName": "client_env",
+              "optionValue": "JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=EDITOR=/opt/homebrew/bin/nvim",
+              "optionName": "client_env",
+              "optionValue": "EDITOR=/opt/homebrew/bin/nvim",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_PID=1454",
+              "optionName": "client_env",
+              "optionValue": "KITTY_PID=1454",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LANG=en_US.UTF-8",
+              "optionName": "client_env",
+              "optionValue": "LANG=en_US.UTF-8",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=XPC_FLAGS=0x0",
+              "optionName": "client_env",
+              "optionValue": "XPC_FLAGS=0x0",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=XPC_SERVICE_NAME=0",
+              "optionName": "client_env",
+              "optionValue": "XPC_SERVICE_NAME=0",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SHLVL=1",
+              "optionName": "client_env",
+              "optionValue": "SHLVL=1",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=HOME=/Users/xdecoret",
+              "optionName": "client_env",
+              "optionValue": "HOME=/Users/xdecoret",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo",
+              "optionName": "client_env",
+              "optionValue": "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LANGUAGE=en_US",
+              "optionName": "client_env",
+              "optionValue": "LANGUAGE=en_US",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LOGNAME=xdecoret",
+              "optionName": "client_env",
+              "optionValue": "LOGNAME=xdecoret",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LESS=-R",
+              "optionName": "client_env",
+              "optionValue": "LESS=-R",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_WINDOW_ID=37",
+              "optionName": "client_env",
+              "optionValue": "KITTY_WINDOW_ID=37",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty",
+              "optionName": "client_env",
+              "optionValue": "KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=OSLogRateLimit=64",
+              "optionName": "client_env",
+              "optionValue": "OSLogRateLimit=64",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_PUBLIC_KEY=1:_RI?Y=hZPHKRw)AgSJ2<X@4{;t0si{9FtX+U{r7{",
+              "optionName": "client_env",
+              "optionValue": "KITTY_PUBLIC_KEY=1:_RI?Y=hZPHKRw)AgSJ2<X@4{;t0si{9FtX+U{r7{",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=_tide_location_color=\u001b[38;2;0;0;0m",
+              "optionName": "client_env",
+              "optionValue": "_tide_location_color=\u001b[38;2;0;0;0m",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=COLORTERM=truecolor",
+              "optionName": "client_env",
+              "optionValue": "COLORTERM=truecolor",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_cwd=/Users/xdecoret/gimli",
+              "optionName": "client_cwd",
+              "optionValue": "/Users/xdecoret/gimli",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--build_event_json_file=gimli/testdata/non_fatal_error.json",
+              "optionName": "build_event_json_file",
+              "optionValue": "gimli/testdata/non_fatal_error.json",
+              "effectTags": [
+                "AFFECTS_OUTPUTS"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sectionLabel": "residual",
+        "chunkList": {
+          "chunk": [
+            "//gimli/testdata:non_fatal_error"
+          ]
+        }
+      }
+    ]
+  }
+}
+{
+  "id": {
+    "structuredCommandLine": {
+      "commandLineLabel": "canonical"
+    }
+  },
+  "structuredCommandLine": {
+    "commandLineLabel": "canonical",
+    "sections": [
+      {
+        "sectionLabel": "executable",
+        "chunkList": {
+          "chunk": [
+            "bazel"
+          ]
+        }
+      },
+      {
+        "sectionLabel": "startup options",
+        "optionList": {
+          "option": [
+            {
+              "combinedForm": "--max_idle_secs=10800",
+              "optionName": "max_idle_secs",
+              "optionValue": "10800",
+              "effectTags": [
+                "EAGERNESS_TO_EXIT",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--noshutdown_on_low_sys_mem",
+              "optionName": "shutdown_on_low_sys_mem",
+              "optionValue": "0",
+              "effectTags": [
+                "EAGERNESS_TO_EXIT",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--connect_timeout_secs=30",
+              "optionName": "connect_timeout_secs",
+              "optionValue": "30",
+              "effectTags": [
+                "BAZEL_INTERNAL_CONFIGURATION"
+              ]
+            },
+            {
+              "combinedForm": "--output_user_root=/var/tmp/_bazel_xdecoret",
+              "optionName": "output_user_root",
+              "optionValue": "/var/tmp/_bazel_xdecoret",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--install_base=/var/tmp/_bazel_xdecoret/install/913af2a2bbf6299ecb23ef9a9c73cb6c",
+              "optionName": "install_base",
+              "optionValue": "/var/tmp/_bazel_xdecoret/install/913af2a2bbf6299ecb23ef9a9c73cb6c",
+              "effectTags": [
+                "CHANGES_INPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--install_md5=913af2a2bbf6299ecb23ef9a9c73cb6c",
+              "optionName": "install_md5",
+              "optionValue": "913af2a2bbf6299ecb23ef9a9c73cb6c",
+              "effectTags": [
+                "LOSES_INCREMENTAL_STATE",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--lock_install_base",
+              "optionName": "lock_install_base",
+              "optionValue": "1",
+              "effectTags": [
+                "BAZEL_INTERNAL_CONFIGURATION"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--output_base=/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482",
+              "optionName": "output_base",
+              "optionValue": "/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--workspace_directory=/Users/xdecoret/gimli",
+              "optionName": "workspace_directory",
+              "optionValue": "/Users/xdecoret/gimli",
+              "effectTags": [
+                "CHANGES_INPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_system_javabase=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+              "optionName": "default_system_javabase",
+              "optionValue": "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+              "effectTags": [
+                "CHANGES_INPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--failure_detail_out=/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto",
+              "optionName": "failure_detail_out",
+              "optionValue": "/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/failure_detail.rawproto",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--idle_server_tasks",
+              "optionName": "idle_server_tasks",
+              "optionValue": "1",
+              "effectTags": [
+                "LOSES_INCREMENTAL_STATE",
+                "HOST_MACHINE_RESOURCE_OPTIMIZATIONS"
+              ]
+            },
+            {
+              "combinedForm": "--write_command_log",
+              "optionName": "write_command_log",
+              "optionValue": "1",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--nowatchfs",
+              "optionName": "watchfs",
+              "optionValue": "0",
+              "effectTags": [
+                "UNKNOWN"
+              ],
+              "metadataTags": [
+                "DEPRECATED"
+              ]
+            },
+            {
+              "combinedForm": "--nofatal_event_bus_exceptions",
+              "optionName": "fatal_event_bus_exceptions",
+              "optionValue": "0",
+              "effectTags": [
+                "EAGERNESS_TO_EXIT",
+                "LOSES_INCREMENTAL_STATE"
+              ]
+            },
+            {
+              "combinedForm": "--nowindows_enable_symlinks",
+              "optionName": "windows_enable_symlinks",
+              "optionValue": "0",
+              "effectTags": [
+                "BAZEL_INTERNAL_CONFIGURATION"
+              ]
+            },
+            {
+              "combinedForm": "--client_debug=false",
+              "optionName": "client_debug",
+              "optionValue": "false",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ]
+            },
+            {
+              "combinedForm": "--product_name=Bazel",
+              "optionName": "product_name",
+              "optionValue": "Bazel",
+              "effectTags": [
+                "LOSES_INCREMENTAL_STATE",
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--option_sources=",
+              "optionName": "option_sources",
+              "effectTags": [
+                "AFFECTS_OUTPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--ignore_all_rc_files",
+              "optionName": "ignore_all_rc_files",
+              "optionValue": "1",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sectionLabel": "command",
+        "chunkList": {
+          "chunk": [
+            "build"
+          ]
+        }
+      },
+      {
+        "sectionLabel": "command options",
+        "optionList": {
+          "option": [
+            {
+              "combinedForm": "--isatty=1",
+              "optionName": "isatty",
+              "optionValue": "1",
+              "effectTags": [
+                "UNKNOWN"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--terminal_columns=122",
+              "optionName": "terminal_columns",
+              "optionValue": "122",
+              "effectTags": [
+                "UNKNOWN"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--features=-module_maps",
+              "optionName": "features",
+              "optionValue": "-module_maps",
+              "effectTags": [
+                "CHANGES_INPUTS",
+                "AFFECTS_OUTPUTS"
+              ]
+            },
+            {
+              "combinedForm": "--define=grpc_no_xds=true",
+              "optionName": "define",
+              "optionValue": "grpc_no_xds=true",
+              "effectTags": [
+                "CHANGES_INPUTS",
+                "AFFECTS_OUTPUTS"
+              ]
+            },
+            {
+              "combinedForm": "--rc_source=client",
+              "optionName": "rc_source",
+              "optionValue": "client",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=0:common=--isatty=1",
+              "optionName": "default_override",
+              "optionValue": "0:common=--isatty=1",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=0:common=--terminal_columns=122",
+              "optionName": "default_override",
+              "optionValue": "0:common=--terminal_columns=122",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--rc_source=/Users/xdecoret/gimli/.bazelrc",
+              "optionName": "rc_source",
+              "optionValue": "/Users/xdecoret/gimli/.bazelrc",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--rc_source=/Users/xdecoret/.bazelrc",
+              "optionName": "rc_source",
+              "optionValue": "/Users/xdecoret/.bazelrc",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=--aspects",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=--aspects",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=@bazel_clang_tidy//clang_tidy:clang_tidy.bzl%clang_tidy_aspect",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=--output_groups=report",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=--output_groups=report",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config",
+              "optionName": "default_override",
+              "optionValue": "1:build:clang-tidy=--@bazel_clang_tidy//:clang_tidy_config=//:clang_tidy_config",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build=--features=-module_maps",
+              "optionName": "default_override",
+              "optionValue": "1:build=--features=-module_maps",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:build=--define=grpc_no_xds=true",
+              "optionName": "default_override",
+              "optionValue": "1:build=--define=grpc_no_xds=true",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=1:test=--define=grpc_no_xds=true",
+              "optionName": "default_override",
+              "optionValue": "1:test=--define=grpc_no_xds=true",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=2:test=--test_summary=detailed",
+              "optionName": "default_override",
+              "optionValue": "2:test=--test_summary=detailed",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--default_override=2:test=--test_output=all",
+              "optionName": "default_override",
+              "optionValue": "2:test=--test_output=all",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--startup_time=14",
+              "optionName": "startup_time",
+              "optionValue": "14",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--command_wait_time=0",
+              "optionName": "command_wait_time",
+              "optionValue": "0",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--binary_path=/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel",
+              "optionName": "binary_path",
+              "optionValue": "/opt/homebrew/Cellar/bazel/8.4.2/libexec/bin/bazel",
+              "effectTags": [
+                "AFFECTS_OUTPUTS",
+                "BAZEL_MONITORING"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:",
+              "optionName": "client_env",
+              "optionValue": "MANPATH=/usr/share/man:/usr/local/share/man:/Applications/kitty.app/Contents/Resources/man:",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SSH_AGENT_PID=1464",
+              "optionName": "client_env",
+              "optionValue": "SSH_AGENT_PID=1464",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SHELL=/opt/homebrew/bin/fish",
+              "optionName": "client_env",
+              "optionValue": "SHELL=/opt/homebrew/bin/fish",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=TERM=xterm-kitty",
+              "optionName": "client_env",
+              "optionValue": "TERM=xterm-kitty",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc",
+              "optionName": "client_env",
+              "optionValue": "RIPGREP_CONFIG_PATH=/Users/xdecoret/.ripgreprc",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=TMPDIR=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T/",
+              "optionName": "client_env",
+              "optionValue": "TMPDIR=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T/",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=WINDOWID=142",
+              "optionName": "client_env",
+              "optionValue": "WINDOWID=142",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=_tide_color_separator_same_color=\u001b[38;2;148;148;148m",
+              "optionName": "client_env",
+              "optionValue": "_tide_color_separator_same_color=\u001b[38;2;148;148;148m",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=_tide_pad= ",
+              "optionName": "client_env",
+              "optionValue": "_tide_pad= ",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=USER=xdecoret",
+              "optionName": "client_env",
+              "optionValue": "USER=xdecoret",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=COMMAND_MODE=unix2003",
+              "optionName": "client_env",
+              "optionValue": "COMMAND_MODE=unix2003",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SSH_AUTH_SOCK=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T//ssh-DAsF3a6CFs0l/agent.1462",
+              "optionName": "client_env",
+              "optionValue": "SSH_AUTH_SOCK=/var/folders/58/n5jz4h3s4n55617hcx47vcnw0000gn/T//ssh-DAsF3a6CFs0l/agent.1462",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0",
+              "optionName": "client_env",
+              "optionValue": "__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind='ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'",
+              "optionName": "client_env",
+              "optionValue": "FZF_DEFAULT_OPTS=--style full --padding 1,2 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --multi --no-mouse --bind='ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/opt/homebrew/bin:/Applications/kitty.app/Contents/MacOS",
+              "optionName": "client_env",
+              "optionValue": "PATH=/usr/lib/google-dartlang/bin:/Users/xdecoret/depot_tools:/Users/xdecoret/go/bin:/Users/xdecoret/.cargo/bin:/Users/xdecoret/.local/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/opt/homebrew/bin:/Applications/kitty.app/Contents/MacOS",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SSH_ENV=/Users/xdecoret/.ssh/environment",
+              "optionName": "client_env",
+              "optionValue": "SSH_ENV=/Users/xdecoret/.ssh/environment",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=__CFBundleIdentifier=net.kovidgoyal.kitty",
+              "optionName": "client_env",
+              "optionValue": "__CFBundleIdentifier=net.kovidgoyal.kitty",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=PWD=/Users/xdecoret/gimli",
+              "optionName": "client_env",
+              "optionValue": "PWD=/Users/xdecoret/gimli",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+              "optionName": "client_env",
+              "optionValue": "JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=EDITOR=/opt/homebrew/bin/nvim",
+              "optionName": "client_env",
+              "optionValue": "EDITOR=/opt/homebrew/bin/nvim",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_PID=1454",
+              "optionName": "client_env",
+              "optionValue": "KITTY_PID=1454",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LANG=en_US.UTF-8",
+              "optionName": "client_env",
+              "optionValue": "LANG=en_US.UTF-8",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=XPC_FLAGS=0x0",
+              "optionName": "client_env",
+              "optionValue": "XPC_FLAGS=0x0",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=XPC_SERVICE_NAME=0",
+              "optionName": "client_env",
+              "optionValue": "XPC_SERVICE_NAME=0",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=SHLVL=1",
+              "optionName": "client_env",
+              "optionValue": "SHLVL=1",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=HOME=/Users/xdecoret",
+              "optionName": "client_env",
+              "optionValue": "HOME=/Users/xdecoret",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo",
+              "optionName": "client_env",
+              "optionValue": "TERMINFO=/Applications/kitty.app/Contents/Resources/kitty/terminfo",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LANGUAGE=en_US",
+              "optionName": "client_env",
+              "optionValue": "LANGUAGE=en_US",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LOGNAME=xdecoret",
+              "optionName": "client_env",
+              "optionValue": "LOGNAME=xdecoret",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=LESS=-R",
+              "optionName": "client_env",
+              "optionValue": "LESS=-R",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_WINDOW_ID=37",
+              "optionName": "client_env",
+              "optionValue": "KITTY_WINDOW_ID=37",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty",
+              "optionName": "client_env",
+              "optionValue": "KITTY_INSTALLATION_DIR=/Applications/kitty.app/Contents/Resources/kitty",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=OSLogRateLimit=64",
+              "optionName": "client_env",
+              "optionValue": "OSLogRateLimit=64",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=KITTY_PUBLIC_KEY=1:_RI?Y=hZPHKRw)AgSJ2<X@4{;t0si{9FtX+U{r7{",
+              "optionName": "client_env",
+              "optionValue": "KITTY_PUBLIC_KEY=1:_RI?Y=hZPHKRw)AgSJ2<X@4{;t0si{9FtX+U{r7{",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=_tide_location_color=\u001b[38;2;0;0;0m",
+              "optionName": "client_env",
+              "optionValue": "_tide_location_color=\u001b[38;2;0;0;0m",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_env=COLORTERM=truecolor",
+              "optionName": "client_env",
+              "optionValue": "COLORTERM=truecolor",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--client_cwd=/Users/xdecoret/gimli",
+              "optionName": "client_cwd",
+              "optionValue": "/Users/xdecoret/gimli",
+              "effectTags": [
+                "CHANGES_INPUTS"
+              ],
+              "metadataTags": [
+                "HIDDEN"
+              ]
+            },
+            {
+              "combinedForm": "--build_event_json_file=gimli/testdata/non_fatal_error.json",
+              "optionName": "build_event_json_file",
+              "optionValue": "gimli/testdata/non_fatal_error.json",
+              "effectTags": [
+                "AFFECTS_OUTPUTS"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "sectionLabel": "residual",
+        "chunkList": {
+          "chunk": [
+            "//gimli/testdata:non_fatal_error"
+          ]
+        }
+      }
+    ]
+  }
+}
+{
+  "id": {
+    "structuredCommandLine": {
+      "commandLineLabel": "tool"
+    }
+  },
+  "structuredCommandLine": {}
+}
+{
+  "id": {
+    "pattern": {
+      "pattern": [
+        "//gimli/testdata:non_fatal_error"
+      ]
+    }
+  },
+  "children": [
+    {
+      "targetConfigured": {
+        "label": "//gimli/testdata:non_fatal_error"
+      }
+    }
+  ],
+  "expanded": {}
+}
+{
+  "id": {
+    "progress": {}
+  },
+  "children": [
+    {
+      "progress": {
+        "opaqueCount": 1
+      }
+    },
+    {
+      "workspace": {}
+    }
+  ],
+  "progress": {
+    "stderr": "\u001b[32mComputing main repo mapping:\u001b[0m \n\r\u001b[1A\u001b[K\u001b[32mLoading:\u001b[0m \n\r\u001b[1A\u001b[K\u001b[32mLoading:\u001b[0m 0 packages loaded\n"
+  }
+}
+{
+  "id": {
+    "workspace": {}
+  },
+  "workspaceInfo": {
+    "localExecRoot": "/private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/execroot/_main"
+  }
+}
+{
+  "id": {
+    "progress": {
+      "opaqueCount": 1
+    }
+  },
+  "children": [
+    {
+      "progress": {
+        "opaqueCount": 2
+      }
+    },
+    {
+      "configuration": {
+        "id": "b185208f08078c1a5d55694f4817f5602ca89c8bfdfa57ac74d3b9855421b2ee"
+      }
+    }
+  ],
+  "progress": {
+    "stderr": "\r\u001b[1A\u001b[K\u001b[35mWARNING: \u001b[0mBuild options --features and --host_features have changed, discarding analysis cache (this can be expensive, see https://bazel.build/advanced/performance/iteration-speed).\n\u001b[32mAnalyzing:\u001b[0m target //gimli/testdata:non_fatal_error (0 packages loaded)\n"
+  }
+}
+{
+  "id": {
+    "configuration": {
+      "id": "b185208f08078c1a5d55694f4817f5602ca89c8bfdfa57ac74d3b9855421b2ee"
+    }
+  },
+  "configuration": {
+    "mnemonic": "darwin_arm64-fastbuild",
+    "platformName": "darwin_arm64",
+    "cpu": "darwin_arm64",
+    "makeVariable": {
+      "TARGET_CPU": "darwin_arm64",
+      "COMPILATION_MODE": "fastbuild",
+      "BINDIR": "bazel-out/darwin_arm64-fastbuild/bin",
+      "GENDIR": "bazel-out/darwin_arm64-fastbuild/bin",
+      "grpc_no_xds": "true"
+    }
+  }
+}
+{
+  "id": {
+    "workspaceStatus": {}
+  },
+  "workspaceStatus": {
+    "item": [
+      {
+        "key": "BUILD_EMBED_LABEL"
+      },
+      {
+        "key": "BUILD_HOST",
+        "value": "MacBook-Air.local"
+      },
+      {
+        "key": "BUILD_TIMESTAMP",
+        "value": "1765124704"
+      },
+      {
+        "key": "BUILD_USER",
+        "value": "xdecoret"
+      },
+      {
+        "key": "FORMATTED_DATE",
+        "value": "2025 Dec 07 16 25 04 Sun"
+      }
+    ]
+  }
+}
+{
+  "id": {
+    "progress": {
+      "opaqueCount": 2
+    }
+  },
+  "children": [
+    {
+      "progress": {
+        "opaqueCount": 3
+      }
+    },
+    {
+      "configuration": {
+        "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+      }
+    }
+  ],
+  "progress": {
+    "stderr": "\r\u001b[1A\u001b[K\u001b[32mAnalyzing:\u001b[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n\r\u001b[1A\u001b[K\u001b[32mAnalyzing:\u001b[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 0 targets configured)\n\n\r\u001b[1A\u001b[K\r\u001b[1A\u001b[K\u001b[32mAnalyzing:\u001b[0m target //gimli/testdata:non_fatal_error (0 packages loaded, 1805 targets configured)\n\n"
+  }
+}
+{
+  "id": {
+    "configuration": {
+      "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+    }
+  },
+  "configuration": {
+    "mnemonic": "darwin_arm64-fastbuild",
+    "platformName": "darwin_arm64",
+    "cpu": "darwin_arm64",
+    "makeVariable": {
+      "TARGET_CPU": "darwin_arm64",
+      "COMPILATION_MODE": "fastbuild",
+      "BINDIR": "bazel-out/darwin_arm64-fastbuild/bin",
+      "GENDIR": "bazel-out/darwin_arm64-fastbuild/bin",
+      "grpc_no_xds": "true"
+    }
+  }
+}
+{
+  "id": {
+    "targetConfigured": {
+      "label": "//gimli/testdata:non_fatal_error"
+    }
+  },
+  "children": [
+    {
+      "targetCompleted": {
+        "label": "//gimli/testdata:non_fatal_error",
+        "configuration": {
+          "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+        }
+      }
+    }
+  ],
+  "configured": {
+    "targetKind": "cc_binary rule",
+    "tag": [
+      "manual"
+    ]
+  }
+}
+{
+  "id": {
+    "progress": {
+      "opaqueCount": 3
+    }
+  },
+  "children": [
+    {
+      "progress": {
+        "opaqueCount": 4
+      }
+    },
+    {
+      "actionCompleted": {
+        "primaryOutput": "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o",
+        "label": "//gimli/testdata:non_fatal_error",
+        "configuration": {
+          "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+        }
+      }
+    }
+  ],
+  "progress": {
+    "stderr": "\r\u001b[1A\u001b[K\r\u001b[1A\u001b[K\u001b[32mINFO: \u001b[0mAnalyzed target //gimli/testdata:non_fatal_error (0 packages loaded, 3084 targets configured).\n\n\r\u001b[1A\u001b[K\u001b[32m[4 / 6]\u001b[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+  }
+}
+{
+  "id": {
+    "actionCompleted": {
+      "primaryOutput": "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o",
+      "label": "//gimli/testdata:non_fatal_error",
+      "configuration": {
+        "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+      }
+    }
+  },
+  "action": {
+    "exitCode": 1,
+    "stderr": {
+      "name": "stderr",
+      "uri": "file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/execroot/_main/bazel-out/_tmp/actions/stderr-3"
+    },
+    "label": "//gimli/testdata:non_fatal_error",
+    "configuration": {
+      "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+    },
+    "type": "CppCompile",
+    "commandLine": [
+      "external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh",
+      "-U_FORTIFY_SOURCE",
+      "-fstack-protector",
+      "-Wall",
+      "-Wthread-safety",
+      "-Wself-assign",
+      "-Wunused-but-set-parameter",
+      "-Wno-free-nonheap-object",
+      "-fcolor-diagnostics",
+      "-fno-omit-frame-pointer",
+      "-std=c++17",
+      "-frandom-seed=bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o",
+      "-mmacosx-version-min=26.1",
+      "-MD",
+      "-MF",
+      "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.d",
+      "-iquote",
+      ".",
+      "-iquote",
+      "bazel-out/darwin_arm64-fastbuild/bin",
+      "-iquote",
+      "external/rules_cc+",
+      "-iquote",
+      "bazel-out/darwin_arm64-fastbuild/bin/external/rules_cc+",
+      "-iquote",
+      "external/bazel_tools",
+      "-iquote",
+      "bazel-out/darwin_arm64-fastbuild/bin/external/bazel_tools",
+      "-c",
+      "gimli/testdata/non_fatal_error.cc",
+      "-o",
+      "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o",
+      "-no-canonical-prefixes",
+      "-Wno-builtin-macro-redefined",
+      "-D__DATE__=\"redacted\"",
+      "-D__TIMESTAMP__=\"redacted\"",
+      "-D__TIME__=\"redacted\""
+    ],
+    "failureDetail": {
+      "message": "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging",
+      "spawn": {
+        "code": "NON_ZERO_EXIT",
+        "spawnExitCode": 1
+      }
+    }
+  }
+}
+{
+  "id": {
+    "targetCompleted": {
+      "label": "//gimli/testdata:non_fatal_error",
+      "configuration": {
+        "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+      }
+    }
+  },
+  "children": [
+    {
+      "actionCompleted": {
+        "primaryOutput": "bazel-out/darwin_arm64-fastbuild/bin/gimli/testdata/_objs/non_fatal_error/non_fatal_error.o",
+        "label": "//gimli/testdata:non_fatal_error",
+        "configuration": {
+          "id": "11168a2286b6ed2afd6954e09106b65a46b3b4691729fbf87591ac3d940c2b83"
+        }
+      }
+    }
+  ],
+  "completed": {
+    "tag": [
+      "manual"
+    ],
+    "failureDetail": {
+      "message": "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging",
+      "spawn": {
+        "code": "NON_ZERO_EXIT",
+        "spawnExitCode": 1
+      }
+    }
+  }
+}
+{
+  "id": {
+    "progress": {
+      "opaqueCount": 4
+    }
+  },
+  "children": [
+    {
+      "progress": {
+        "opaqueCount": 5
+      }
+    },
+    {
+      "convenienceSymlinksIdentified": {}
+    }
+  ],
+  "progress": {
+    "stderr": "\r\u001b[1A\u001b[K\u001b[31m\u001b[1mERROR: \u001b[0m/Users/xdecoret/gimli/gimli/testdata/BUILD:11:10: Compiling gimli/testdata/non_fatal_error.cc failed: (Exit 1): cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging\n\u001b[1mgimli/testdata/non_fatal_error.cc:6:16: \u001b[0m\u001b[0;1;31merror: \u001b[0m\u001b[1muse of undeclared identifier 'y'\u001b[0m\n    6 |   std::cout << y << std::endl;\u001b[0m\n      | \u001b[0;1;32m               ^\n\u001b[0m1 error generated.\n\u001b[32m[4 / 6]\u001b[0m Compiling gimli/testdata/non_fatal_error.cc; 0s darwin-sandbox\n"
+  }
+}
+{
+  "id": {
+    "convenienceSymlinksIdentified": {}
+  },
+  "convenienceSymlinksIdentified": {
+    "convenienceSymlinks": [
+      {
+        "path": "bazel-bin",
+        "action": "CREATE",
+        "target": "execroot/_main/bazel-out/darwin_arm64-fastbuild/bin"
+      },
+      {
+        "path": "bazel-testlogs",
+        "action": "CREATE",
+        "target": "execroot/_main/bazel-out/darwin_arm64-fastbuild/testlogs"
+      },
+      {
+        "path": "bazel-genfiles",
+        "action": "DELETE"
+      },
+      {
+        "path": "bazel-out",
+        "action": "CREATE",
+        "target": "execroot/_main/bazel-out"
+      },
+      {
+        "path": "bazel-gimli",
+        "action": "CREATE",
+        "target": "execroot/_main"
+      }
+    ]
+  }
+}
+{
+  "id": {
+    "buildFinished": {}
+  },
+  "children": [
+    {
+      "buildToolLogs": {}
+    },
+    {
+      "buildMetrics": {}
+    }
+  ],
+  "finished": {
+    "finishTimeMillis": "1765124705241",
+    "exitCode": {
+      "name": "BUILD_FAILURE",
+      "code": 1
+    },
+    "finishTime": "2025-12-07T16:25:05.241Z",
+    "failureDetail": {
+      "message": "cc_wrapper.sh failed: error executing CppCompile command (from target //gimli/testdata:non_fatal_error) external/rules_cc++cc_configure_extension+local_config_cc/cc_wrapper.sh -U_FORTIFY_SOURCE -fstack-protector -Wall -Wthread-safety -Wself-assign -Wunused-but-set-parameter -Wno-free-nonheap-object ... (remaining 29 arguments skipped)\n\nUse --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging",
+      "spawn": {
+        "code": "NON_ZERO_EXIT",
+        "spawnExitCode": 1
+      }
+    }
+  }
+}
+{
+  "id": {
+    "progress": {
+      "opaqueCount": 5
+    }
+  },
+  "progress": {
+    "stderr": "\r\u001b[1A\u001b[KTarget //gimli/testdata:non_fatal_error failed to build\n\u001b[32m[5 / 6]\u001b[0m checking cached actions\n\r\u001b[1A\u001b[KUse --verbose_failures to see the command lines of failed build steps.\n\u001b[32m[5 / 6]\u001b[0m checking cached actions\n\r\u001b[1A\u001b[K\u001b[32mINFO: \u001b[0mElapsed time: 0.896s, Critical Path: 0.26s\n\u001b[32m[5 / 6]\u001b[0m checking cached actions\n\r\u001b[1A\u001b[K\u001b[32mINFO: \u001b[0m4 processes: 1 action cache hit, 4 internal.\n\u001b[32m[5 / 6]\u001b[0m checking cached actions\n\r\u001b[1A\u001b[K\u001b[31m\u001b[1mERROR: \u001b[0mBuild did NOT complete successfully\n\u001b[31m\u001b[1mFAILED:\u001b[0m \n\r\u001b[1A\u001b[K\u001b[31m\u001b[1mFAILED:\u001b[0m \n"
+  }
+}
+{
+  "id": {
+    "buildToolLogs": {}
+  },
+  "buildToolLogs": {
+    "log": [
+      {
+        "name": "elapsed time",
+        "contents": "MC44OTYwMDA="
+      },
+      {
+        "name": "critical path",
+        "contents": "Q3JpdGljYWwgUGF0aDogMC4yNnMsIFJlbW90ZSAoMC4wMCUgb2YgdGhlIHRpbWUpOiBbcGFyc2U6IDAuMDAlLCBxdWV1ZTogMC4wMCUsIG5ldHdvcms6IDAuMDAlLCB1cGxvYWQ6IDAuMDAlLCBzZXR1cDogMC4wMCUsIHByb2Nlc3M6IDAuMDAlLCBmZXRjaDogMC4wMCUsIHJldHJ5OiAwLjAwJSwgcHJvY2Vzc091dHB1dHM6IDAuMDAlLCBvdGhlcjogMC4wMCUsIGlucHV0IGZpbGVzOiAwLCBpbnB1dCBieXRlczogMCwgbWVtb3J5IGJ5dGVzOiAwXQogIDAuMjZzIGFjdGlvbiAnQ29tcGlsaW5nIGdpbWxpL3Rlc3RkYXRhL25vbl9mYXRhbF9lcnJvci5jYyc="
+      },
+      {
+        "name": "process stats",
+        "contents": "NCBwcm9jZXNzZXM6IDEgYWN0aW9uIGNhY2hlIGhpdCwgNCBpbnRlcm5hbC4="
+      },
+      {
+        "name": "command.profile.gz",
+        "uri": "file:///private/var/tmp/_bazel_xdecoret/6ea9585e8c9d6ae745c76161bec20482/command-9d8656d7-512f-44c6-bb66-813ff1a26369.profile.gz"
+      }
+    ]
+  }
+}
+{
+  "id": {
+    "buildMetrics": {}
+  },
+  "lastMessage": true,
+  "buildMetrics": {
+    "actionSummary": {
+      "actionsCreated": "12",
+      "actionsExecuted": "4",
+      "actionsCreatedNotIncludingAspects": "11",
+      "actionData": [
+        {
+          "mnemonic": "RepoMappingManifest",
+          "actionsExecuted": "1",
+          "firstStartedMs": "1765124704972",
+          "lastEndedMs": "1765124704976",
+          "actionsCreated": "122"
+        },
+        {
+          "mnemonic": "SymlinkTree",
+          "actionsExecuted": "1",
+          "firstStartedMs": "1765124704974",
+          "lastEndedMs": "1765124704976",
+          "actionsCreated": "121"
+        },
+        {
+          "mnemonic": "BazelWorkspaceStatusAction",
+          "actionsExecuted": "1",
+          "firstStartedMs": "1765124704607",
+          "lastEndedMs": "1765124704610",
+          "actionsCreated": "7"
+        },
+        {
+          "mnemonic": "CppCompile",
+          "actionsExecuted": "1",
+          "firstStartedMs": "1765124704974",
+          "lastEndedMs": "1765124705238",
+          "actionsCreated": "27333"
+        },
+        {
+          "mnemonic": "CcStrip",
+          "actionsCreated": "91"
+        },
+        {
+          "mnemonic": "GenProto",
+          "actionsCreated": "1042"
+        },
+        {
+          "mnemonic": "Action",
+          "actionsCreated": "18"
+        },
+        {
+          "mnemonic": "AppleLipo",
+          "actionsCreated": "7"
+        },
+        {
+          "mnemonic": "GoLink",
+          "actionsCreated": "8"
+        },
+        {
+          "mnemonic": "GoStdlib",
+          "actionsCreated": "4"
+        },
+        {
+          "mnemonic": "CppModuleMap",
+          "actionsCreated": "4008"
+        },
+        {
+          "mnemonic": "CopyFile",
+          "actionsCreated": "14"
+        },
+        {
+          "mnemonic": "Genrule",
+          "actionsCreated": "91"
+        },
+        {
+          "mnemonic": "ExecutableSymlink",
+          "actionsCreated": "9"
+        },
+        {
+          "mnemonic": "GenProtoDescriptorSet",
+          "actionsCreated": "544"
+        },
+        {
+          "mnemonic": "GoStdPackageList",
+          "actionsCreated": "2"
+        },
+        {
+          "mnemonic": "TranslateBuildInfo",
+          "actionsCreated": "70"
+        },
+        {
+          "mnemonic": "Middleman",
+          "actionsCreated": "121"
+        },
+        {
+          "mnemonic": "GoStdlibList",
+          "actionsCreated": "4"
+        },
+        {
+          "mnemonic": "TestRunner",
+          "actionsCreated": "8"
+        }
+      ],
+      "runnerCount": [
+        {
+          "name": "total",
+          "count": 4
+        },
+        {
+          "name": "internal",
+          "count": 4
+        }
+      ],
+      "actionCacheStatistics": {
+        "sizeInBytes": "3971756",
+        "hits": 1,
+        "misses": 4,
+        "missDetails": [
+          {
+            "count": 1
+          },
+          {
+            "reason": "DIFFERENT_DEPS"
+          },
+          {
+            "reason": "DIFFERENT_ENVIRONMENT",
+            "count": 1
+          },
+          {
+            "reason": "DIFFERENT_FILES"
+          },
+          {
+            "reason": "CORRUPTED_CACHE_ENTRY"
+          },
+          {
+            "reason": "NOT_CACHED",
+            "count": 1
+          },
+          {
+            "reason": "UNCONDITIONAL_EXECUTION",
+            "count": 1
+          }
+        ]
+      }
+    },
+    "memoryMetrics": {
+      "garbageMetrics": [
+        {
+          "type": "CodeHeap 'non-profiled nmethods'",
+          "garbageCollected": "848640"
+        },
+        {
+          "type": "CodeHeap 'profiled nmethods'",
+          "garbageCollected": "224128"
+        },
+        {
+          "type": "G1 Eden Space",
+          "garbageCollected": "331350016"
+        },
+        {
+          "type": "G1 Old Gen",
+          "garbageCollected": "592"
+        }
+      ]
+    },
+    "targetMetrics": {
+      "targetsConfigured": "3085",
+      "targetsConfiguredNotIncludingAspects": "3084"
+    },
+    "packageMetrics": {},
+    "timingMetrics": {
+      "cpuTimeInMs": "5947",
+      "wallTimeInMs": "883",
+      "analysisPhaseTimeInMs": "363",
+      "executionPhaseTimeInMs": "269",
+      "actionsExecutionStartInMs": "611"
+    },
+    "cumulativeMetrics": {
+      "numAnalyses": 15,
+      "numBuilds": 13
+    },
+    "artifactMetrics": {
+      "sourceArtifactsRead": {
+        "sizeInBytes": "130",
+        "count": 1
+      },
+      "outputArtifactsSeen": {
+        "sizeInBytes": "872",
+        "count": 5
+      },
+      "outputArtifactsFromActionCache": {
+        "sizeInBytes": "362",
+        "count": 1
+      },
+      "topLevelArtifacts": {}
+    },
+    "buildGraphMetrics": {
+      "actionLookupValueCount": 55,
+      "actionCount": 12,
+      "outputArtifactCount": 14,
+      "postInvocationSkyframeNodeCount": 67887,
+      "actionLookupValueCountNotIncludingAspects": 54,
+      "actionCountNotIncludingAspects": 11,
+      "inputFileConfiguredTargetCount": 14,
+      "otherConfiguredTargetCount": 8,
+      "dirtiedValues": [
+        {
+          "skyfunctionName": "DIRECTORY_LISTING",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "BUILD_CONFIGURATION",
+          "count": "7"
+        },
+        {
+          "skyfunctionName": "TARGET_PATTERN",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "SINGLE_TOOLCHAIN_RESOLUTION",
+          "count": "17"
+        },
+        {
+          "skyfunctionName": "PACKAGE",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "TOOLCHAIN_RESOLUTION",
+          "count": "33"
+        },
+        {
+          "skyfunctionName": "RECURSIVE_PKG",
+          "count": "3"
+        },
+        {
+          "skyfunctionName": "PACKAGE_ERROR_MESSAGE",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "REGISTERED_TOOLCHAINS",
+          "count": "7"
+        },
+        {
+          "skyfunctionName": "BASELINE_OPTIONS",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "GLOBS",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "CONFIGURED_TARGET",
+          "count": "23067"
+        },
+        {
+          "skyfunctionName": "REGISTERED_EXECUTION_PLATFORMS",
+          "count": "7"
+        },
+        {
+          "skyfunctionName": "ASPECT",
+          "count": "161"
+        }
+      ],
+      "changedValues": [
+        {
+          "skyfunctionName": "DIRECTORY_LISTING_STATE",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "PRECOMPUTED",
+          "count": "2"
+        }
+      ],
+      "builtValues": [
+        {
+          "skyfunctionName": "DIRECTORY_LISTING",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "ACTION_EXECUTION",
+          "count": "5"
+        },
+        {
+          "skyfunctionName": "BUILD_CONFIGURATION",
+          "count": "3"
+        },
+        {
+          "skyfunctionName": "TARGET_PATTERN",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "SINGLE_TOOLCHAIN_RESOLUTION",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "TOOLCHAIN_RESOLUTION",
+          "count": "4"
+        },
+        {
+          "skyfunctionName": "ARTIFACT_NESTED_SET",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "FILE",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "CONFIGURED_TARGET",
+          "count": "3134"
+        },
+        {
+          "skyfunctionName": "BUILD_INFO",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "REGISTERED_EXECUTION_PLATFORMS",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "REGISTERED_TOOLCHAINS",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "ARTIFACT",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "BASELINE_OPTIONS",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "FILE_STATE",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "TARGET_PATTERN_PHASE",
+          "count": "1"
+        }
+      ],
+      "cleanedValues": [
+        {
+          "skyfunctionName": "GLOBS",
+          "count": "1"
+        }
+      ],
+      "evaluatedValues": [
+        {
+          "skyfunctionName": "DIRECTORY_LISTING",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "ACTION_EXECUTION",
+          "count": "9"
+        },
+        {
+          "skyfunctionName": "BUILD_CONFIGURATION",
+          "count": "5"
+        },
+        {
+          "skyfunctionName": "TARGET_PATTERN",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "SINGLE_TOOLCHAIN_RESOLUTION",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "BUILD_DRIVER",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "GLOBS",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "TOOLCHAIN_RESOLUTION",
+          "count": "9"
+        },
+        {
+          "skyfunctionName": "ARTIFACT_NESTED_SET",
+          "count": "3"
+        },
+        {
+          "skyfunctionName": "FILE",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "CONFIGURED_TARGET",
+          "count": "4993"
+        },
+        {
+          "skyfunctionName": "BUILD_INFO",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "REGISTERED_EXECUTION_PLATFORMS",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "REGISTERED_TOOLCHAINS",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "ARTIFACT",
+          "count": "3"
+        },
+        {
+          "skyfunctionName": "BASELINE_OPTIONS",
+          "count": "2"
+        },
+        {
+          "skyfunctionName": "TARGET_COMPLETION",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "FILE_STATE",
+          "count": "1"
+        },
+        {
+          "skyfunctionName": "TARGET_PATTERN_PHASE",
+          "count": "2"
+        }
+      ]
+    },
+    "networkMetrics": {
+      "systemNetworkStats": {
+        "bytesSent": "14638080",
+        "bytesRecv": "63464448",
+        "packetsSent": "51658",
+        "packetsRecv": "79075",
+        "peakBytesSentPerSec": "14204178",
+        "peakBytesRecvPerSec": "84316553",
+        "peakPacketsSentPerSec": "47890",
+        "peakPacketsRecvPerSec": "86259"
+      }
+    },
+    "workerPoolMetrics": {},
+    "dynamicExecutionMetrics": {}
+  }
+}

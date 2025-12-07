@@ -18,3 +18,24 @@ This will update the file `non_fatal_error.textproto` in this directory.
 
 NOTE: the targets all have the `"manual"` tag, so they are excluded from
 `bazel build //...`, which would fail otherwise.
+
+## JSON files
+
+```shell
+$ bazel build //gimli/testdata:non_fatal_error \
+  --build_event_json_file=gimli/testdata/non_fatal_error.json 
+```
+
+The file was then reformated with `jq`: 
+
+```shell
+$ jq . gimli/testdata/non_fatal_error.json  > /tmp/tmp.json
+$ mv /tmp/tmp.json gimli/testdata/non_fatal_error.json 
+```
+
+One can then print all the errors using:
+
+```shell
+$ jq -j 'select(.id.progress) | .progress.stderr | gsub("\\\\x1b\\\\[[0-9;?]*[ -/]*[@-~]"; "")' \
+  gimli/testdata/non_fatal_error.json
+```
